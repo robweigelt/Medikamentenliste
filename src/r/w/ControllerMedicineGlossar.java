@@ -1,24 +1,43 @@
 package r.w;
 
-public class ControllerMedicineGlossar {
-    public static void Menu() {
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.Collections;
+
+class ControllerMedicineGlossar {
+    private static void Menu() {
         System.out.println("Please choose between the different options by pressing the number [] and [Enter]:\n" +
                 "Look for specific medicament [1] \n" +
                 "List all medicaments by type [2] \n" +
-                "Reurn [0]"
+                "Return [0]"
         );
         InsideMenuMedicine(GetIntOrString.GetmyInt());
     }
-    public static void InsideMenuMedicine ( int Switcher) {
+    private static void InsideMenuMedicine ( int Switcher) {
         switch (Switcher) {
             case 0:
                 Controller.Menu();
                 break;
             case 1:
-                MedicineGlossarFunctions.SelectSearch();
+                int a = MedicineGlossarFunctions.SelectSearch();
+                List myLista = MedListO.switcherMedCategorie(a);
+                System.out.println("");
+
                 break;
             case 2:
-                System.out.println("i ist zwei");
+                int b = MedicineGlossarFunctions.SelectSearch();
+                List myListb = MedListO.switcherMedCategorie(b);
+
+                Collections.sort(myListb);
+                List<String> ListSingle = (List<String>) myListb.stream()
+                        .distinct()
+                        .collect(Collectors.toList());
+
+                for (Object element : ListSingle) {
+                    System.out.println(element);
+                }
+
+                Menu();
                 break;
 
 
@@ -27,5 +46,5 @@ public class ControllerMedicineGlossar {
 
 
         }
+        }
     }
-}

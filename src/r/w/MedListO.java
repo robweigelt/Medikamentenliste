@@ -85,6 +85,52 @@ public class MedListO {
         this.PharmacotherapeuticGroup = PharmacotherapeuticGroup;
     }
 
+  public static List switcherMedCategorie(int n) {
+        createMedList();
+        List<String> myList = new ArrayList<>();
+        switch (n) {
+            case 1:
+                for (MedListO m: MedListO.MedList){
+                    myList.add(m.getMedicineName());
+                };
+                break;
+            case 2:
+                for (MedListO m: MedListO.MedList){
+                    myList.add(m.getTherapeuticArea());
+                };
+                break;
+            case 3:
+                for (MedListO m: MedListO.MedList){
+                    myList.add(m.getINN());
+                };
+                break;
+            case 4:
+                for (MedListO m: MedListO.MedList){
+                    myList.add(m.getActiveSubstance());
+                };
+                break;
+            case 5:
+                for (MedListO m: MedListO.MedList){
+                    myList.add(m.getATC());
+                };
+                break;
+            case 6:
+                for (MedListO m: MedListO.MedList){
+                    myList.add(m.getCompany());
+                };
+                break;
+            case 7:
+                for (MedListO m: MedListO.MedList){
+                    myList.add(m.getTherapeuticArea());
+                };
+                break;
+            default:
+                System.out.println("You Entered an invalid Nuber");
+
+    }
+        return myList;
+    }
+
     @Override
     public String toString() {
         return "Medicine [MedicineName=" + MedicineName
@@ -114,8 +160,6 @@ public class MedListO {
             String[] MedicineStringArray = line.split(Parser);
 
 
-
-
             MedListO medO = new MedListO(
                     MedicineStringArray[0],
                     MedicineStringArray[1],
@@ -129,11 +173,6 @@ public class MedListO {
 
         }
 
-        //Lets print the Employee List
-        //  for(MedListO Objektklasse : MedList)
-        //{
-        //  System.out.println(Objektklasse.getActiveSubstance() );
-        //}
 
     }
             catch(Exception ee)
@@ -144,7 +183,7 @@ public class MedListO {
         try {
             CSVReader.close();
         } catch (IOException ie) {
-            System.out.println("Error occured while closing the BufferedReader");
+            System.out.println("Error occured while reading the file");
             ie.printStackTrace();
 
         }

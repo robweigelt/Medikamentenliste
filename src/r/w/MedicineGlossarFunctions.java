@@ -1,10 +1,12 @@
 package r.w;
 
+import java.util.Arrays;
+
 public class MedicineGlossarFunctions {
 
 
 
-    public static void SelectSearch(){
+    public static int SelectSearch(){
 
         System.out.println("Please select between the different categories you are seraching for by pressing the number [] and [Enter]:\n" +
         "MedicineName [1] \n" +
@@ -14,8 +16,9 @@ public class MedicineGlossarFunctions {
         "PharmacotherapeuticGroup [7]"
     );
         int a = GetIntOrString.GetmyInt();
-        System.out.println("Please enter the ");
+        return a;
     }
+
 
     public static boolean useLoop(String[] arr, String targetValue) {
         for(String s: arr){

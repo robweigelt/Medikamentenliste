@@ -5,7 +5,8 @@ import java.util.concurrent.TimeUnit;
 public class Controller {
 
     //Starter
-    public static int WelcomeText(){
+    public static int WelcomeText() throws InterruptedException {
+        Funtext();
 
 
         System.out.println("Welcome to the private practice, Please press [1] and [Enter] to continue");
@@ -14,7 +15,7 @@ public class Controller {
 
 
     }
- /*   public static void Funtext()  throws InterruptedException {
+ public static void Funtext()  throws InterruptedException {
         System.out.println("             ___       __   __         ___    ___  __  ");
         TimeUnit.MILLISECONDS.sleep(50);
         System.out.println("       |  | |__  |    /  ` /  \\  |\\/| |__      |  /  \\ ");
@@ -66,8 +67,6 @@ public class Controller {
         System.out.println(" & Robert Weigelt");
         System.out.println("");
     }
-
-  */
     //Main Menu
     public static void Menu(){
        System.out.println("Please choose between the different menus by pressing the number [] and [Enter]:\n" +

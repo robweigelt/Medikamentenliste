@@ -144,8 +144,9 @@ public class MedListO {
     }
     public static List<MedListO> MedList = new ArrayList<>();
     private static final String Parser = ";";
+
     public static void createMedList(){
-    String neuDateipfad = Path.getPathofCSV();
+    String neuDateipfad = Path.getPathofMedikamentenliste();
 
     BufferedReader CSVReader = null;
             try

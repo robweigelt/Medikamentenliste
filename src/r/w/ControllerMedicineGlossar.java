@@ -7,7 +7,6 @@ public class ControllerMedicineGlossar {
 
 
 
-
         System.out.println("Please choose between the different options by pressing the number [] and [Enter]:\n" +
                 "Look for specific medicament [1] \n" +
                 "List all medicaments by type [2] \n" +

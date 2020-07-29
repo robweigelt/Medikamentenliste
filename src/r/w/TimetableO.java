@@ -153,7 +153,7 @@ public class TimetableO {
     private static final String Parser = ";";
 
     public static void createTimetable() {
-        String neuDateipfad = Path.getPathofCSV();
+        String neuDateipfad = Path.getPathofTerminbuchungen();
 
         BufferedReader CSVReader = null;
         try {

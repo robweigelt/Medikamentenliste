@@ -60,7 +60,7 @@ public class Controller {
         TimeUnit.MILLISECONDS.sleep(50);
         System.out.print(", Lisa Eberl");
         TimeUnit.MILLISECONDS.sleep(50);
-        System.out.print(", Hannez Kukulenz");
+        System.out.print(", Hannes Kukulenz");
         TimeUnit.MILLISECONDS.sleep(50);
         System.out.print(", Tobias Vogt");
         TimeUnit.MILLISECONDS.sleep(50);

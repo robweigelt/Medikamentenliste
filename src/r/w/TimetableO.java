@@ -6,7 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TimetableO {
+public class TimetableO
+{
     private String ID;
     private String Title;
     private String Surname;
@@ -14,7 +15,8 @@ public class TimetableO {
     private String Date;
     private String Time;
 
-    public TimetableO(String ID, String Title, String Surname, String Name, String Date, String Time) {
+    public TimetableO(String ID, String Title, String Surname, String Name, String Date, String Time)
+    {
         super();
         this.ID = ID;
         this.Title = Title;
@@ -71,7 +73,7 @@ public class TimetableO {
 
     public void setDate(String date)
     {
-        Date = date;
+        this.Date = date;
     }
 
     public String getTime()
@@ -139,13 +141,14 @@ public class TimetableO {
     }
 
     @Override
-    public String toString() {
-        return "ID [ID=" + ID
-                + ", Title=" + Title
-                + ", Surname=" + Surname
-                + ", Name=" + Name
-                + ", Date=" + Date
-                + ", Time=" + Time
+    public String toString()
+    {
+        return "ID [ID =" + ID
+                + ", Title =" + Title
+                + ", Surname =" + Surname
+                + ", Name =" + Name
+                + ", Date =" + Date
+                + ", Time =" + Time
                 + "]";
     }
 
@@ -153,16 +156,18 @@ public class TimetableO {
     private static final String Parser = ";";
 
     public static void createTimetable() {
-        String neuDateipfad = Path.getPathofCSV();
+        String neuDateipfad = Path.getPathofTerminbuchungen();
 
         BufferedReader CSVReader = null;
-        try {
+        try
+        {
             CSVReader = new BufferedReader(new FileReader(neuDateipfad));
 
 
             String line = "";
             CSVReader.readLine();
-            while ((line = CSVReader.readLine()) != null) {
+            while ((line = CSVReader.readLine()) != null)
+            {
                 String[] TimeStringArray = line.split(Parser);
 
 

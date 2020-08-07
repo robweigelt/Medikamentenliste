@@ -6,8 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TimetableO
-{
+public class TimetableO {
     private String ID;
     private String Title;
     private String Surname;
@@ -15,8 +14,7 @@ public class TimetableO
     private String Date;
     private String Time;
 
-    public TimetableO(String ID, String Title, String Surname, String Name, String Date, String Time)
-    {
+    private TimetableO(String ID, String Title, String Surname, String Name, String Date, String Time) {
         super();
         this.ID = ID;
         this.Title = Title;
@@ -26,7 +24,7 @@ public class TimetableO
         this.Time = Time;
     }
 
-    public String getID()
+    private String getID()
     {
         return ID;
     }
@@ -36,7 +34,7 @@ public class TimetableO
         this.ID = ID;
     }
 
-    public String getTitle()
+    private String getTitle()
     {
         return Title;
     }
@@ -46,7 +44,7 @@ public class TimetableO
         this.Title = Title;
     }
 
-    public String getSurname()
+    private String getSurname()
     {
         return Surname;
     }
@@ -56,7 +54,7 @@ public class TimetableO
         this.Surname = Surname;
     }
 
-    public String getName()
+    private String getName()
     {
         return Name;
     }
@@ -66,17 +64,17 @@ public class TimetableO
         this.Name = Name;
     }
 
-    public String getDate()
+    private String getDate()
     {
         return Date;
     }
 
     public void setDate(String date)
     {
-        this.Date = date;
+        Date = date;
     }
 
-    public String getTime()
+    private String getTime()
     {
         return Time;
     }
@@ -141,33 +139,30 @@ public class TimetableO
     }
 
     @Override
-    public String toString()
-    {
-        return "ID [ID =" + ID
-                + ", Title =" + Title
-                + ", Surname =" + Surname
-                + ", Name =" + Name
-                + ", Date =" + Date
-                + ", Time =" + Time
+    public String toString() {
+        return "ID [ID=" + ID
+                + ", Title=" + Title
+                + ", Surname=" + Surname
+                + ", Name=" + Name
+                + ", Date=" + Date
+                + ", Time=" + Time
                 + "]";
     }
 
-    public static List<TimetableO> Timetable = new ArrayList<>();
+    private static List<TimetableO> Timetable = new ArrayList<>();
     private static final String Parser = ";";
 
-    public static void createTimetable() {
+    private static void createTimetable() {
         String neuDateipfad = Path.getPathofTerminbuchungen();
 
         BufferedReader CSVReader = null;
-        try
-        {
+        try {
             CSVReader = new BufferedReader(new FileReader(neuDateipfad));
 
 
-            String line = "";
+            String line ="";
             CSVReader.readLine();
-            while ((line = CSVReader.readLine()) != null)
-            {
+            while ((line = CSVReader.readLine()) != null) {
                 String[] TimeStringArray = line.split(Parser);
 
 
@@ -187,6 +182,7 @@ public class TimetableO
             ee.printStackTrace();
         } finally {
             try {
+                assert CSVReader != null;
                 CSVReader.close();
             } catch (IOException ie) {
                 System.out.println("Error occured while reading the file");

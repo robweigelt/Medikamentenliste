@@ -3,10 +3,11 @@ package r.w;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MedListO {
+public class MedListO  {
     private String MedicineName;
     private String TherapeuticArea;
     private String INN;
@@ -16,8 +17,8 @@ public class MedListO {
     private String PharmacotherapeuticGroup;
 
 
-    public MedListO(String MedicineName, String TherapeuticArea,
-                    String INN, String ActiveSubstance, String ATC, String Company, String PharmacotherapeuticGroup) {
+    private MedListO(String MedicineName, String TherapeuticArea,
+                     String INN, String ActiveSubstance, String ATC, String Company, String PharmacotherapeuticGroup) {
         super();
         this.MedicineName = MedicineName;
         this.TherapeuticArea = TherapeuticArea;
@@ -29,7 +30,7 @@ public class MedListO {
 
     }
 
-    public String getMedicineName() {
+    private String getMedicineName() {
         return MedicineName;
     }
 
@@ -37,7 +38,7 @@ public class MedListO {
         this.MedicineName = MedicineName;
     }
 
-    public String getTherapeuticArea() {
+    private String getTherapeuticArea() {
         return TherapeuticArea;
     }
 
@@ -45,7 +46,7 @@ public class MedListO {
         this.TherapeuticArea = TherapeuticArea;
     }
 
-    public String getINN() {
+    private String getINN() {
         return INN;
     }
 
@@ -53,7 +54,7 @@ public class MedListO {
         this.INN = INN;
     }
 
-    public String getActiveSubstance() {
+    private String getActiveSubstance() {
         return ActiveSubstance;
     }
 
@@ -61,7 +62,7 @@ public class MedListO {
         this.ActiveSubstance = ActiveSubstance;
     }
 
-    public String getATC() {
+    private String getATC() {
         return ATC;
     }
 
@@ -69,7 +70,7 @@ public class MedListO {
         this.ATC = ATC;
     }
 
-    public String getCompany() {
+    private String getCompany() {
         return Company;
     }
 
@@ -84,35 +85,48 @@ public class MedListO {
     public void setPharmacotherapeuticGroup(String TherapeuticArea) {
         this.PharmacotherapeuticGroup = PharmacotherapeuticGroup;
     }
+    public static String [][]medikamentenmatrix;
+    static void CreateMatrix(int index)
 
-  public static List switcherMedCategorie(int n) {
+    {
         createMedList();
-        List<String> myList = new ArrayList<>();
+        System.out.println(MedList.get(index));
+        MedList.removeAll(MedList);
+
+
+
+    }
+
+  static List switcherMedCategorie(int n) {
+      List<String> myList = new ArrayList<>();
+        {
+        createMedList();
+
         switch (n) {
             case 1:
                 for (MedListO m: MedListO.MedList){
                     myList.add(m.getMedicineName());
-                };
+                }
                 break;
             case 2:
                 for (MedListO m: MedListO.MedList){
                     myList.add(m.getTherapeuticArea());
-                };
+                }
                 break;
             case 3:
                 for (MedListO m: MedListO.MedList){
                     myList.add(m.getINN());
-                };
+                }
                 break;
             case 4:
                 for (MedListO m: MedListO.MedList){
                     myList.add(m.getActiveSubstance());
-                };
+                }
                 break;
             case 5:
                 for (MedListO m: MedListO.MedList){
                     myList.add(m.getATC());
-                };
+                }
                 break;
             case 6:
                 for (MedListO m: MedListO.MedList){
@@ -122,73 +136,73 @@ public class MedListO {
             case 7:
                 for (MedListO m: MedListO.MedList){
                     myList.add(m.getTherapeuticArea());
-                };
+                }
                 break;
             default:
                 System.out.println("You Entered an invalid Nuber");
 
     }
-        return myList;
+
+
+    }
+      MedList.removeAll(MedList);
+      return myList;
+
     }
 
     @Override
     public String toString() {
-        return "Medicine [MedicineName=" + MedicineName
-                + ", TherapeuticArea=" + TherapeuticArea
-                + ", INN=" + INN
-                + ", ActiveSubstance=" + ActiveSubstance
-                + ", ATC=" + ATC
-                +", Company=" + Company
-                +", PharmacotherapeuticGroup=" + PharmacotherapeuticGroup
-                +"]";
+        return "MedicineName=" + MedicineName +"\n"
+                + "TherapeuticArea=" + TherapeuticArea +"\n"
+                + "INN=" + INN +"\n"
+                + "ActiveSubstance=" + ActiveSubstance +"\n"
+                + "ATC=" + ATC +"\n"
+                +"Company=" + Company +"\n"
+                +"PharmacotherapeuticGroup=" + PharmacotherapeuticGroup +"\n";
     }
-    public static List<MedListO> MedList = new ArrayList<>();
+    private static List<MedListO> MedList = new ArrayList<>();
     private static final String Parser = ";";
 
-    public static void createMedList(){
+    private static void createMedList(){
     String neuDateipfad = Path.getPathofMedikamentenliste();
 
     BufferedReader CSVReader = null;
-            try
-    {
-        CSVReader = new BufferedReader(new FileReader(neuDateipfad));
-
-
-        String line = "";
-        CSVReader.readLine();
-        while ((line = CSVReader.readLine()) != null)
-        {
-            String[] MedicineStringArray = line.split(Parser);
-
-
-            MedListO medO = new MedListO(
-                    MedicineStringArray[0],
-                    MedicineStringArray[1],
-                    MedicineStringArray[2],
-                    MedicineStringArray[3],
-                    MedicineStringArray[4],
-                    MedicineStringArray[5],
-                    MedicineStringArray[6]
-            );
-            MedList.add(medO);
-
-        }
-
-
-    }
-            catch(Exception ee)
-    {
-        ee.printStackTrace();
-    }
-            finally {
         try {
-            CSVReader.close();
-        } catch (IOException ie) {
-            System.out.println("Error occured while reading the file");
-            ie.printStackTrace();
+            CSVReader = new BufferedReader(new FileReader(neuDateipfad));
 
+
+            String line = "";
+            CSVReader.readLine();
+            while ((line = CSVReader.readLine()) != null) {
+                String[] MedicineStringArray = line.split(Parser);
+
+
+                MedListO medO = new MedListO(
+                        MedicineStringArray[0],
+                        MedicineStringArray[1],
+                        MedicineStringArray[2],
+                        MedicineStringArray[3],
+                        MedicineStringArray[4],
+                        MedicineStringArray[5],
+                        MedicineStringArray[6]
+                );
+                MedList.add(medO);
+
+            }
+
+
+        } catch (IOException ee) {
+            ee.printStackTrace();
+        } finally {
+            try {
+                assert CSVReader != null;
+                CSVReader.close();
+            } catch (IOException ie) {
+                System.out.println("Error occured while reading the file");
+                ie.printStackTrace();
+
+            }
         }
-    }
     }
 }
 

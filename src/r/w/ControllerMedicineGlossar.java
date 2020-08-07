@@ -1,10 +1,14 @@
 package r.w;
 
-import java.util.concurrent.TimeUnit;
 
-public class ControllerMedicineGlossar {
-    public static void Menu() {
 
+
+import java.util.*;
+import java.util.stream.IntStream;
+
+
+class ControllerMedicineGlossar {
+    static void Menu() throws CloneNotSupportedException {
 
 
         System.out.println("Please choose between the different options by pressing the number [] and [Enter]:\n" +
@@ -14,23 +18,60 @@ public class ControllerMedicineGlossar {
         );
         InsideMenuMedicine(GetIntOrString.GetmyInt());
     }
-    public static void InsideMenuMedicine ( int Switcher) {
+
+    private static void InsideMenuMedicine(int Switcher) throws CloneNotSupportedException {
         switch (Switcher) {
             case 0:
                 Controller.Menu();
                 break;
             case 1:
-                MedicineGlossarFunctions.SelectSearch();
+                int a = MedicineGlossarFunctions.SelectSearch();
+                List myList = MedListO.switcherMedCategorie(a);
+                ArrayList<String> listinCapitals = new ArrayList<>(myList);
+                listinCapitals.replaceAll(String::toUpperCase);
+                System.out.println("Please type the item you are looking for");
+                String item = GetIntOrString.GetmyString();
+                String upperItem = item.toUpperCase();
+                if (listinCapitals.contains(upperItem)){
+                    int[] indexes =
+                            IntStream.range(0, listinCapitals.size())
+                                    .filter(i -> listinCapitals.get(i).equals(upperItem))
+                                    .toArray();
+
+                    for (int b : indexes) {
+                        MedListO.CreateMatrix(b);
+
+                    }
+                }
+                else System.out.println("No Results");
+                Menu();
                 break;
             case 2:
-                System.out.println("i ist zwei");
+                int b = MedicineGlossarFunctions.SelectSearch();
+
+                myList = MedListO.switcherMedCategorie(b);
+
+
+                Collections.sort(myList);
+                LinkedHashSet hashSet = new LinkedHashSet<>(myList);
+                ArrayList<String> listWithoutDuplicates = new ArrayList<>(hashSet);
+                listWithoutDuplicates.replaceAll(String::toUpperCase);
+
+                for (Object element : listWithoutDuplicates) {
+                    System.out.println(element);
+                }
+                Menu();
+
+
                 break;
 
 
             default:
                 System.out.println("You entered an invalid number");
+                Menu();
 
 
         }
+
     }
 }

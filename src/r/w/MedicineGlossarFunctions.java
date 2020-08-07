@@ -6,7 +6,7 @@ public class MedicineGlossarFunctions {
 
 
 
-    public static int SelectSearch(){
+    static int SelectSearch(){
 
         System.out.println("Please select between the different categories you are seraching for by pressing the number [] and [Enter]:\n" +
         "MedicineName [1] \n" +
@@ -15,8 +15,7 @@ public class MedicineGlossarFunctions {
         "ATC [5]\n"+"Company [6] \n" +
         "PharmacotherapeuticGroup [7]"
     );
-        int a = GetIntOrString.GetmyInt();
-        return a;
+        return GetIntOrString.GetmyInt();
     }
 
 

@@ -2,20 +2,20 @@ package r.w;
 
 import java.util.concurrent.TimeUnit;
 
-public class Controller {
+class Controller {
 
     //Starter
-    public static int WelcomeText() throws InterruptedException {
+    static int WelcomeText() throws InterruptedException {
         Funtext();
 
 
+
         System.out.println("Welcome to the private practice, Please press [1] and [Enter] to continue");
-         var a = GetIntOrString.GetmyInt();
-         return a;
+        return GetIntOrString.GetmyInt();
 
 
     }
- public static void Funtext()  throws InterruptedException {
+ private static void Funtext()  throws InterruptedException {
         System.out.println("             ___       __   __         ___    ___  __  ");
         TimeUnit.MILLISECONDS.sleep(50);
         System.out.println("       |  | |__  |    /  ` /  \\  |\\/| |__      |  /  \\ ");
@@ -68,7 +68,7 @@ public class Controller {
         System.out.println("");
     }
     //Main Menu
-    public static void Menu(){
+    public static void Menu() throws CloneNotSupportedException {
        System.out.println("Please choose between the different menus by pressing the number [] and [Enter]:\n" +
                "Patient Record [1] \n" +
                "Medicine Glossar [2]\n" +
@@ -79,12 +79,13 @@ public class Controller {
         InsideMenu(GetIntOrString.GetmyInt());
     }
     //Switch to Submenus
-    public static void InsideMenu ( int Switcher) {
+    private static void InsideMenu(int Switcher) throws CloneNotSupportedException {
         switch (Switcher) {
             case 1:
 
                 break;
             case 2:
+                ControllerMedicineGlossar.Menu();
 
                 break;
             case 3:
@@ -97,6 +98,7 @@ public class Controller {
 
             //Invalid Number
             default: System.out.println("You entered an invalid number");
+                Menu();
 
 
         }

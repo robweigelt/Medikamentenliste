@@ -5,10 +5,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
-public class MedicineO
+class MedicineO
 {
     private static String ID;
     private static String Title;
@@ -31,7 +31,7 @@ public class MedicineO
     }
     static int SelectSearch(){
 
-        System.out.println("Please select between the different categories you are seraching for by pressing the number [] and [Enter]:\n" +
+        System.out.println("Please select between the different categories you are searching for by pressing the number [] and [Enter]:\n" +
                 "ID [1] \n" +
                 "Title [2] \n" +
                 "Surname [3] \n" + "Name [4] \n" +
@@ -46,11 +46,11 @@ public class MedicineO
 
         createMedicine();
         System.out.println(Medicine1.get(index));
-        Medicine1.removeAll(Medicine1);
+        Medicine1.clear();
 
 
     }
-    public static void newEntry() throws IOException{
+    static void newEntry() throws IOException{
         String neuDateipfad = Path.getPathofDarreichungsformen();
         FileWriter createnewLine = new FileWriter(neuDateipfad,true);
         System.out.println("Please enter all the information an press enter");
@@ -73,8 +73,8 @@ public class MedicineO
         var correctionInt = GetIntOrString.GetmyInt();
 
         if (correctionInt == 1) {
-            String Spliter = ";";
-            String RowString = "\n" +ID + Spliter + Title + Spliter + Surname + Spliter + Name + Spliter + Medicine + Spliter + TherapeuticArea + Spliter + DosageForm;
+            String Splitter = ";";
+            String RowString = "\n" +ID + Splitter + Title + Splitter + Surname + Splitter + Name + Splitter + Medicine + Splitter + TherapeuticArea + Splitter + DosageForm;
             try {
                 createnewLine.append(RowString);
                 createnewLine.flush();
@@ -94,9 +94,9 @@ public class MedicineO
         for (MedicineO medicineO : Medicine1)
             try {
                 System.out.println(medicineO);
-            } catch (IndexOutOfBoundsException e) {
+            } catch (IndexOutOfBoundsException ignored) {
             }
-        Medicine1.removeAll(Medicine1);
+        Medicine1.clear();
     }
 
     private String getID()
@@ -116,61 +116,61 @@ public class MedicineO
 
     public void setTitle(String Title)
     {
-        this.Title = Title;
+        MedicineO.Title = Title;
     }
 
-    public String getSurname()
+    private String getSurname()
     {
         return Surname;
     }
 
     public void setSurname(String Surname)
     {
-        this.Surname = Surname;
+        MedicineO.Surname = Surname;
     }
 
-    public String getName()
+    private String getName()
     {
         return Name;
     }
 
     public void setName(String Name)
     {
-        this.Name = Name;
+        MedicineO.Name = Name;
     }
 
-    public String getMedicine()
+    private String getMedicine()
     {
         return Medicine;
     }
 
     public void setMedicine(String Medicine)
     {
-        this.Medicine = Medicine;
+        MedicineO.Medicine = Medicine;
     }
 
-    public String getTherapeuticArea()
+    private String getTherapeuticArea()
     {
         return TherapeuticArea;
     }
 
     public void setTherapeuticArea(String TherapeuticArea)
     {
-        this.TherapeuticArea = TherapeuticArea;
+        MedicineO.TherapeuticArea = TherapeuticArea;
     }
 
-    public String getDosageForm()
+    private String getDosageForm()
     {
         return DosageForm;
     }
 
     public void setDosageForm(String DosageForm)
     {
-        this.DosageForm = DosageForm;
+        MedicineO.DosageForm = DosageForm;
     }
 
 
-    public static List switcherMedicineCategory(int n)
+    static List switcherMedicineCategory(int n)
     {
         createMedicine();
         List<String> myList = new ArrayList<>();
@@ -243,10 +243,10 @@ public class MedicineO
                 ;
     }
 
-    public static List<MedicineO> Medicine1 = new ArrayList<>();
+    private final static List<MedicineO> Medicine1 = new ArrayList<>();
     private static final String Parser = ";";
 
-    public static void createMedicine() {
+    private static void createMedicine() {
         String neuDateipfad = Path.getPathofDarreichungsformen();
 
         BufferedReader CSVReader = null;
@@ -254,7 +254,7 @@ public class MedicineO
             CSVReader = new BufferedReader(new FileReader(neuDateipfad));
 
 
-            String line = "";
+            String line;
             CSVReader.readLine();
             while ((line = CSVReader.readLine()) != null) {
                 String[] MedicineStringArray = line.split(Parser);
@@ -278,9 +278,9 @@ public class MedicineO
             ee.printStackTrace();
         } finally {
             try {
-                CSVReader.close();
+                Objects.requireNonNull(CSVReader).close();
             } catch (IOException ie) {
-                System.out.println("Error occured while reading the file");
+                System.out.println("Error occurred while reading the file");
                 ie.printStackTrace();
 
             }

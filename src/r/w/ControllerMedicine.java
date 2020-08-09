@@ -9,7 +9,7 @@ class ControllerMedicine {
         System.out.println("Please choose between the different options by pressing the number [] and [Enter]:\n" +
                 "Look for a specific person [1] \n" +
                 "Create new entry [2] \n" +
-                "List all entrys [3] \n" +
+                "List all entry's [3] \n" +
                 "Return [0]"
         );
         InsideMenuMedicine(GetIntOrString.GetmyInt());
@@ -34,8 +34,6 @@ class ControllerMedicine {
                        try{ MedicineO.SearchInsideListArray(b);}
                        catch (java.lang.IndexOutOfBoundsException ignored){
                        }
-
-
 
                     }
 

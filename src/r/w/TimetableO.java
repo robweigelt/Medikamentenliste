@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TimetableO {
+class TimetableO {
     private String ID;
     private String Title;
     private String Surname;
@@ -160,7 +160,7 @@ public class TimetableO {
             CSVReader = new BufferedReader(new FileReader(neuDateipfad));
 
 
-            String line ="";
+            String line;
             CSVReader.readLine();
             while ((line = CSVReader.readLine()) != null) {
                 String[] TimeStringArray = line.split(Parser);
@@ -185,7 +185,7 @@ public class TimetableO {
                 assert CSVReader != null;
                 CSVReader.close();
             } catch (IOException ie) {
-                System.out.println("Error occured while reading the file");
+                System.out.println("Error occurred while reading the file");
                 ie.printStackTrace();
 
             }

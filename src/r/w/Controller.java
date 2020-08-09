@@ -1,7 +1,6 @@
 package r.w;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
 class Controller {
@@ -9,9 +8,6 @@ class Controller {
     //Starter
     static int WelcomeText() throws InterruptedException {
         Funtext();
-
-
-
         System.out.println("Welcome to the private practice, Please press [1] and [Enter] to continue");
         return GetIntOrString.GetmyInt();
 
@@ -24,7 +20,7 @@ class Controller {
         TimeUnit.MILLISECONDS.sleep(50);
         System.out.println("       |/\\| |___ |___ \\__, \\__/  |  | |___     |  \\__/ ");
         TimeUnit.MILLISECONDS.sleep(50);
-        System.out.println("");
+        System.out.println();
         TimeUnit.MILLISECONDS.sleep(500);
         System.out.println("              ____                 _   _                                   ");
         TimeUnit.MILLISECONDS.sleep(50);
@@ -56,7 +52,7 @@ class Controller {
         TimeUnit.MILLISECONDS.sleep(50);
         System.out.println("         |____/ \\___/|_|  \\__| \\_/\\_/ \\__,_|_|  \\___|                  ");
         TimeUnit.MILLISECONDS.sleep(50);
-        System.out.println("");
+        System.out.println();
         TimeUnit.MILLISECONDS.sleep(500);
         System.out.print("by Tabea Böger");
         TimeUnit.MILLISECONDS.sleep(50);
@@ -67,7 +63,7 @@ class Controller {
         System.out.print(", Tobias Vogt");
         TimeUnit.MILLISECONDS.sleep(50);
         System.out.println(" & Robert Weigelt");
-        System.out.println("");
+        System.out.println();
     }
     //Main Menu
     static void Menu() throws CloneNotSupportedException, IOException {
@@ -86,7 +82,7 @@ class Controller {
             case 1:
 
                 System.out.println("Please choose between the different menus by pressing the number [] and [Enter]: \n" +
-                        "Pateient Information [1] \n" +
+                        "Patient Information [1] \n" +
                         "Patient Medical Record[2] \n");
                 int a = GetIntOrString.GetmyInt();
                 if (1 == a) {
@@ -97,14 +93,12 @@ class Controller {
                 } else {
                     System.out.println("You entered an invalid number");
                     InsideMenu(1);
-
-
                 }
 
 
                 break;
             case 2:
-                ControllerMedicineGlossar.Menu();
+                ControllerMedicineGlossary.Menu();
 
                 break;
             case 3:

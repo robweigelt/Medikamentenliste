@@ -4,10 +4,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
-public class PatientO
+class PatientO
 {
     private String ID;
     private String Title;
@@ -20,7 +20,7 @@ public class PatientO
     private String Street;
 
 
-    public PatientO(String ID, String Title, String Surname, String Name, String DateOfBirth, String HealthInsurance, String City, String Postcode, String Street)
+    private PatientO(String ID, String Title, String Surname, String Name, String DateOfBirth, String HealthInsurance, String City, String Postcode, String Street)
     {
         super();
         this.ID = ID;
@@ -34,7 +34,7 @@ public class PatientO
         this.Street = Street;
     }
 
-    public String getID()
+    private String getID()
     {
         return ID;
     }
@@ -44,7 +44,7 @@ public class PatientO
         this.ID = ID;
     }
 
-    public String getTitle()
+    private String getTitle()
     {
         return Title;
     }
@@ -54,7 +54,7 @@ public class PatientO
         this.Title = Title;
     }
 
-    public String getSurname()
+    private String getSurname()
     {
         return Surname;
     }
@@ -64,7 +64,7 @@ public class PatientO
         this.Surname = Surname;
     }
 
-    public String getName()
+    private String getName()
     {
         return Name;
     }
@@ -74,7 +74,7 @@ public class PatientO
         this.Name = Name;
     }
 
-    public String getDateOfBirth()
+    private String getDateOfBirth()
     {
         return DateOfBirth;
     }
@@ -84,7 +84,7 @@ public class PatientO
         this.DateOfBirth = DateOfBirth;
     }
 
-    public String getHealthInsurance()
+    private String getHealthInsurance()
     {
         return HealthInsurance;
     }
@@ -94,7 +94,7 @@ public class PatientO
         this.HealthInsurance = HealthInsurance;
     }
 
-    public String getCity()
+    private String getCity()
     {
         return City;
     }
@@ -104,7 +104,7 @@ public class PatientO
         this.City = City;
     }
 
-    public String getPostcode()
+    private String getPostcode()
     {
         return Postcode;
     }
@@ -114,7 +114,7 @@ public class PatientO
         this.Postcode = Postcode;
     }
 
-    public String getStreet()
+    private String getStreet()
     {
         return Street;
     }
@@ -209,10 +209,10 @@ public class PatientO
                 + "]";
     }
 
-    public static List<PatientO> Patient = new ArrayList<>();
+    private final static List<PatientO> Patient = new ArrayList<>();
     private static final String Parser = ";";
 
-    public static void createPatient() {
+    private static void createPatient() {
         String neuDateipfad = Path.getPathofPatientenakte();
 
         BufferedReader CSVReader = null;
@@ -220,7 +220,7 @@ public class PatientO
             CSVReader = new BufferedReader(new FileReader(neuDateipfad));
 
 
-            String line = "";
+            String line;
             CSVReader.readLine();
             while ((line = CSVReader.readLine()) != null) {
                 String[] PatientStringArray = line.split(Parser);
@@ -245,9 +245,9 @@ public class PatientO
             ee.printStackTrace();
         } finally {
             try {
-                CSVReader.close();
+                Objects.requireNonNull(CSVReader).close();
             } catch (IOException ie) {
-                System.out.println("Error occured while reading the file");
+                System.out.println("Error occurred while reading the file");
                 ie.printStackTrace();
 
             }

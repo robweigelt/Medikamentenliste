@@ -2,6 +2,8 @@ package r.w;
 
 import java.io.IOException;
 
+import static r.w.Controller.Menu;
+
 public class Main {
 
 
@@ -10,7 +12,7 @@ public class Main {
 
        int a = Controller.WelcomeText();
         if (a == 1){
-            Controller.Menu();
+            Menu();
             System. out. print("\033[H\033[2J");
         }
         else {System.exit(0);}

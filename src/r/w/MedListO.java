@@ -81,10 +81,6 @@ class MedListO  {
         return PharmacotherapeuticGroup;
     }
 
-    public void setPharmacotherapeuticGroup(String TherapeuticArea) {
-        this.PharmacotherapeuticGroup = PharmacotherapeuticGroup;
-    }
-
     static void SearchInsideListArray(int index)
 
     {
@@ -92,13 +88,13 @@ class MedListO  {
         try{
         System.out.println(MedList.get(index));}
         catch (IndexOutOfBoundsException ignored){}
-        MedList.removeAll(MedList);
+        MedList.clear();
 
 
     }
 
 
-  static List switcherMedCategorie(int n) {
+  static List switcherMedCategories(int n) {
       ArrayList<String> myList = new ArrayList<>();
         {
         createMedList();
@@ -132,21 +128,21 @@ class MedListO  {
             case 6:
                 for (MedListO m: MedListO.MedList){
                     myList.add(m.getCompany());
-                };
+                }
                 break;
             case 7:
                 for (MedListO m: MedListO.MedList){
-                    myList.add(m.getTherapeuticArea());
+                    myList.add(m.getPharmacotherapeuticGroup());
                 }
                 break;
             default:
-                System.out.println("You Entered an invalid Nuber");
+                System.out.println("You Entered an invalid Number");
 
     }
 
 
     }
-      MedList.removeAll(MedList);
+      MedList.clear();
       return myList;
 
     }
@@ -163,7 +159,7 @@ class MedListO  {
     }
     static int SelectSearch(){
 
-        System.out.println("Please select between the different categories you are seraching for by pressing the number [] and [Enter]:\n" +
+        System.out.println("Please select between the different categories you are searching for by pressing the number [] and [Enter]:\n" +
                 "MedicineName [1] \n" +
                 "TherapeuticArea [2] \n" +
                 "INN [3] \n" + "ActiveSubstance [4] \n" +
@@ -172,7 +168,7 @@ class MedListO  {
         );
         return GetIntOrString.GetmyInt();
     }
-    private static List<MedListO> MedList = new ArrayList<>();
+    private final static List<MedListO> MedList = new ArrayList<>();
     private static final String Parser = ";";
 
     private static void createMedList(){
@@ -210,7 +206,7 @@ class MedListO  {
                 assert CSVReader != null;
                 CSVReader.close();
             } catch (IOException ie) {
-                System.out.println("Error occured while reading the file");
+                System.out.println("Error occurred while reading the file");
                 ie.printStackTrace();
 
             }

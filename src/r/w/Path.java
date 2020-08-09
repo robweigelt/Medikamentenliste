@@ -2,16 +2,16 @@ package r.w;
 
 import java.nio.file.Paths;
 
-public class Path {
+class Path {
 
     private static String path;
     
-    public static String getPathofMedikamentenliste(){
+    static String getPathofMedikamentenliste(){
         path = Paths.get("").toAbsolutePath().toString()+ "\\medicines_output_european_public_assessment_reports.csv" ;
         return (path);
     }
 
-    public static String getPathofDarreichungsformen(){
+    static String getPathofDarreichungsformen(){
         path = Paths.get("").toAbsolutePath().toString()+ "\\Darreichungsformen.csv" ;
         return (path);
     }
@@ -19,11 +19,11 @@ public class Path {
         path = Paths.get("").toAbsolutePath().toString()+ "\\Medikamentenakte.csv" ;
         return (path);
     }
-    public static String getPathofTerminbuchungen(){
+    static String getPathofTerminbuchungen(){
         path = Paths.get("").toAbsolutePath().toString()+ "\\Terminbuchungen.csv" ;
         return (path);
     }
-    public static String getPathofPatientenakte(){
+    static String getPathofPatientenakte(){
         path = Paths.get("").toAbsolutePath().toString()+ "\\Patientenakte.csv" ;
         return (path);
     }

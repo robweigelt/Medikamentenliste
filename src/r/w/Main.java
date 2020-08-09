@@ -1,8 +1,11 @@
 package r.w;
+
+import java.io.IOException;
+
 public class Main {
 
 
-    public static void main(String[] args) throws InterruptedException, CloneNotSupportedException {
+    public static void main(String[] args) throws InterruptedException, CloneNotSupportedException, IOException {
 
 
        int a = Controller.WelcomeText();

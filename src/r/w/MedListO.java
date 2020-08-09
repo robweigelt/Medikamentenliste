@@ -3,11 +3,10 @@ package r.w;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MedListO  {
+class MedListO  {
     private String MedicineName;
     private String TherapeuticArea;
     private String INN;
@@ -85,20 +84,22 @@ public class MedListO  {
     public void setPharmacotherapeuticGroup(String TherapeuticArea) {
         this.PharmacotherapeuticGroup = PharmacotherapeuticGroup;
     }
-    public static String [][]medikamentenmatrix;
-    static void CreateMatrix(int index)
+
+    static void SearchInsideListArray(int index)
 
     {
         createMedList();
-        System.out.println(MedList.get(index));
+        try{
+        System.out.println(MedList.get(index));}
+        catch (IndexOutOfBoundsException ignored){}
         MedList.removeAll(MedList);
-
 
 
     }
 
+
   static List switcherMedCategorie(int n) {
-      List<String> myList = new ArrayList<>();
+      ArrayList<String> myList = new ArrayList<>();
         {
         createMedList();
 
@@ -160,6 +161,17 @@ public class MedListO  {
                 +"Company=" + Company +"\n"
                 +"PharmacotherapeuticGroup=" + PharmacotherapeuticGroup +"\n";
     }
+    static int SelectSearch(){
+
+        System.out.println("Please select between the different categories you are seraching for by pressing the number [] and [Enter]:\n" +
+                "MedicineName [1] \n" +
+                "TherapeuticArea [2] \n" +
+                "INN [3] \n" + "ActiveSubstance [4] \n" +
+                "ATC [5]\n"+"Company [6] \n" +
+                "PharmacotherapeuticGroup [7]"
+        );
+        return GetIntOrString.GetmyInt();
+    }
     private static List<MedListO> MedList = new ArrayList<>();
     private static final String Parser = ";";
 
@@ -171,13 +183,13 @@ public class MedListO  {
             CSVReader = new BufferedReader(new FileReader(neuDateipfad));
 
 
-            String line = "";
+            String line;
             CSVReader.readLine();
             while ((line = CSVReader.readLine()) != null) {
                 String[] MedicineStringArray = line.split(Parser);
 
 
-                MedListO medO = new MedListO(
+                var medO = new MedListO(
                         MedicineStringArray[0],
                         MedicineStringArray[1],
                         MedicineStringArray[2],

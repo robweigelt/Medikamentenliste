@@ -1,5 +1,7 @@
 package r.w;
 
+import java.io.IOException;
+import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
 class Controller {
@@ -68,7 +70,7 @@ class Controller {
         System.out.println("");
     }
     //Main Menu
-    public static void Menu() throws CloneNotSupportedException {
+    static void Menu() throws CloneNotSupportedException, IOException {
        System.out.println("Please choose between the different menus by pressing the number [] and [Enter]:\n" +
                "Patient Record [1] \n" +
                "Medicine Glossar [2]\n" +
@@ -79,9 +81,26 @@ class Controller {
         InsideMenu(GetIntOrString.GetmyInt());
     }
     //Switch to Submenus
-    private static void InsideMenu(int Switcher) throws CloneNotSupportedException {
+    private static void InsideMenu(int Switcher) throws CloneNotSupportedException, IOException {
         switch (Switcher) {
             case 1:
+
+                System.out.println("Please choose between the different menus by pressing the number [] and [Enter]: \n" +
+                        "Pateient Information [1] \n" +
+                        "Patient Medical Record[2] \n");
+                int a = GetIntOrString.GetmyInt();
+                if (1 == a) {
+
+                } else if (a == 2) {
+                    ControllerMedicine.Menu();
+
+                } else {
+                    System.out.println("You entered an invalid number");
+                    InsideMenu(1);
+
+
+                }
+
 
                 break;
             case 2:

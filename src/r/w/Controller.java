@@ -86,6 +86,7 @@ class Controller {
                         "Patient Medical Record[2] \n");
                 int a = GetIntOrString.GetmyInt();
                 if (1 == a) {
+                    ControllerPatientInformation.Starter();
 
                 } else if (a == 2) {
                     ControllerMedicine.Menu();
@@ -106,7 +107,7 @@ class Controller {
                 ic.start();
                 break;
             case 4:
-                new Hannes().main(null);
+               // new ControllerPatientInformation().main(null);
                 break;
             case 5:
             {System.exit(0);}

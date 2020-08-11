@@ -1,5 +1,6 @@
 package r.w;
 
+import java.io.IOException;
 import java.util.*;
 
 public class InventoryConsole {
@@ -25,14 +26,14 @@ public class InventoryConsole {
         return choice;
     }
 
-    public void start() {
+    public void start() throws IOException, CloneNotSupportedException {
         im.readCSV();
         while(true) {
             int choice = menu();
             switch(choice) {
                 case 0:
-                    //System.exit(0);
-                    break;
+                    Controller.Menu();
+
                 case 1:
                     addItem();
                     break;
@@ -88,7 +89,7 @@ public class InventoryConsole {
     }
 
     private void setAmount() {
-        Item foundItem;
+        Item0 foundItem;
         System.out.println("----| Item Menge anpassen |----");
         System.out.println("Geben Sie Namen oder ID an:");
         if(sc.hasNextInt()) {
@@ -118,12 +119,12 @@ public class InventoryConsole {
         System.out.println("Geben sie Namen oder ID an:");
         if(sc.hasNextInt()) {
             int itemId = readInt(0, Integer.MAX_VALUE);
-            Item foundItem = im.searchItemByID(itemId);
-            im.deleteItem(foundItem);
+            Item0 foundItem0 = im.searchItemByID(itemId);
+            im.deleteItem(foundItem0);
         } else {
             String itemName = sc.nextLine();
-            Item foundItem = im.searchItemByName(itemName);
-            im.deleteItem(foundItem);
+            Item0 foundItem0 = im.searchItemByName(itemName);
+            im.deleteItem(foundItem0);
         }
     }
 

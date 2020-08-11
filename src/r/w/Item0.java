@@ -2,7 +2,7 @@ package r.w;
 
 import java.util.Comparator;
 
-public class Item {
+public class Item0 {
 
     //Atribute Item Objekt
     private int id;
@@ -10,7 +10,7 @@ public class Item {
     private int amount;
 
     //Konstruktor Item Objekt
-    public Item(int id, String name, int amount) {
+    Item0(int id, String name, int amount) {
         super();
         this.id = id;
         this.name = name;
@@ -34,11 +34,11 @@ public class Item {
         this.name = name;
     }
 
-    public int getAmount() {
+    int getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    void setAmount(int amount) {
         this.amount = amount;
     }
 
@@ -50,40 +50,30 @@ public class Item {
 
 
     //Comparator Methoden f?r InventoryItemSorter
-    public static Comparator<Item> idComparatorDecending  = new Comparator<Item>() {
+    public static Comparator< Item0 > idComparatorDecending  = new Comparator< Item0 >() {
         @Override
-        public int compare(Item it1, Item it2) {
+        public int compare(Item0 it1, Item0 it2) {
             return Integer.compare(it2.getId(),it1.getId());
         }
     };
 
-    public static Comparator<Item> nameComparatorDecending = new Comparator<Item>() {
+    static Comparator< Item0 > nameComparatorDecending = (it1, it2) -> (int) (it1.getName().compareTo(it2.getName()));
+    static Comparator< Item0 > amountComparatorDecending  = (it1, it2) -> Integer.compare(it2.getAmount(),it1.getAmount());
+    static Comparator< Item0 > idComparatorAscending  = new Comparator< Item0 >() {
         @Override
-        public int compare(Item it1, Item it2) {
-            return (int) (it1.getName().compareTo(it2.getName()));
-        }
-    };
-    public static Comparator<Item> amountComparatorDecending  = new Comparator<Item>() {
-        @Override
-        public int compare(Item it1, Item it2) {
-            return Integer.compare(it2.getAmount(),it1.getAmount());
-        }
-    };
-    public static Comparator<Item> idComparatorAscending  = new Comparator<Item>() {
-        @Override
-        public int compare(Item it1, Item it2) {
+        public int compare(Item0 it1, Item0 it2) {
             return Integer.compare(it2.getId(),it1.getId())*-1;
         }
     };
-    public static Comparator<Item> nameComparatorAscending = new Comparator<Item>() {
+    static Comparator< Item0 > nameComparatorAscending = new Comparator< Item0 >() {
         @Override
-        public int compare(Item it1, Item it2) {
+        public int compare(Item0 it1, Item0 it2) {
             return (int) (it1.getName().compareTo(it2.getName()))*-1;
         }
     };
-    public static Comparator<Item> amountComparatorAscending  = new Comparator<Item>() {
+    static Comparator< Item0 > amountComparatorAscending  = new Comparator< Item0 >() {
         @Override
-        public int compare(Item it1, Item it2) {
+        public int compare(Item0 it1, Item0 it2) {
             return Integer.compare(it2.getAmount(),it1.getAmount())*-1;
         }
     };

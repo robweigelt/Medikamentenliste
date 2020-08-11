@@ -85,6 +85,7 @@ class MedicineO
         else{
             newEntry();
         }
+        Medicine1.clear();
 
 
 

@@ -7,40 +7,40 @@ import java.util.List;
 public class InventoryItemSorter {
 
     //Initialisierung Liste Inventory
-    private List<Item> Inventory = new ArrayList<Item>();
+    private List< Item0 > Inventory = new ArrayList< Item0 >();
 
     //Konstruktor InventoryItemSorter
-    public InventoryItemSorter(List<Item> Inventory) {
+    public InventoryItemSorter(List< Item0 > Inventory) {
         this.Inventory = Inventory;
     }
 
     //Methoden zum Sortieren basierend auf Class Item Comparator Methoden
-    public List<Item> getSortedItemsByIdDescending (){
-        Collections.sort(Inventory, Item.idComparatorDecending);
+    public List< Item0 > getSortedItemsByIdDescending (){
+        Collections.sort(Inventory, Item0.idComparatorDecending);
         return Inventory;
     }
 
-    public List<Item> getSortedItemsByNameDescending (){
-        Collections.sort(Inventory, Item.nameComparatorDecending );
+    public List< Item0 > getSortedItemsByNameDescending (){
+        Collections.sort(Inventory, Item0.nameComparatorDecending );
         return Inventory;
     }
 
-    public List<Item> getSortedItemsByAmountDescending (){
-        Collections.sort(Inventory, Item.amountComparatorDecending );
+    public List< Item0 > getSortedItemsByAmountDescending (){
+        Collections.sort(Inventory, Item0.amountComparatorDecending );
         return Inventory;
     }
-    public List<Item> getSortedItemsByIDAscending (){
-        Collections.sort(Inventory, Item.idComparatorAscending);
+    public List< Item0 > getSortedItemsByIDAscending (){
+        Collections.sort(Inventory, Item0.idComparatorAscending);
 
         return Inventory;
     }
-    public List<Item> getSortedItemsByNameAscending (){
-        Collections.sort(Inventory, Item.nameComparatorAscending );
+    public List< Item0 > getSortedItemsByNameAscending (){
+        Collections.sort(Inventory, Item0.nameComparatorAscending );
         return Inventory;
     }
 
-    public List<Item> getSortedItemsByAmountAscending (){
-        Collections.sort(Inventory, Item.amountComparatorAscending );
+    public List< Item0 > getSortedItemsByAmountAscending (){
+        Collections.sort(Inventory, Item0.amountComparatorAscending );
         return Inventory;
     }
 }

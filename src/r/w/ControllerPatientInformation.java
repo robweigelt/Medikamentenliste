@@ -2,9 +2,9 @@ package r.w;
 
 import java.util.Scanner;
 
-public class Hannes {
+public class ControllerPatientInformation {
 
-    public static void main(String[] args) {
+    public static void Starter () {
         Scanner input = new Scanner(System.in);
         Patient p = new Patient();
         Appointment a = new Appointment();

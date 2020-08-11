@@ -13,7 +13,7 @@ public class Main {
        int a = Controller.WelcomeText();
         if (a == 1){
             Menu();
-            System. out. print("\033[H\033[2J");
+
         }
         else {System.exit(0);}
 

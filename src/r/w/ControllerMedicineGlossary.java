@@ -1,8 +1,5 @@
 package r.w;
 
-
-
-
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.IntStream;
@@ -43,28 +40,19 @@ class ControllerMedicineGlossary {
                 }
                 else System.out.println("No Results");
                 Menu();
-                break;
             case 2:
                 int b = MedListO.SelectSearch();
 
                 myList = MedListO.switcherMedCategories(b);
                 var listInCapitalsSelect = ListFunctions.getList(myList);
                 Collections.sort(listInCapitalsSelect);
-                ArrayList<String> listWithoutDuplicates = new ArrayList<>(listInCapitalsSelect);
+                LinkedHashSet<String> hashSet = new LinkedHashSet<>(listInCapitalsSelect);
+                ArrayList<String> listWithoutDuplicates = new ArrayList<>(hashSet);
                 listWithoutDuplicates.replaceAll(String::toUpperCase);
                 for (Object element : listWithoutDuplicates) {
                     System.out.println(element);
                 }
                 Menu();
-
-
-                break;
-
-
-
-
-
-
             default:
                 System.out.println("You entered an invalid number");
                 Menu();

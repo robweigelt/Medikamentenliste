@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.IntStream;
 
+
+//Deleter hinzufügen
 class ControllerMedicine {
     static void Menu() throws CloneNotSupportedException, IOException {
         System.out.println("Please choose between the different options by pressing the number [] and [Enter]:\n" +

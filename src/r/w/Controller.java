@@ -106,7 +106,8 @@ class Controller {
                 ic.start();
                 break;
             case 4:
-                System.out.println("Ups");
+                new Hannes().main(null);
+                break;
             case 5:
             {System.exit(0);}
 

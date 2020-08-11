@@ -2,7 +2,7 @@ package r.w;
 
 import java.util.Scanner;
 
-public class ControllerPatientInformation {
+class ControllerPatientInformation {
 
     public static void Starter () {
         Scanner input = new Scanner(System.in);
@@ -95,7 +95,7 @@ public class ControllerPatientInformation {
                 default:
                     System.out.println("Invalid input!");
             }
-        } while (choice != 7);
+        } while (true);
     }
 
     private static void menu() {

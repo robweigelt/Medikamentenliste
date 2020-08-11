@@ -4,20 +4,20 @@ import java.io.*;
 import java.nio.file.Paths;
 import java.util.*;
 
-public class InventoryManager {
+class InventoryManager {
 
     //Dateipfad f�r Praxis_Inventur.csv
-    private String filepath = Paths.get("").toAbsolutePath().toString()+ "/Praxis_Inventur.csv";
+    private final String filepath = Paths.get("").toAbsolutePath().toString()+ "/Praxis_Inventur.csv";
     //Liste Inventory
-    private List< Item0 > Inventory = new ArrayList< Item0 >();
+    private final List< Item0 > Inventory = new ArrayList<>();
 
     //Clearen von Inventory und einlesen aller Daten aus der CSV in Inventory als Item Objekte
-    public List< Item0 > readCSV(){
+    public void readCSV(){
 
         Inventory.clear();
 
         //Liste welche Strings pro Zeile der CSV enth�lt
-        List<String> FormatHelp = new ArrayList<String>();
+        List<String> FormatHelp = new ArrayList<>();
 
         File f = new File(filepath);
 
@@ -26,29 +26,27 @@ public class InventoryManager {
             while(scCSV.hasNextLine()) {
                 FormatHelp.add(scCSV.nextLine());
             }
-            scCSV.close();
         } catch(FileNotFoundException e) {
             e.printStackTrace();
         }
 
         //Erstellen von Item Obj. und hinzuf�gen zur Liste Inventory solange bis Ende von FormatHelp erreicht
-        for(int i = 0; FormatHelp.size() > i; i++) {
+        for (String s : FormatHelp) {
             //Item Dumb zur bef�llung durch CSV
-            Item0 dumbIt = new Item0(0, null,0);
+            Item0 dumbIt = new Item0(0, null, 0);
 
             //Aufsplitten der einzelnen Strings in FormatHelp Anhand von ;
-            String CSVline = FormatHelp.get(i);
+            String CSVline = s;
             String[] parts = CSVline.split(";");
 
             //Mappen der Einzelnen Atribute aus der CSV mit denen des dumb Items
             dumbIt.setId(Integer.parseInt(parts[0]));
             dumbIt.setName(parts[1]);
-            dumbIt.setAmount(Integer.parseInt(parts [2]));
+            dumbIt.setAmount(Integer.parseInt(parts[2]));
 
             //dumb Item zur Liste Inventory
             Inventory.add(dumbIt);
         }
-        return Inventory;
     }
 
     //Methode zum ausgeben des Inventars
@@ -62,7 +60,7 @@ public class InventoryManager {
 
     //Methode zum erstellen von Item Obj. und hinzuf�gen zur Liste Inventory
     //Methode m�ssen Werte f�r Obj. �bergeben werden
-    public List< Item0 > addItem(int id, String name, int amount){
+    public void addItem(int id, String name, int amount){
         try {
             Item0 it = new Item0(id,name,amount);
             Inventory.add(it);
@@ -70,19 +68,17 @@ public class InventoryManager {
         } catch (Exception e) {
             System.out.println("Item konnte nicht gespeichert werden!");
         }
-        return Inventory;
     }
 
     //Methode zum l�schen eines Item Obj. aus der Liste Inventory
     //Ben�tigt Item Obj. welches entfernt werden soll (geliefert durch z.B. Such Methoden)
-    public List< Item0 > deleteItem(Item0 foundItem0){
+    public void deleteItem(Item0 foundItem0){
         try{
             Inventory.remove(foundItem0);
             System.out.println("Das Item " + foundItem0.getName() + " wurde erfolgreich entfernt!");
         } catch (Exception e) {
             System.out.println("Item konnte nicht entfernt werden!");
         }
-        return Inventory;
     }
 
     //Methode zum Suchen eines Item Obj. in Liste Inventory anhand seines Namens
@@ -191,7 +187,7 @@ public class InventoryManager {
 
     }
     public void getSortedItemsByAmountDescending(){
-        Collections.sort(Inventory, Item0.amountComparatorDecending );
+        Inventory.sort(Item0.amountComparatorDecending);
     }
 
 }

@@ -1,12 +1,13 @@
 package r.w;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Scanner;
 
-public class InventoryConsole {
+/** @noinspection ALL*/
+class InventoryConsole {
 
-    private Scanner sc;
-    private InventoryManager im;
+    private final Scanner sc;
+    private final InventoryManager im;
 
     public InventoryConsole() {
         this.sc = new Scanner(System.in);
@@ -22,8 +23,7 @@ public class InventoryConsole {
         System.out.println("  5. Aktuelles Inventar in CSV speichern");
 
         System.out.println("  0. Exit ->");
-        int choice = readInt(0,5);
-        return choice;
+        return readInt(0,5);
     }
 
     public void start() throws IOException, CloneNotSupportedException {
@@ -134,15 +134,13 @@ public class InventoryConsole {
         int id = readInt(0, Integer.MAX_VALUE);
         while(im.checkIfIDExists(id)) {
             System.out.println("ID bereits vergeben, probieren Sie eine neue:");
-            int newID = readInt(0, Integer.MAX_VALUE);
-            id = newID;
+            id = readInt(0, Integer.MAX_VALUE);
         }
         System.out.println("Geben Sie einen Namen an:");
         String name = sc.nextLine();
         while(im.checkIfNameExists(name)) {
             System.out.println("Name bereits vergeben, probieren Sie einen neuen:");
-            String newName = sc.nextLine();
-            name = newName;
+            name = sc.nextLine();
         }
         System.out.println("Geben Sie eine Menge an:");
         int amount = readInt(0, Integer.MAX_VALUE);

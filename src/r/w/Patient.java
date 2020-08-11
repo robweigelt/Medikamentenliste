@@ -1,19 +1,13 @@
 package r.w;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Patient {
+class Patient {
 
     private int patient_Id;
     private String name;
@@ -30,8 +24,7 @@ public class Patient {
         try {
             File myObj = new File("Patients.csv");
             FileWriter myWriter = new FileWriter("Patients.csv", true);
-            if (myObj.createNewFile()) {
-            }
+            myObj.createNewFile();
             System.out.println("**********************");
             System.out.println("Enter Patient Id: ");
             patient_Id = input.nextInt();
@@ -68,10 +61,10 @@ public class Patient {
         System.out.println("List of Patients");
         String[] col = {"Name", "Surname", "Gender", "Birth Date", "Insurance", "Street", "City", "Zip"};
         System.out.format("%s", "ID");
-        for (int a = 0; a < col.length; a++) {
-            System.out.format("%15s", col[a]);
+        for (String s : col) {
+            System.out.format("%15s", s);
         }
-        System.out.println("");
+        System.out.println();
         try {
             File myObj = new File("Patients.csv");
             Scanner myReader = new Scanner(myObj);
@@ -82,7 +75,7 @@ public class Patient {
                 for (int i = 1; i < parts.length; i++) {
                     System.out.format("%15s", parts[i]);
                 }
-                System.out.println("");
+                System.out.println();
             }
             myReader.close();
         } catch (FileNotFoundException e) {
@@ -104,7 +97,7 @@ public class Patient {
 
             while ((currentLine = reader.readLine()) != null) {
                 String trimmedLine = currentLine.trim();
-                String trimmLine[] = trimmedLine.split(" |,");
+                String[] trimmLine = trimmedLine.split("[ ,]");
                 String part1 = trimmLine[0];
 
                 if (!part1.equals(lineToRemove)) {
@@ -130,10 +123,10 @@ public class Patient {
         System.out.println("Searched Patient");
         String[] col = {"Name", "Surname", "Gender", "Birth Date", "Insurance", "Street", "City", "Zip"};
         System.out.format("%s", "ID");
-        for (int a = 0; a < col.length; a++) {
-            System.out.format("%15s", col[a]);
+        for (String s : col) {
+            System.out.format("%15s", s);
         }
-        System.out.println("");
+        System.out.println();
         try {
             File myObj = new File("Patients.csv");
             Scanner myReader = new Scanner(myObj);
@@ -145,7 +138,7 @@ public class Patient {
                     for (int i = 1; i < parts.length; i++) {
                         System.out.format("%15s", parts[i]);
                     }
-                    System.out.println("");
+                    System.out.println();
                 }
             }
             myReader.close();

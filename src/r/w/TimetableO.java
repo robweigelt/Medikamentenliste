@@ -149,7 +149,7 @@ class TimetableO {
                 + "]";
     }
 
-    private static List<TimetableO> Timetable = new ArrayList<>();
+    private static final List<TimetableO> Timetable = new ArrayList<>();
     private static final String Parser = ";";
 
     private static void createTimetable() {

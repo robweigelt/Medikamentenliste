@@ -13,7 +13,7 @@ class MedListO  {
     private String ActiveSubstance;
     private String ATC;
     private String Company;
-    private String PharmacotherapeuticGroup;
+    private final String PharmacotherapeuticGroup;
 
 
     private MedListO(String MedicineName, String TherapeuticArea,
@@ -77,7 +77,7 @@ class MedListO  {
         this.Company = Company;
     }
 
-    public String getPharmacotherapeuticGroup() {
+    private String getPharmacotherapeuticGroup() {
         return PharmacotherapeuticGroup;
     }
 

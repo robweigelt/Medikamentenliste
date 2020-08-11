@@ -101,8 +101,9 @@ class Controller {
                 ControllerMedicineGlossary.Menu();
 
                 break;
-            case 3:
-                System.out.println("i ist drei");
+            case 3:                
+                InventoryConsole ic = new InventoryConsole();
+                ic.start();
                 break;
             case 4:
                 System.out.println("Ups");

@@ -15,14 +15,14 @@ class InventoryConsole {
     }
 
     private int menu() {
-        System.out.println("----| Inventar Menü |----");
-        System.out.println("  1. Item hinzufügen");
-        System.out.println("  2. Item entfernen");
-        System.out.println("  3. Item Menge anpassen");
-        System.out.println("  4. Inventar anzeigen");
-        System.out.println("  5. Aktuelles Inventar in CSV speichern");
+        System.out.println("----| Inventory Menu |----");
+        System.out.println("[1] Add item");
+        System.out.println("[2] Delete item");
+        System.out.println("[3] Edit item amount");
+        System.out.println("[4] Show inventory");
+        System.out.println("[5] Save inventory to csv");
 
-        System.out.println("  0. Exit ->");
+        System.out.println("[0] Exit ->");
         return readInt(0,5);
     }
 
@@ -59,23 +59,23 @@ class InventoryConsole {
     }
 
     private void showAll() {
-        System.out.println("----| Aktuelles Inventar |----");
-        System.out.println("ID\tName\tMenge");
+        System.out.println("----| Current inventory |----");
+        System.out.println("ID\tName\tAmount");
         im.printInventory();
         sortInventory();
     }
 
     private void sortInventory() {
-        System.out.println("Inventar Sortieren?\n1 -> Ja\n0 -> Nein");
+        System.out.println("Sort inventory?\n1 -> Yes\n0 -> No");
         int choice = readInt(0,1);
         if(choice == 1) {
-            System.out.println("----| Sortier Möglichkeiten |----");
-            System.out.println("	1. Nach ID absteigend");
-            System.out.println("	2. Nach ID aufsteigend");
-            System.out.println("	3. Nach Name absteigend");
-            System.out.println("	4. Nach Name aufsteigend");
-            System.out.println("	5. Nach Menge absteigend");
-            System.out.println("	6. Nach Menge aufsteigend");
+            System.out.println("----| Sort inventory |----");
+            System.out.println("[1] Descending by id");
+            System.out.println("[2] Ascending by id");
+            System.out.println("[3] Descending by name");
+            System.out.println("[4] Ascending by name");
+            System.out.println("[5] Descending by amount");
+            System.out.println("[6] Ascending by amount");
             int choice2 = readInt(1,6);
             switch(choice2) {
                 case 1:
@@ -90,8 +90,8 @@ class InventoryConsole {
 
     private void setAmount() {
         Item0 foundItem;
-        System.out.println("----| Item Menge anpassen |----");
-        System.out.println("Geben Sie Namen oder ID an:");
+        System.out.println("----| Edit item amount |----");
+        System.out.println("Enter name or id:");
         if(sc.hasNextInt()) {
             int itemId = readInt(0, Integer.MAX_VALUE);
             foundItem = im.searchItemByID(itemId);
@@ -99,15 +99,15 @@ class InventoryConsole {
             String itemName = sc.nextLine();
             foundItem = im.searchItemByName(itemName);
         }
-        System.out.println("      1 -> Menge erhöhen");
-        System.out.println("      2 -> Menge vermindern");
+        System.out.println("      [1] Increase amount");
+        System.out.println("      [2] Decrease amount");
         int choice = readInt(1,2);
         if(choice == 1){
-            System.out.println("Um wie viel soll die Menge von "+foundItem.getName()+" erhöht werden?");
+            System.out.println("Increase amount of "+foundItem.getName()+" by?");
             int amountToAdd = readInt(0,Integer.MAX_VALUE);
             im.addAmount(foundItem, amountToAdd);
         } else {
-            System.out.println("Um wie viel soll die Menge von "+foundItem.getName()+" vermindert werden?");
+            System.out.println("Decrease amount of "+foundItem.getName()+" by?");
             int amountToReduce = readInt(0,Integer.MAX_VALUE);
             im.reduceAmount(foundItem, amountToReduce);
         }
@@ -115,8 +115,8 @@ class InventoryConsole {
     }
 
     private void deleteItem() {
-        System.out.println("----| Item entfernen |----");
-        System.out.println("Geben sie Namen oder ID an:");
+        System.out.println("----| Delete item |----");
+        System.out.println("Enter name or id:");
         if(sc.hasNextInt()) {
             int itemId = readInt(0, Integer.MAX_VALUE);
             Item0 foundItem0 = im.searchItemByID(itemId);
@@ -129,20 +129,20 @@ class InventoryConsole {
     }
 
     private void addItem() {
-        System.out.println("----| Item hinzufügen |----");
-        System.out.println("Geben Sie eine ID an:");
+        System.out.println("----| Add item |----");
+        System.out.println("Enter id:");
         int id = readInt(0, Integer.MAX_VALUE);
         while(im.checkIfIDExists(id)) {
-            System.out.println("ID bereits vergeben, probieren Sie eine neue:");
+            System.out.println("Id already exists, please try a new one:");
             id = readInt(0, Integer.MAX_VALUE);
         }
-        System.out.println("Geben Sie einen Namen an:");
+        System.out.println("Enter name:");
         String name = sc.nextLine();
         while(im.checkIfNameExists(name)) {
-            System.out.println("Name bereits vergeben, probieren Sie einen neuen:");
+            System.out.println("Name already exists, please try a new one:");
             name = sc.nextLine();
         }
-        System.out.println("Geben Sie eine Menge an:");
+        System.out.println("Enter amount:");
         int amount = readInt(0, Integer.MAX_VALUE);
         im.addItem(id, name, amount);
     }
@@ -157,7 +157,7 @@ class InventoryConsole {
                     break;
                 }
             } catch (Exception e) {
-                System.out.println("Bitte geben Sie eine Zahl ein!");
+                System.out.println("Please enter a number!");
             }
         }
         return choice;

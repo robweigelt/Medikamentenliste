@@ -15,14 +15,19 @@ class InventoryConsole {
     }
 
     private int menu() {
-        System.out.println("----| Inventory Menu |----");
+        System.out.println("__________________________________________");
+        System.out.println("Main Menu");
+        System.out.println("⌞ Inventory Menu");
+        System.out.println("");
         System.out.println("[1] Add item");
         System.out.println("[2] Delete item");
         System.out.println("[3] Edit item amount");
         System.out.println("[4] Show inventory");
         System.out.println("[5] Save inventory to csv");
-
-        System.out.println("[0] Exit ->");
+        System.out.println("[-]");
+        System.out.println("[0] Return");
+        System.out.println("");
+        System.out.print("Enter choice here: ");
         return readInt(0,5);
     }
 

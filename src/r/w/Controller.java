@@ -8,12 +8,11 @@ class Controller {
     //Starter
     static int WelcomeText() throws InterruptedException {
         Funtext();
-        System.out.println("Welcome to the private practice, Please press [1] and [Enter] to continue");
+        System.out.print("Please press [1] and [Enter] to continue: ");
         return GetIntOrString.GetmyInt();
-
-
     }
- private static void Funtext()  throws InterruptedException {
+
+    private static void Funtext()  throws InterruptedException {
         System.out.println("             ___       __   __         ___    ___  __  ");
         TimeUnit.MILLISECONDS.sleep(50);
         System.out.println("       |  | |__  |    /  ` /  \\  |\\/| |__      |  /  \\ ");
@@ -67,56 +66,54 @@ class Controller {
     }
     //Main Menu
     static void Menu() throws CloneNotSupportedException, IOException {
-       System.out.println("Please choose between the different menus by pressing the number [] and [Enter]:\n" +
-               "Patient Record [1] \n" +
-               "Medicine Glossar [2]\n" +
-               "Inventory [3]\n" +
-               "Calendar [4]\n" +
-               "Close [5]"
-      );
+
+        System.out.println("__________________________________________");
+        System.out.println("Main Menu");
+        System.out.println("\n" +
+               "[1] Patient Record\n" +
+               "[2] Medicine Glossar\n" +
+               "[3] Inventory \n" +
+               "[4] Appointments \n[-]\n" +
+               "[0] Close\n"
+        );
+        System.out.print("Enter choice here: ");
         InsideMenu(GetIntOrString.GetmyInt());
     }
     //Switch to Submenus
     private static void InsideMenu(int Switcher) throws CloneNotSupportedException, IOException {
         switch (Switcher) {
             case 1:
-
-                System.out.println("Please choose between the different menus by pressing the number [] and [Enter]: \n" +
-                        "Patient Information [1] \n" +
-                        "Patient Medical Record[2] \n");
+                System.out.println("__________________________________________\n");
+                System.out.println("[1] Patient Information");
+                System.out.println("[2] Patient Medical Record\n");
+                System.out.print("Enter choice here: ");
                 int a = GetIntOrString.GetmyInt();
                 if (1 == a) {
-                    ControllerPatientInformation.Starter();
-
+                    PatientMenu pm = new PatientMenu();
+                    pm.runProgram();
                 } else if (a == 2) {
                     ControllerMedicine.Menu();
-
                 } else {
                     System.out.println("You entered an invalid number");
                     InsideMenu(1);
                 }
-
-
                 break;
             case 2:
                 ControllerMedicineGlossary.Menu();
-
                 break;
             case 3:                
                 InventoryConsole ic = new InventoryConsole();
                 ic.start();
                 break;
             case 4:
-               // new ControllerPatientInformation().main(null);
+                AppointmentMenu am = new AppointmentMenu();
+                am.runProgram();
                 break;
-            case 5:
-            {System.exit(0);}
-
-            //Invalid Number
+            case 0:
+                System.out.println("Goodbye!");
+                System.exit(0);
             default: System.out.println("You entered an invalid number");
                 Menu();
-
-
         }
     }
 }

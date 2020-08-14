@@ -7,8 +7,7 @@ public class Main {
 //Tabea
     public static void main(String[] args) throws CloneNotSupportedException, IOException, InterruptedException {
 
-
-        MainMenu.Funtext();
+        //MainMenu.Funtext();
        int a = MainMenu.WelcomeText();
         if (a == 1){
             MainMenu.Menu();

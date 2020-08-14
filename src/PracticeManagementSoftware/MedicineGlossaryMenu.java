@@ -1,4 +1,4 @@
-package r.w;
+package PracticeManagementSoftware;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,14 +8,14 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 
-class ControllerMedicineGlossary {
+class MedicineGlossaryMenu {
     static void Menu() throws CloneNotSupportedException, IOException {
 
 
         System.out.println("Please choose between the different options by pressing the number [] and [Enter]:\n" +
-                "Look for specific medicament [1] \n" +
-                "List all medicament's by type [2] \n" +
-                "Return [0]"
+                "[1]Look for specific medicament  \n" +
+                "[2]List all medicament's by type  \n" +
+                "[0] Return "
         );
         InsideMenuMedicine(GetIntOrString.GetmyInt());
     }
@@ -24,13 +24,13 @@ class ControllerMedicineGlossary {
     private static void InsideMenuMedicine(int Switcher) throws CloneNotSupportedException, IOException {
         switch (Switcher) {
             case 0:
-                Controller.Menu();
+                MainMenu.Menu();
                 break;
             case 1:
-                int a = MedListO.SelectSearch();
-                List <String> myList = MedListO.switcherMedCategories(a);
-                var listInCapitals = ListFunctions.getList(myList);
-                var upperItem = ListFunctions.makeStringToCapital();
+                int a = MedicineGlossaryObject.SelectSearch();
+                List <String> myList = MedicineGlossaryObject.switcherMedCategories(a);
+                var listInCapitals = HelperFunctions.getList(myList);
+                var upperItem = HelperFunctions.makeStringToCapital();
                 if (listInCapitals.contains(upperItem)){
                     int[] indexes =
                             IntStream.range(0, listInCapitals.size())
@@ -38,16 +38,16 @@ class ControllerMedicineGlossary {
                                     .toArray();
 
                     for (int b : indexes) {
-                        MedListO.SearchInsideListArray(b);
+                        MedicineGlossaryObject.SearchInsideListArray(b);
                     }
                 }
                 else System.out.println("No Results");
                 Menu();
             case 2:
-                int b = MedListO.SelectSearch();
+                int b = MedicineGlossaryObject.SelectSearch();
 
-                myList = MedListO.switcherMedCategories(b);
-                var listInCapitalsSelect = ListFunctions.getList(myList);
+                myList = MedicineGlossaryObject.switcherMedCategories(b);
+                var listInCapitalsSelect = HelperFunctions.getList(myList);
                 Collections.sort(listInCapitalsSelect);
                 LinkedHashSet<String> hashSet = new LinkedHashSet<>(listInCapitalsSelect);
                 ArrayList<String> listWithoutDuplicates = new ArrayList<>(hashSet);

@@ -1,4 +1,4 @@
-package r.w;
+package PracticeManagementSoftware;
 
 import java.io.*;
 import java.nio.file.Paths;
@@ -9,7 +9,7 @@ class InventoryManager {
     //Dateipfad f�r Praxis_Inventur.csv
     private final String filepath = Paths.get("").toAbsolutePath().toString()+ "/Praxis_Inventur.csv";
     //Liste Inventory
-    private final List< Item0 > Inventory = new ArrayList<>();
+    private final List<InventoryObject> Inventory = new ArrayList<>();
 
     //Clearen von Inventory und einlesen aller Daten aus der CSV in Inventory als Item Objekte
     public void readCSV(){
@@ -33,7 +33,7 @@ class InventoryManager {
         //Erstellen von Item Obj. und hinzuf�gen zur Liste Inventory solange bis Ende von FormatHelp erreicht
         for (String s : FormatHelp) {
             //Item Dumb zur bef�llung durch CSV
-            Item0 dumbIt = new Item0(0, null, 0);
+            InventoryObject dumbIt = new InventoryObject(0, null, 0);
 
             //Aufsplitten der einzelnen Strings in FormatHelp Anhand von ;
             String[] parts = s.split(";");
@@ -52,8 +52,8 @@ class InventoryManager {
     public void printInventory() {
 
         //Vom jedem Obj. Item in Liste Inventory  werden Atribute in Konsole ausgegeben
-        for(Item0 item0 : Inventory) {
-            System.out.println(item0.getId()+"\t"+ item0.getName()+"\t"+ item0.getAmount());
+        for(InventoryObject inventoryObject : Inventory) {
+            System.out.println(inventoryObject.getId()+"\t"+ inventoryObject.getName()+"\t"+ inventoryObject.getAmount());
         }
     }
 
@@ -61,7 +61,7 @@ class InventoryManager {
     //Methode m�ssen Werte f�r Obj. �bergeben werden
     public void addItem(int id, String name, int amount){
         try {
-            Item0 it = new Item0(id,name,amount);
+            InventoryObject it = new InventoryObject(id,name,amount);
             Inventory.add(it);
             System.out.println("Item erfolgreich gespeichert!");
         } catch (Exception e) {
@@ -71,10 +71,10 @@ class InventoryManager {
 
     //Methode zum l�schen eines Item Obj. aus der Liste Inventory
     //Ben�tigt Item Obj. welches entfernt werden soll (geliefert durch z.B. Such Methoden)
-    public void deleteItem(Item0 foundItem0){
+    public void deleteItem(InventoryObject foundInventoryObject){
         try{
-            Inventory.remove(foundItem0);
-            System.out.println("Das Item " + foundItem0.getName() + " wurde erfolgreich entfernt!");
+            Inventory.remove(foundInventoryObject);
+            System.out.println("Das Item " + foundInventoryObject.getName() + " wurde erfolgreich entfernt!");
         } catch (Exception e) {
             System.out.println("Item konnte nicht entfernt werden!");
         }
@@ -82,11 +82,11 @@ class InventoryManager {
 
     //Methode zum Suchen eines Item Obj. in Liste Inventory anhand seines Namens
     //Ben�tigt zu Suchenden Namen als String
-    public Item0 searchItemByName(String itemName){
+    public InventoryObject searchItemByName(String itemName){
 
-        for (Item0 foundItem0 : Inventory) {
-            if(foundItem0.getName().equals(itemName))
-                return foundItem0;
+        for (InventoryObject foundInventoryObject : Inventory) {
+            if(foundInventoryObject.getName().equals(itemName))
+                return foundInventoryObject;
         }
 
 
@@ -96,27 +96,27 @@ class InventoryManager {
     //Methode zum Suchen eines Item Obj. in Liste Inventory anhand seiner ID
     //Ben�tigt zu Suchende ID als Integer
     public boolean checkIfIDExists(int id) {
-        for(Item0 item0 : Inventory) {
-            if(item0.getId()==id)
+        for(InventoryObject inventoryObject : Inventory) {
+            if(inventoryObject.getId()==id)
                 return true;
         }
 
         return false;
     }
     public boolean checkIfNameExists(String name) {
-        for(Item0 item0 : Inventory) {
-            if(item0.getName().equals(name))
+        for(InventoryObject inventoryObject : Inventory) {
+            if(inventoryObject.getName().equals(name))
                 return true;
         }
         return false;
     }
 
-    public Item0 searchItemByID(int itemId){
+    public InventoryObject searchItemByID(int itemId){
 
-        for (Item0 foundItem0 : Inventory) {
+        for (InventoryObject foundInventoryObject : Inventory) {
 
-            if(foundItem0.getId() == itemId) {
-                return foundItem0;
+            if(foundInventoryObject.getId() == itemId) {
+                return foundInventoryObject;
             }
         }
         return null;
@@ -124,16 +124,16 @@ class InventoryManager {
 
     //Hinzuf�gen einer durch int amountToAdd �bergebenden Menge eines Item Obj.
     //Ben�tigt Item Obj. dessen Menge erh�ht werden soll (geliefert durch z.B. Such Methoden)
-    public void addAmount(Item0 foundItem0, int amountToAdd){
-        int currentAmount = foundItem0.getAmount();
+    public void addAmount(InventoryObject foundInventoryObject, int amountToAdd){
+        int currentAmount = foundInventoryObject.getAmount();
         int newAmount = currentAmount + amountToAdd;
-        foundItem0.setAmount(newAmount);
+        foundInventoryObject.setAmount(newAmount);
     }
     //Verringer einer durch int amountToReduce �bergebenden Menge eines Item Obj.
     //Ben�tigt Item Obj. dessen Menge vermindert werden soll (geliefert durch z.B. Such Methoden)
-    public void reduceAmount(Item0 foundItem0, int amountToReduce){
-        int currentAmount = foundItem0.getAmount();
-        foundItem0.setAmount(currentAmount - amountToReduce);
+    public void reduceAmount(InventoryObject foundInventoryObject, int amountToReduce){
+        int currentAmount = foundInventoryObject.getAmount();
+        foundInventoryObject.setAmount(currentAmount - amountToReduce);
     }
 
     //Schreibt alle Item Obj. der aktuellen Inventory Liste in CSV Datei
@@ -141,7 +141,7 @@ class InventoryManager {
     public void writeInventoryToCSV() {
 
         //Iterator f�r Liste Inventory
-        ListIterator< Item0 > lItr = Inventory.listIterator();
+        ListIterator<InventoryObject> lItr = Inventory.listIterator();
 
         //Pfad f�r Temp-File und erstellen der Temp-File
         String tempFile = "temp.csv";
@@ -155,13 +155,13 @@ class InventoryManager {
 
             //Erstes Item aus Inventory Liste wird in inventoryIt1 gespeichert
             //Erstes Item vor Schleife, aufgrund von Formatierung durch \n
-            Item0 inventoryIt1 = lItr.next();
+            InventoryObject inventoryIt1 = lItr.next();
             //inventoryIt1 wird in Temp-File geschrieben
             pw.print(inventoryIt1.getId()+";"+inventoryIt1.getName()+";"+inventoryIt1.getAmount());
 
             //Solange Listen Iterator neue Datens�tze in Liste Inventory findet werden Atribute der Obj. in Temp-File geschrieben
             while(lItr.hasNext()) {
-                Item0 inventoryIt = lItr.next();
+                InventoryObject inventoryIt = lItr.next();
                 pw.print("\n"+inventoryIt.getId()+";"+inventoryIt.getName()+";"+inventoryIt.getAmount());
             }
 
@@ -181,7 +181,7 @@ class InventoryManager {
 
     }
     public void getSortedItemsByAmountDescending(){
-        Inventory.sort(Item0.amountComparatorDecending);
+        Inventory.sort(InventoryObject.amountComparatorDecending);
     }
 
 }

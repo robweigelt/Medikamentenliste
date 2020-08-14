@@ -1,8 +1,8 @@
-package r.w;
+package PracticeManagementSoftware;
 
 import java.util.Comparator;
 
-public class Item0 {
+public class InventoryObject {
 
     //Atribute Item Objekt
     private int id;
@@ -10,7 +10,7 @@ public class Item0 {
     private int amount;
 
     //Konstruktor Item Objekt
-    Item0(int id, String name, int amount) {
+    InventoryObject(int id, String name, int amount) {
         super();
         this.id = id;
         this.name = name;
@@ -50,7 +50,7 @@ public class Item0 {
 
 
     //Comparator Methoden f?r InventoryItemSorter
-    static final Comparator< Item0 > amountComparatorDecending  = (it1, it2) -> Integer.compare(it2.getAmount(),it1.getAmount());
+    static final Comparator<InventoryObject> amountComparatorDecending  = (it1, it2) -> Integer.compare(it2.getAmount(),it1.getAmount());
 
 }
 

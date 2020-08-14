@@ -1,4 +1,4 @@
-package r.w;
+package PracticeManagementSoftware;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -37,7 +37,7 @@ public class PatientMenu {
         switch (choice) {
             case 0:
                 ptm.writePatientToCSV();
-                Controller.Menu();
+                MainMenu.Menu();
                 break;
             case 1:
                 ptm.printPatients();
@@ -55,7 +55,7 @@ public class PatientMenu {
                 addEditDeleteMenu();
                 break;
             case 9:
-                Controller.Menu();
+                MainMenu.Menu();
                 break;
             default:
                 System.out.println("Invalid input!");

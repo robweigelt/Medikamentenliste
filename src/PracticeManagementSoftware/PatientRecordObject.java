@@ -1,4 +1,4 @@
-package r.w;
+package PracticeManagementSoftware;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-class MedicineO
+//Creates Object for CSV
+class PatientRecordObject
 {
     private static String ID;
     private static String Title;
@@ -18,28 +19,29 @@ class MedicineO
     private static String TherapeuticArea;
     private static String DosageForm;
 
-    private MedicineO(String ID, String Title, String Surname, String Name, String Medicine, String TherapeuticArea, String DosageForm)
+    private PatientRecordObject(String ID, String Title, String Surname, String Name, String Medicine, String TherapeuticArea, String DosageForm)
     {
         super();
-        MedicineO.ID = ID;
-        MedicineO.Title = Title;
-        MedicineO.Surname = Surname;
-        MedicineO.Name = Name;
-        MedicineO.Medicine = Medicine;
-        MedicineO.TherapeuticArea = TherapeuticArea;
-        MedicineO.DosageForm = DosageForm;
+        PatientRecordObject.ID = ID;
+        PatientRecordObject.Title = Title;
+        PatientRecordObject.Surname = Surname;
+        PatientRecordObject.Name = Name;
+        PatientRecordObject.Medicine = Medicine;
+        PatientRecordObject.TherapeuticArea = TherapeuticArea;
+        PatientRecordObject.DosageForm = DosageForm;
     }
     static int SelectSearch(){
 
         System.out.println("Please select between the different categories you are searching for by pressing the number [] and [Enter]:\n" +
-                "ID [1] \n" +
-                "Title [2] \n" +
-                "Surname [3] \n" + "Name [4] \n" +
-                "Medicine [5]\n"+"TherapeuticAreal [6] \n" +
-                "DosageForm [7]"
+                "[1] ID  \n" +
+                "[2]Title  \n" +
+                "[3] Surname  \n" + "[4]Name  \n" +
+                "[5] Medicine \n"+"[6]TherapeuticAreal  \n" +
+                "[7]DosageForm "
         );
         return GetIntOrString.GetmyInt();
     }
+    //List Array Indexing
     static void SearchInsideListArray(int index)
 
     {
@@ -50,6 +52,7 @@ class MedicineO
 
 
     }
+    //Creates new Entry
     static void newEntry() throws IOException{
         String neuDateipfad = Path.getPathofDarreichungsformen();
         FileWriter createnewLine = new FileWriter(neuDateipfad,true);
@@ -90,21 +93,21 @@ class MedicineO
 
 
     }
+    //List all Items
     static void ListAllItems(){
         createMedicine();
-        for (MedicineO medicineO : Medicine1)
+        for (PatientRecordObject patientRecordObject : Medicine1)
             try {
-                System.out.println(medicineO);
+                System.out.println(patientRecordObject);
             } catch (IndexOutOfBoundsException ignored) {
             }
         Medicine1.clear();
     }
-
+//Getter
     private String getID()
     {
         return ID;
     }
-
 
     private String getTitle()
     {
@@ -126,19 +129,17 @@ class MedicineO
         return Medicine;
     }
 
-
     private String getTherapeuticArea()
     {
         return TherapeuticArea;
     }
-
 
     private String getDosageForm()
     {
         return DosageForm;
     }
 
-
+//Get full list with comparing PatientRecordObject
     static List <String> switcherMedicineCategory(int n)
     {
         createMedicine();
@@ -146,48 +147,48 @@ class MedicineO
         switch (n)
         {
             case 1:
-                for (MedicineO m: MedicineO.Medicine1)
+                for (PatientRecordObject m: PatientRecordObject.Medicine1)
                 {
                     myList.add(m.getID());
                 }
                 break;
 
             case 2:
-                for (MedicineO m: MedicineO.Medicine1)
+                for (PatientRecordObject m: PatientRecordObject.Medicine1)
                 {
                     myList.add(m.getTitle());
                 }
                 break;
 
             case 3:
-                for (MedicineO m: MedicineO.Medicine1)
+                for (PatientRecordObject m: PatientRecordObject.Medicine1)
                 {
                     myList.add(m.getSurname());
                 }
                 break;
 
             case 4:
-                for (MedicineO m: MedicineO.Medicine1)
+                for (PatientRecordObject m: PatientRecordObject.Medicine1)
                 {
                     myList.add(m.getName());
                 }
                 break;
 
             case 5:
-                for (MedicineO m: MedicineO.Medicine1)
+                for (PatientRecordObject m: PatientRecordObject.Medicine1)
                 {
                     myList.add(m.getMedicine());
                 }
                 break;
 
             case 6:
-                for (MedicineO m: MedicineO.Medicine1) {
+                for (PatientRecordObject m: PatientRecordObject.Medicine1) {
                     myList.add(m.getTherapeuticArea());
                 }
                 break;
 
             case 7:
-                for (MedicineO m: MedicineO.Medicine1) {
+                for (PatientRecordObject m: PatientRecordObject.Medicine1) {
                     myList.add(m.getDosageForm());
                 }
                 break;
@@ -199,7 +200,7 @@ class MedicineO
         }
         return myList;
     }
-
+//Convert Object to visable String
     @Override
     public String toString() {
         return " ID =" + ID +"\n"
@@ -211,8 +212,8 @@ class MedicineO
                 + " DosageForm =" + DosageForm + "\n"
                 ;
     }
-
-    private final static List<MedicineO> Medicine1 = new ArrayList<>();
+//Filereader
+    private final static List<PatientRecordObject> Medicine1 = new ArrayList<>();
     private static final String Parser = ";";
 
     private static void createMedicine() {
@@ -229,7 +230,7 @@ class MedicineO
                 String[] MedicineStringArray = line.split(Parser);
 
 
-                MedicineO medicine0 = new MedicineO
+                PatientRecordObject medicine0 = new PatientRecordObject
                 (
                         MedicineStringArray[0],
                         MedicineStringArray[1],

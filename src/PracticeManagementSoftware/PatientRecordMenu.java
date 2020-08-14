@@ -1,4 +1,4 @@
-package r.w;
+package PracticeManagementSoftware;
 
 import java.io.IOException;
 import java.util.List;
@@ -6,13 +6,13 @@ import java.util.stream.IntStream;
 
 
 //Deleter hinzufügen
-class ControllerMedicine {
+class PatientRecordMenu {
     static void Menu() throws CloneNotSupportedException, IOException {
         System.out.println("Please choose between the different options by pressing the number [] and [Enter]:\n" +
-                "Look for a specific person [1] \n" +
-                "Create new entry [2] \n" +
-                "List all entry's [3] \n" +
-                "Return [0]"
+                "[1]Look for a specific person  \n" +
+                "[2]Create new entry  \n" +
+                "[3] List all entry's \n" +
+                "[0]Return "
         );
         InsideMenuMedicine(GetIntOrString.GetmyInt());
 
@@ -20,12 +20,12 @@ class ControllerMedicine {
     private static void InsideMenuMedicine(int switcher) throws CloneNotSupportedException, IOException {
         switch (switcher){
             case 0:
-                Controller.Menu();
+                MainMenu.Menu();
             case 1:
-                int a = MedicineO.SelectSearch();
-                List <String> myList  = MedicineO.switcherMedicineCategory(a);
-                var listInCapitals = ListFunctions.getList(myList);
-                var upperItem = ListFunctions.makeStringToCapital();
+                int a = PatientRecordObject.SelectSearch();
+                List <String> myList  = PatientRecordObject.switcherMedicineCategory(a);
+                var listInCapitals = HelperFunctions.getList(myList);
+                var upperItem = HelperFunctions.makeStringToCapital();
                 if (listInCapitals.contains(upperItem)){
                     int[] indexes =
                             IntStream.range(0, listInCapitals.size())
@@ -33,7 +33,7 @@ class ControllerMedicine {
                                     .toArray();
 
                     for (int b : indexes) {
-                       try{ MedicineO.SearchInsideListArray(b);}
+                       try{ PatientRecordObject.SearchInsideListArray(b);}
                        catch (java.lang.IndexOutOfBoundsException ignored){
                        }
 
@@ -48,11 +48,11 @@ class ControllerMedicine {
 
 
             case 2:
-                MedicineO.newEntry();
+                PatientRecordObject.newEntry();
                 Menu();
 
             case 3:
-                MedicineO.ListAllItems();
+                PatientRecordObject.ListAllItems();
                 Menu();
             default:
                 System.out.println("You entered an invalid number");

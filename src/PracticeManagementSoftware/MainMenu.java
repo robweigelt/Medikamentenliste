@@ -1,9 +1,9 @@
-package r.w;
+package PracticeManagementSoftware;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class Controller {
+public class MainMenu {
 
     //Starter
     static int WelcomeText() {
@@ -92,17 +92,17 @@ public class Controller {
                     PatientMenu pm = new PatientMenu();
                     pm.runProgram();
                 } else if (a == 2) {
-                    ControllerMedicine.Menu();
+                    PatientRecordMenu.Menu();
                 } else {
                     System.out.println("You entered an invalid number");
                     InsideMenu(1);
                 }
                 break;
             case 2:
-                ControllerMedicineGlossary.Menu();
+                MedicineGlossaryMenu.Menu();
                 break;
             case 3:                
-                InventoryConsole ic = new InventoryConsole();
+                InventoryMenu ic = new InventoryMenu();
                 ic.start();
                 break;
             case 4:

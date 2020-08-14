@@ -1,4 +1,4 @@
-package r.w;
+package PracticeManagementSoftware;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,7 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-class MedListO  {
+//Creates PatientRecordObject -> ListArray
+class MedicineGlossaryObject {
     private final String MedicineName;
     private final String TherapeuticArea;
     private final String INN;
@@ -16,8 +17,9 @@ class MedListO  {
     private final String PharmacotherapeuticGroup;
 
 
-    private MedListO(String MedicineName, String TherapeuticArea,
-                     String INN, String ActiveSubstance, String ATC, String Company, String PharmacotherapeuticGroup) {
+    private MedicineGlossaryObject(String MedicineName, String TherapeuticArea,
+                                   String INN, String ActiveSubstance, String ATC, String Company, String PharmacotherapeuticGroup) {
+        //Superclass
         super();
         this.MedicineName = MedicineName;
         this.TherapeuticArea = TherapeuticArea;
@@ -29,6 +31,7 @@ class MedListO  {
 
     }
 
+    //Getter
     private String getMedicineName() {
         return MedicineName;
     }
@@ -57,6 +60,7 @@ class MedListO  {
         return PharmacotherapeuticGroup;
     }
 
+    //Searcher
     static void SearchInsideListArray(int index)
 
     {
@@ -69,7 +73,7 @@ class MedListO  {
 
     }
 
-
+//
   static List<String> switcherMedCategories(int n) {
       ArrayList<String> myList = new ArrayList<>();
         {
@@ -77,37 +81,37 @@ class MedListO  {
 
         switch (n) {
             case 1:
-                for (MedListO m: MedListO.MedList){
+                for (MedicineGlossaryObject m: MedicineGlossaryObject.MedList){
                     myList.add(m.getMedicineName());
                 }
                 break;
             case 2:
-                for (MedListO m: MedListO.MedList){
+                for (MedicineGlossaryObject m: MedicineGlossaryObject.MedList){
                     myList.add(m.getTherapeuticArea());
                 }
                 break;
             case 3:
-                for (MedListO m: MedListO.MedList){
+                for (MedicineGlossaryObject m: MedicineGlossaryObject.MedList){
                     myList.add(m.getINN());
                 }
                 break;
             case 4:
-                for (MedListO m: MedListO.MedList){
+                for (MedicineGlossaryObject m: MedicineGlossaryObject.MedList){
                     myList.add(m.getActiveSubstance());
                 }
                 break;
             case 5:
-                for (MedListO m: MedListO.MedList){
+                for (MedicineGlossaryObject m: MedicineGlossaryObject.MedList){
                     myList.add(m.getATC());
                 }
                 break;
             case 6:
-                for (MedListO m: MedListO.MedList){
+                for (MedicineGlossaryObject m: MedicineGlossaryObject.MedList){
                     myList.add(m.getCompany());
                 }
                 break;
             case 7:
-                for (MedListO m: MedListO.MedList){
+                for (MedicineGlossaryObject m: MedicineGlossaryObject.MedList){
                     myList.add(m.getPharmacotherapeuticGroup());
                 }
                 break;
@@ -144,7 +148,7 @@ class MedListO  {
         );
         return GetIntOrString.GetmyInt();
     }
-    private final static List<MedListO> MedList = new ArrayList<>();
+    private final static List<MedicineGlossaryObject> MedList = new ArrayList<>();
     private static final String Parser = ";";
 
     private static void createMedList(){
@@ -161,7 +165,7 @@ class MedListO  {
                 String[] MedicineStringArray = line.split(Parser);
 
 
-                var medO = new MedListO(
+                var medO = new MedicineGlossaryObject(
                         MedicineStringArray[0],
                         MedicineStringArray[1],
                         MedicineStringArray[2],

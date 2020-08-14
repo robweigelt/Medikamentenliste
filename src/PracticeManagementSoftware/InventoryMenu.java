@@ -1,15 +1,14 @@
-package r.w;
+package PracticeManagementSoftware;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-/** @noinspection ALL*/
-class InventoryConsole {
+class InventoryMenu {
 
     private final Scanner sc;
     private final InventoryManager im;
 
-    public InventoryConsole() {
+    public InventoryMenu() {
         this.sc = new Scanner(System.in);
         this.im = new InventoryManager();
     }
@@ -18,7 +17,7 @@ class InventoryConsole {
         System.out.println("__________________________________________");
         System.out.println("Main Menu");
         System.out.println("⌞ Inventory Menu");
-        System.out.println("");
+        System.out.println();
         System.out.println("[1] Add item");
         System.out.println("[2] Delete item");
         System.out.println("[3] Edit item amount");
@@ -26,7 +25,7 @@ class InventoryConsole {
         System.out.println("[5] Save inventory to csv");
         System.out.println("[-]");
         System.out.println("[0] Return");
-        System.out.println("");
+        System.out.println();
         System.out.print("Enter choice here: ");
         return readInt(0,5);
     }
@@ -37,7 +36,7 @@ class InventoryConsole {
             int choice = menu();
             switch(choice) {
                 case 0:
-                    Controller.Menu();
+                    MainMenu.Menu();
 
                 case 1:
                     addItem();
@@ -94,7 +93,7 @@ class InventoryConsole {
     }
 
     private void setAmount() {
-        Item0 foundItem;
+        InventoryObject foundItem;
         System.out.println("----| Edit item amount |----");
         System.out.println("Enter name or id:");
         if(sc.hasNextInt()) {
@@ -124,12 +123,12 @@ class InventoryConsole {
         System.out.println("Enter name or id:");
         if(sc.hasNextInt()) {
             int itemId = readInt(0, Integer.MAX_VALUE);
-            Item0 foundItem0 = im.searchItemByID(itemId);
-            im.deleteItem(foundItem0);
+            InventoryObject foundInventoryObject = im.searchItemByID(itemId);
+            im.deleteItem(foundInventoryObject);
         } else {
             String itemName = sc.nextLine();
-            Item0 foundItem0 = im.searchItemByName(itemName);
-            im.deleteItem(foundItem0);
+            InventoryObject foundInventoryObject = im.searchItemByName(itemName);
+            im.deleteItem(foundInventoryObject);
         }
     }
 

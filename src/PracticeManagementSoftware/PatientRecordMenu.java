@@ -48,7 +48,8 @@ class PatientRecordMenu {
 
 
             case 2:
-                PatientRecordObject.newEntry();
+
+                new PatientRecordObject().newEntry();
                 Menu();
 
             case 3:

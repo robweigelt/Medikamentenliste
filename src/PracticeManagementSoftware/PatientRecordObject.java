@@ -11,25 +11,30 @@ import java.util.Objects;
 //Creates Object for CSV
 class PatientRecordObject
 {
-    private static String ID;
-    private static String Title;
-    private static String Surname;
-    private static String Name;
-    private static String Medicine;
-    private static String TherapeuticArea;
-    private static String DosageForm;
+    private String ID;
+    private String Title;
+    private String Surname;
+    private String Name;
+    private String Medicine;
+    private String TherapeuticArea;
+    private String DosageForm;
 
-    private PatientRecordObject(String ID, String Title, String Surname, String Name, String Medicine, String TherapeuticArea, String DosageForm)
+    PatientRecordObject(String ID, String Title, String Surname, String Name, String Medicine, String TherapeuticArea, String DosageForm)
     {
         super();
-        PatientRecordObject.ID = ID;
-        PatientRecordObject.Title = Title;
-        PatientRecordObject.Surname = Surname;
-        PatientRecordObject.Name = Name;
-        PatientRecordObject.Medicine = Medicine;
-        PatientRecordObject.TherapeuticArea = TherapeuticArea;
-        PatientRecordObject.DosageForm = DosageForm;
+        this.ID = ID;
+        this.Title = Title;
+        this.Surname = Surname;
+        this.Name = Name;
+        this.Medicine = Medicine;
+        this.TherapeuticArea = TherapeuticArea;
+        this.DosageForm = DosageForm;
     }
+
+    public PatientRecordObject() {
+
+    }
+
     static int SelectSearch(){
 
         System.out.println("Please select between the different categories you are searching for by pressing the number [] and [Enter]:\n" +
@@ -53,7 +58,7 @@ class PatientRecordObject
 
     }
     //Creates new Entry
-    static void newEntry() throws IOException{
+     void newEntry() throws IOException{
         String neuDateipfad = Path.getPathofDarreichungsformen();
         FileWriter createnewLine = new FileWriter(neuDateipfad,true);
         System.out.println("Please enter all the information an press enter");
@@ -93,6 +98,8 @@ class PatientRecordObject
 
 
     }
+
+
     //List all Items
     static void ListAllItems(){
         createMedicine();
@@ -244,11 +251,12 @@ class PatientRecordObject
 
             }
 
-        } catch (Exception ee) {
+        } catch (IOException ee) {
             ee.printStackTrace();
         } finally {
             try {
-                Objects.requireNonNull(CSVReader).close();
+                assert CSVReader != null;
+                CSVReader.close();
             } catch (IOException ie) {
                 System.out.println("Error occurred while reading the file");
                 ie.printStackTrace();

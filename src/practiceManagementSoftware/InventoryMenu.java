@@ -34,6 +34,7 @@ class InventoryMenu {
         im.readCSV();
          {
             int choice = menu();
+            while (true){
             switch(choice) {
                 case 0:
                     MainMenu.Menu();
@@ -59,38 +60,16 @@ class InventoryMenu {
                 default:
                     throw new AssertionError();
             }
-        }
+        }}
     }
 
     private void showAll() {
         System.out.println("----| Current inventory |----");
         System.out.println("ID\tName\tAmount");
         im.printInventory();
-        sortInventory();
+
     }
 
-    private void sortInventory() {
-        System.out.println("Sort inventory?\n1 -> Yes\n0 -> No");
-        int choice = readInt(0,1);
-        if(choice == 1) {
-            System.out.println("----| Sort inventory |----");
-            System.out.println("[1] Descending by id");
-            System.out.println("[2] Ascending by id");
-            System.out.println("[3] Descending by name");
-            System.out.println("[4] Ascending by name");
-            System.out.println("[5] Descending by amount");
-            System.out.println("[6] Ascending by amount");
-            int choice2 = readInt(1,6);
-            switch(choice2) {
-                case 1:
-                    im.getSortedItemsByAmountDescending();
-                    im.printInventory();
-                case 2:
-
-                    im.printInventory();
-            }
-        }
-    }
 
     private void setAmount() {
         InventoryObject foundItem;

@@ -94,7 +94,7 @@ public class MainMenu {
                     PatientMenu pm = new PatientMenu();
                     pm.runProgram();
                 } else if (a == 2) {
-                    PatientMedicalRecordMenu.Menu();
+                    PatientRecordMenu.Menu();
                 } else {
                     System.out.println("You entered an invalid number");
                     InsideMenu(1);

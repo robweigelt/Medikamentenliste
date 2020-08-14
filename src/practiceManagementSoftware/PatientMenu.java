@@ -47,7 +47,7 @@ public class PatientMenu {
                 int id;
                 System.out.print("Enter patient ID to Search: ");
                 id = input.nextInt();
-                Patient foundPatient = ptm.searchPatientByID(id);
+                PatientObject foundPatient = ptm.searchPatientByID(id);
                 System.out.println("__________________________________________\n");
                 ptm.showPatientById(foundPatient);
                 break;
@@ -91,7 +91,7 @@ public class PatientMenu {
         } else if (p_choice == 3) {
             System.out.print("Enter ID to delete: ");
             int i = input.nextInt();
-            Patient foundPatient = ptm.searchPatientByID(i);
+            PatientObject foundPatient = ptm.searchPatientByID(i);
             ptm.deletePatient(foundPatient);
             System.out.println("The patient " + foundPatient.getName() + " was successfully removed!");
         } else {

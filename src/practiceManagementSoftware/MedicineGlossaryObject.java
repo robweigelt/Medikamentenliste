@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-//Creates PatientMedicalRecordObject -> ListArray
+//Creates PatientRecordObject -> ListArray
 class MedicineGlossaryObject {
     private final String MedicineName;
     private final String TherapeuticArea;

@@ -144,7 +144,7 @@ public class AppointmentManager {
             appointmentID = input.nextInt();
         }
 
-        System.out.println("Enter Patient Id: ");
+        System.out.println("Enter PatientObject Id: ");
         int patientID = input.nextInt();
         System.out.println("Enter Title: ");
         input.nextLine();

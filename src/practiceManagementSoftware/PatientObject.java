@@ -1,6 +1,6 @@
 package practiceManagementSoftware;
 
-public class Patient {
+public class PatientObject {
 
     private int patient_Id;
     private String name;
@@ -12,7 +12,7 @@ public class Patient {
     private String city;
     private String zip;
 
-    public Patient(int patient_Id, String name, String surname, String gender, String dateOfBirth, String insuranceName, String street, String city, String zip) {
+    public PatientObject(int patient_Id, String name, String surname, String gender, String dateOfBirth, String insuranceName, String street, String city, String zip) {
         super();
         this.patient_Id = patient_Id;
         this.name = name;
@@ -99,6 +99,6 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient [ID: " + patient_Id + ", Name: " + name + ", Surname: " + surname + ", Gender: " + gender + ", DOB: " + dateOfBirth + ", Insurance: " + insuranceName + ", Street: " + street + ", City: " + city + ", Zip: " + zip + "]";
+        return "PatientObject [ID: " + patient_Id + ", Name: " + name + ", Surname: " + surname + ", Gender: " + gender + ", DOB: " + dateOfBirth + ", Insurance: " + insuranceName + ", Street: " + street + ", City: " + city + ", Zip: " + zip + "]";
     }
 }

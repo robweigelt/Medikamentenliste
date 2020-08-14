@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 
 
 //Deleter hinzufügen
-class PatientMedicalRecordMenu {
+class PatientRecordMenu {
     static void Menu() throws CloneNotSupportedException, IOException {
         System.out.println("Please choose between the different options by pressing the number [] and [Enter]:\n" +
                 "[1]Look for a specific person  \n" +
@@ -22,8 +22,8 @@ class PatientMedicalRecordMenu {
             case 0:
                 MainMenu.Menu();
             case 1:
-                int a = PatientMedicalRecordObject.SelectSearch();
-                List <String> myList  = PatientMedicalRecordObject.switcherMedicineCategory(a);
+                int a = PatientRecordObject.SelectSearch();
+                List <String> myList  = PatientRecordObject.switcherMedicineCategory(a);
                 var listInCapitals = HelperFunctions.getList(myList);
                 var upperItem = HelperFunctions.makeStringToCapital();
                 if (listInCapitals.contains(upperItem)){
@@ -33,7 +33,7 @@ class PatientMedicalRecordMenu {
                                     .toArray();
 
                     for (int b : indexes) {
-                       try{ PatientMedicalRecordObject.SearchInsideListArray(b);}
+                       try{ PatientRecordObject.SearchInsideListArray(b);}
                        catch (java.lang.IndexOutOfBoundsException ignored){
                        }
 
@@ -49,11 +49,11 @@ class PatientMedicalRecordMenu {
 
             case 2:
 
-                new PatientMedicalRecordObject().newEntry();
+                new PatientRecordObject().newEntry();
                 Menu();
 
             case 3:
-                PatientMedicalRecordObject.ListAllItems();
+                PatientRecordObject.ListAllItems();
                 Menu();
             default:
                 System.out.println("You entered an invalid number");

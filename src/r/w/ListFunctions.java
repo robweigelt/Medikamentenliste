@@ -11,7 +11,7 @@ class ListFunctions {
         return item.toUpperCase();
     }
 
-    static List<String> getList(List mylist) {
+    static List<String> getList(List <String> mylist) {
 
         List<String> list;
         list = cast(mylist);

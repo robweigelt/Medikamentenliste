@@ -23,7 +23,7 @@ class ControllerMedicine {
                 Controller.Menu();
             case 1:
                 int a = MedicineO.SelectSearch();
-                List myList = MedicineO.switcherMedicineCategory(a);
+                List <String> myList  = MedicineO.switcherMedicineCategory(a);
                 var listInCapitals = ListFunctions.getList(myList);
                 var upperItem = ListFunctions.makeStringToCapital();
                 if (listInCapitals.contains(upperItem)){

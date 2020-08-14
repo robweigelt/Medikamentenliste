@@ -12,27 +12,25 @@ import java.util.Scanner;
 
 public class PatientManager {
 
-    private String filepath = "Patients.csv";
-    private List<Patient> patients = new ArrayList<Patient>();
-    private Scanner input = new Scanner(System.in);
+    private final List<Patient> patients = new ArrayList<>();
+    private final Scanner input = new Scanner(System.in);
 
-    public List<Patient> readPatientCSV() {
+    public void readPatientCSV() {
         patients.clear();
         List<String> Helper = new ArrayList<>();
+        String filepath = "Patients.csv";
         File f = new File(filepath);
         try (Scanner scCSV = new Scanner(f)) {
             while (scCSV.hasNextLine()) {
                 Helper.add(scCSV.nextLine());
             }
-            scCSV.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        for (int i = 0; Helper.size() > i; i++) {
+        for (String s : Helper) {
             Patient pat = new Patient(0, null, null, null, null, null, null, null, null);
 
-            String CSVline = Helper.get(i);
-            String[] parts = CSVline.split(";");
+            String[] parts = s.split(";");
 
             pat.setPatient_Id(Integer.parseInt(parts[0]));
             pat.setName(parts[1]);
@@ -45,7 +43,6 @@ public class PatientManager {
             pat.setZip(parts[8]);
             patients.add(pat);
         }
-        return patients;
     }
 
     public void printPatients() {
@@ -64,7 +61,7 @@ public class PatientManager {
         }
     }
 
-    public List<Patient> addPatient(int patient_Id, String name, String surname, String gender, String dateOfBirth, String insuranceName, String street, String city, String zip) {
+    public void addPatient(int patient_Id, String name, String surname, String gender, String dateOfBirth, String insuranceName, String street, String city, String zip) {
         try {
             Patient pt = new Patient(patient_Id, name, surname, gender, dateOfBirth, insuranceName, street, city, zip);
             patients.add(pt);
@@ -72,25 +69,22 @@ public class PatientManager {
         } catch (Exception e) {
             System.out.println("Patient could not be saved!");
         }
-        return patients;
     }
 
-    public List<Patient> deletePatient(Patient foundpatient) {
+    public void deletePatient(Patient foundpatient) {
         try {
             patients.remove(foundpatient);
         } catch (Exception e) {
             System.out.println("Patient could not be removed!");
         }
-        return patients;
     }
 
-    public List<Patient> showPatientById(Patient foundpatient) {
+    public void showPatientById(Patient foundpatient) {
         try {
             System.out.println(foundpatient);
         } catch (Exception e) {
             System.out.println("Patient could not be found!");
         }
-        return patients;
     }
 
     public Patient searchPatientByID(int patId) {
@@ -106,8 +100,6 @@ public class PatientManager {
         ListIterator<Patient> lItr = patients.listIterator();
 
         String tempFile = "temp.csv";
-        File newFile = new File(tempFile);
-        File oldFile = new File(filepath);
 
         try {
             FileWriter fw = new FileWriter(tempFile, true);
@@ -123,9 +115,6 @@ public class PatientManager {
             pw.flush();
             pw.close();
             System.out.println("Patients were successfully written to CSV!");
-            oldFile.delete();
-            File dump = new File(filepath);
-            newFile.renameTo(dump);
         } catch (Exception e) {
             System.out.println("Patients could not be written to CSV!");
         }
@@ -141,7 +130,7 @@ public class PatientManager {
     }
 
     public void editPatient(int id) {
-        System.out.println("");
+        System.out.println();
         System.out.println("Existing details: ");
 
         Patient foundPatient = searchPatientByID(id);
@@ -151,13 +140,12 @@ public class PatientManager {
     }
 
     public void addingPatient() {
-        System.out.println("");
+        System.out.println();
         System.out.println("Enter Patient ID: ");
         int Id = input.nextInt();
         while (checkIfIDExists(Id)) {
             System.out.println("ID already taken, try a new one:");
-            int newID = input.nextInt();
-            Id = newID;
+            Id = input.nextInt();
         }
         System.out.println("Enter Name: ");
         input.nextLine();

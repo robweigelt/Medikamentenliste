@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 class MedListO  {
-    private String MedicineName;
-    private String TherapeuticArea;
-    private String INN;
-    private String ActiveSubstance;
-    private String ATC;
-    private String Company;
+    private final String MedicineName;
+    private final String TherapeuticArea;
+    private final String INN;
+    private final String ActiveSubstance;
+    private final String ATC;
+    private final String Company;
     private final String PharmacotherapeuticGroup;
 
 
@@ -33,48 +33,24 @@ class MedListO  {
         return MedicineName;
     }
 
-    public void setMedicineName(String MedicineName) {
-        this.MedicineName = MedicineName;
-    }
-
     private String getTherapeuticArea() {
         return TherapeuticArea;
-    }
-
-    public void setTherapeuticArea(String TherapeuticArea) {
-        this.TherapeuticArea = TherapeuticArea;
     }
 
     private String getINN() {
         return INN;
     }
 
-    public void setINN(String INN) {
-        this.INN = INN;
-    }
-
     private String getActiveSubstance() {
         return ActiveSubstance;
-    }
-
-    public void setActiveSubstance(String ActiveSubstance) {
-        this.ActiveSubstance = ActiveSubstance;
     }
 
     private String getATC() {
         return ATC;
     }
 
-    public void setATC(String ATC) {
-        this.ATC = ATC;
-    }
-
     private String getCompany() {
         return Company;
-    }
-
-    public void setCompany(String Company) {
-        this.Company = Company;
     }
 
     private String getPharmacotherapeuticGroup() {
@@ -94,7 +70,7 @@ class MedListO  {
     }
 
 
-  static List switcherMedCategories(int n) {
+  static List<String> switcherMedCategories(int n) {
       ArrayList<String> myList = new ArrayList<>();
         {
         createMedList();

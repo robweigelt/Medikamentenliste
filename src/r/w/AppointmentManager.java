@@ -12,27 +12,25 @@ import java.util.Scanner;
 
 public class AppointmentManager {
 
-    private String filepath = "Appointments.csv";
-    private List<Appointment> appointments = new ArrayList<Appointment>();
-    private Scanner input = new Scanner(System.in);
+    private final List<Appointment> appointments = new ArrayList<>();
+    private final Scanner input = new Scanner(System.in);
 
-    public List<Appointment> readAppointmentCSV() {
+    public void readAppointmentCSV() {
         appointments.clear();
         List<String> Helper = new ArrayList<>();
+        String filepath = "Appointments.csv";
         File f = new File(filepath);
         try (Scanner scCSV = new Scanner(f)) {
             while (scCSV.hasNextLine()) {
                 Helper.add(scCSV.nextLine());
             }
-            scCSV.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        for (int i = 0; Helper.size() > i; i++) {
+        for (String s : Helper) {
             Appointment apot = new Appointment(0, 0, null, null, null, null);
 
-            String CSVline = Helper.get(i);
-            String[] parts = CSVline.split(";");
+            String[] parts = s.split(";");
 
             apot.setAppointmentID(Integer.parseInt(parts[0]));
             apot.setPatientID(Integer.parseInt(parts[1]));
@@ -42,7 +40,6 @@ public class AppointmentManager {
             apot.setEndTime(parts[5]);
             appointments.add(apot);
         }
-        return appointments;
     }
 
     public void printAppointments() {
@@ -59,7 +56,7 @@ public class AppointmentManager {
         }
     }
 
-    public List<Appointment> addAppointment(int appointmentID, int patientID, String title, String date, String startTime, String endTime) {
+    public void addAppointment(int appointmentID, int patientID, String title, String date, String startTime, String endTime) {
         try {
             Appointment apt = new Appointment(appointmentID, patientID, title, date, startTime, endTime);
             appointments.add(apt);
@@ -67,25 +64,22 @@ public class AppointmentManager {
         } catch (Exception e) {
             System.out.println("Appointment could not be saved!");
         }
-        return appointments;
     }
 
-    public List<Appointment> deleteAppointment(Appointment foundappointment) {
+    public void deleteAppointment(Appointment foundappointment) {
         try {
             appointments.remove(foundappointment);
         } catch (Exception e) {
             System.out.println("Appointment could not be removed!");
         }
-        return appointments;
     }
 
-    public List<Appointment> showAppointmentById(Appointment foundappointment) {
+    public void showAppointmentById(Appointment foundappointment) {
         try {
             System.out.println(foundappointment);
         } catch (Exception e) {
             System.out.println("Appointment could not be found!");
         }
-        return appointments;
     }
 
     public Appointment searchAppointmentByID(int apatId) {
@@ -101,8 +95,6 @@ public class AppointmentManager {
         ListIterator<Appointment> lItr = appointments.listIterator();
 
         String tempFile = "temp.csv";
-        File newFile = new File(tempFile);
-        File oldFile = new File(filepath);
 
         try {
             FileWriter fw = new FileWriter(tempFile, true);
@@ -118,9 +110,7 @@ public class AppointmentManager {
             pw.flush();
             pw.close();
             System.out.println("Appointments were successfully written to CSV!");
-            oldFile.delete();
-            File dump = new File(filepath);
-            newFile.renameTo(dump);
+
         } catch (Exception e) {
             System.out.println("Appointments could not be written to CSV!");
         }
@@ -136,7 +126,7 @@ public class AppointmentManager {
     }
 
     public void editAppointment(int id) {
-        System.out.println("");
+        System.out.println();
         System.out.println("Existing details: ");
 
         Appointment foundAppointment = searchAppointmentByID(id);
@@ -146,13 +136,12 @@ public class AppointmentManager {
     }
 
     public void addingAppointment() {
-        System.out.println("");
+        System.out.println();
         System.out.println("Enter Appointment ID: ");
         int appointmentID = input.nextInt();
         while (checkIfIDExists(appointmentID)) {
             System.out.println("ID already taken, try a new one:");
-            int newID = input.nextInt();
-            appointmentID = newID;
+            appointmentID = input.nextInt();
         }
         System.out.println("Enter Patient Id: ");
         int patientID = input.nextInt();

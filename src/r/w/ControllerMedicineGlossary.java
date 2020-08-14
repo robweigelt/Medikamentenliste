@@ -28,7 +28,7 @@ class ControllerMedicineGlossary {
                 break;
             case 1:
                 int a = MedListO.SelectSearch();
-                List myList = MedListO.switcherMedCategories(a);
+                List <String> myList = MedListO.switcherMedCategories(a);
                 var listInCapitals = ListFunctions.getList(myList);
                 var upperItem = ListFunctions.makeStringToCapital();
                 if (listInCapitals.contains(upperItem)){

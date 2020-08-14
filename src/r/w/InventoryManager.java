@@ -36,8 +36,7 @@ class InventoryManager {
             Item0 dumbIt = new Item0(0, null, 0);
 
             //Aufsplitten der einzelnen Strings in FormatHelp Anhand von ;
-            String CSVline = s;
-            String[] parts = CSVline.split(";");
+            String[] parts = s.split(";");
 
             //Mappen der Einzelnen Atribute aus der CSV mit denen des dumb Items
             dumbIt.setId(Integer.parseInt(parts[0]));
@@ -146,10 +145,6 @@ class InventoryManager {
 
         //Pfad f�r Temp-File und erstellen der Temp-File
         String tempFile = "temp.csv";
-        File newFile = new File(tempFile);
-
-        //Erstellen einer neues File f�r Praxis_Inventur.csv Pfad
-        File oldFile = new File(filepath);
 
         try {
 
@@ -175,11 +170,10 @@ class InventoryManager {
             System.out.println("Inventar wurde erfolgreich in CSV geschrieben!");
 
             //l�schen der alten Praxis_Inventur.csv
-            oldFile.delete();
+
             //dump File f�r Praxis_Inventur.csv Pfad
-            File dump = new File(filepath);
             //Umbennenen der Temp-File zu Praxis_Inventur.csv
-            newFile.renameTo(dump);
+
 
         } catch(Exception e) {
             System.out.println("Inventar konnte nicht in CSV geschrieben werden!");

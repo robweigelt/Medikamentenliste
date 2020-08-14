@@ -105,19 +105,10 @@ class MedicineO
         return ID;
     }
 
-    public void setID(String ID)
-    {
-        MedicineO.ID = ID;
-    }
 
     private String getTitle()
     {
         return Title;
-    }
-
-    public void setTitle(String Title)
-    {
-        MedicineO.Title = Title;
     }
 
     private String getSurname()
@@ -125,19 +116,9 @@ class MedicineO
         return Surname;
     }
 
-    public void setSurname(String Surname)
-    {
-        MedicineO.Surname = Surname;
-    }
-
     private String getName()
     {
         return Name;
-    }
-
-    public void setName(String Name)
-    {
-        MedicineO.Name = Name;
     }
 
     private String getMedicine()
@@ -145,33 +126,20 @@ class MedicineO
         return Medicine;
     }
 
-    public void setMedicine(String Medicine)
-    {
-        MedicineO.Medicine = Medicine;
-    }
 
     private String getTherapeuticArea()
     {
         return TherapeuticArea;
     }
 
-    public void setTherapeuticArea(String TherapeuticArea)
-    {
-        MedicineO.TherapeuticArea = TherapeuticArea;
-    }
 
     private String getDosageForm()
     {
         return DosageForm;
     }
 
-    public void setDosageForm(String DosageForm)
-    {
-        MedicineO.DosageForm = DosageForm;
-    }
 
-
-    static List switcherMedicineCategory(int n)
+    static List <String> switcherMedicineCategory(int n)
     {
         createMedicine();
         List<String> myList = new ArrayList<>();

@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class PatientMenu {
 
-    private Scanner input = new Scanner(System.in);
-    private PatientManager ptm;
+    private final Scanner input;
+    private final PatientManager ptm;
 
     public PatientMenu() {
         this.input = new Scanner(System.in);
@@ -15,23 +15,23 @@ public class PatientMenu {
 
     public void runProgram() throws IOException, CloneNotSupportedException {
         ptm.readPatientCSV();
-        while (true) {
+
             mainMenu();
-        }
+
     }
 
     private void mainMenu() throws IOException, CloneNotSupportedException {
         System.out.println("__________________________________________");
         System.out.println("Main Menu");
         System.out.println("⌞ Patients Menu");
-        System.out.println("");
+        System.out.println();
         System.out.println("[1] Show all patients");
         System.out.println("[2] Show patient with ID");
         System.out.println("[3] Add, edit or delete");
         System.out.println("[-]");
         System.out.println("[9] Return (discard changes)");
         System.out.println("[0] Return (save to CSV)");
-        System.out.println("");
+        System.out.println();
         System.out.print("Enter choice here: ");
         int choice = input.nextInt();
         switch (choice) {
@@ -60,21 +60,22 @@ public class PatientMenu {
             default:
                 System.out.println("Invalid input!");
         }
+        mainMenu();
     }
 
-    private void addEditDeleteMenu() throws IOException, CloneNotSupportedException {
+    public void addEditDeleteMenu() throws IOException, CloneNotSupportedException {
         int p_choice;
         System.out.println("__________________________________________");
         System.out.println("Main Menu");
         System.out.println("⌞ Patients Menu");
         System.out.println("  ⌞ Add, edit and delete");
-        System.out.println("");
+        System.out.println();
         System.out.println("[1] Add patient");
         System.out.println("[2] Edit patient with ID");
         System.out.println("[3] Delete patient with ID");
         System.out.println("[-] ");
         System.out.println("[0] Return");
-        System.out.println("");
+        System.out.println();
         System.out.print("Enter choice here: ");
         p_choice = input.nextInt();
         if (p_choice == 1) {

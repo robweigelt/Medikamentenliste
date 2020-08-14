@@ -3,16 +3,16 @@ package r.w;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-class Controller {
+public class Controller {
 
     //Starter
-    static int WelcomeText() throws InterruptedException {
+    static int WelcomeText() {
         //Funtext();
         System.out.print("Please press [1] and [Enter] to continue: ");
         return GetIntOrString.GetmyInt();
     }
 
-    private static void Funtext()  throws InterruptedException {
+    public static void Funtext()  throws InterruptedException {
         System.out.println("             ___       __   __         ___    ___  __  ");
         TimeUnit.MILLISECONDS.sleep(50);
         System.out.println("       |  | |__  |    /  ` /  \\  |\\/| |__      |  /  \\ ");

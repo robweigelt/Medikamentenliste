@@ -15,16 +15,4 @@ class Path {
         path = Paths.get("").toAbsolutePath().toString()+ "\\Darreichungsformen.csv" ;
         return path;
     }
-    public static String getPathofMedikamentenakte(){
-        path = Paths.get("").toAbsolutePath().toString()+ "\\Medikamentenakte.csv" ;
-        return path;
-    }
-    static String getPathofTerminbuchungen(){
-        path = Paths.get("").toAbsolutePath().toString()+ "\\Terminbuchungen.csv" ;
-        return path;
-    }
-    static String getPathofPatientenakte(){
-        path = Paths.get("").toAbsolutePath().toString()+ "\\Patientenakte.csv" ;
-        return path;
-    }
 }

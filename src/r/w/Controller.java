@@ -7,7 +7,7 @@ class Controller {
 
     //Starter
     static int WelcomeText() throws InterruptedException {
-        Funtext();
+        //Funtext();
         System.out.print("Please press [1] and [Enter] to continue: ");
         return GetIntOrString.GetmyInt();
     }

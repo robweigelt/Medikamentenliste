@@ -32,13 +32,11 @@ class InventoryMenu {
 
     public void start() throws IOException, CloneNotSupportedException {
         im.readCSV();
-         {
+        while (true){
             int choice = menu();
-            while (true){
             switch(choice) {
                 case 0:
                     MainMenu.Menu();
-
                 case 1:
                     addItem();
                     break;
@@ -54,13 +52,10 @@ class InventoryMenu {
                 case 5:
                     im.writeInventoryToCSV();
                     break;
-                case 6:
-
-
                 default:
                     throw new AssertionError();
             }
-        }}
+        }
     }
 
     private void showAll() {

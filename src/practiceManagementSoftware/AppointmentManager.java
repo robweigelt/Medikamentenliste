@@ -1,4 +1,4 @@
-package PracticeManagementSoftware;
+package practiceManagementSoftware;
 
 import java.io.BufferedWriter;
 import java.io.File;

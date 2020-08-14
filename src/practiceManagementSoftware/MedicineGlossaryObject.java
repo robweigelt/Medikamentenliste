@@ -1,4 +1,4 @@
-package PracticeManagementSoftware;
+package practiceManagementSoftware;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-//Creates PatientRecordObject -> ListArray
+//Creates PatientMedicalRecordObject -> ListArray
 class MedicineGlossaryObject {
     private final String MedicineName;
     private final String TherapeuticArea;

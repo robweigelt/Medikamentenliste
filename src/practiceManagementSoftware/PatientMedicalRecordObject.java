@@ -1,4 +1,4 @@
-package PracticeManagementSoftware;
+package practiceManagementSoftware;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,10 +6,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 //Creates Object for CSV
-class PatientRecordObject
+class PatientMedicalRecordObject
 {
     private String ID;
     private String Title;
@@ -19,7 +18,7 @@ class PatientRecordObject
     private String TherapeuticArea;
     private String DosageForm;
 
-    PatientRecordObject(String ID, String Title, String Surname, String Name, String Medicine, String TherapeuticArea, String DosageForm)
+    PatientMedicalRecordObject(String ID, String Title, String Surname, String Name, String Medicine, String TherapeuticArea, String DosageForm)
     {
         super();
         this.ID = ID;
@@ -31,7 +30,7 @@ class PatientRecordObject
         this.DosageForm = DosageForm;
     }
 
-    public PatientRecordObject() {
+    public PatientMedicalRecordObject() {
 
     }
 
@@ -103,9 +102,9 @@ class PatientRecordObject
     //List all Items
     static void ListAllItems(){
         createMedicine();
-        for (PatientRecordObject patientRecordObject : Medicine1)
+        for (PatientMedicalRecordObject patientMedicalRecordObject : Medicine1)
             try {
-                System.out.println(patientRecordObject);
+                System.out.println(patientMedicalRecordObject);
             } catch (IndexOutOfBoundsException ignored) {
             }
         Medicine1.clear();
@@ -146,7 +145,7 @@ class PatientRecordObject
         return DosageForm;
     }
 
-//Get full list with comparing PatientRecordObject
+//Get full list with comparing PatientMedicalRecordObject
     static List <String> switcherMedicineCategory(int n)
     {
         createMedicine();
@@ -154,48 +153,48 @@ class PatientRecordObject
         switch (n)
         {
             case 1:
-                for (PatientRecordObject m: PatientRecordObject.Medicine1)
+                for (PatientMedicalRecordObject m: PatientMedicalRecordObject.Medicine1)
                 {
                     myList.add(m.getID());
                 }
                 break;
 
             case 2:
-                for (PatientRecordObject m: PatientRecordObject.Medicine1)
+                for (PatientMedicalRecordObject m: PatientMedicalRecordObject.Medicine1)
                 {
                     myList.add(m.getTitle());
                 }
                 break;
 
             case 3:
-                for (PatientRecordObject m: PatientRecordObject.Medicine1)
+                for (PatientMedicalRecordObject m: PatientMedicalRecordObject.Medicine1)
                 {
                     myList.add(m.getSurname());
                 }
                 break;
 
             case 4:
-                for (PatientRecordObject m: PatientRecordObject.Medicine1)
+                for (PatientMedicalRecordObject m: PatientMedicalRecordObject.Medicine1)
                 {
                     myList.add(m.getName());
                 }
                 break;
 
             case 5:
-                for (PatientRecordObject m: PatientRecordObject.Medicine1)
+                for (PatientMedicalRecordObject m: PatientMedicalRecordObject.Medicine1)
                 {
                     myList.add(m.getMedicine());
                 }
                 break;
 
             case 6:
-                for (PatientRecordObject m: PatientRecordObject.Medicine1) {
+                for (PatientMedicalRecordObject m: PatientMedicalRecordObject.Medicine1) {
                     myList.add(m.getTherapeuticArea());
                 }
                 break;
 
             case 7:
-                for (PatientRecordObject m: PatientRecordObject.Medicine1) {
+                for (PatientMedicalRecordObject m: PatientMedicalRecordObject.Medicine1) {
                     myList.add(m.getDosageForm());
                 }
                 break;
@@ -220,7 +219,7 @@ class PatientRecordObject
                 ;
     }
 //Filereader
-    private final static List<PatientRecordObject> Medicine1 = new ArrayList<>();
+    private final static List<PatientMedicalRecordObject> Medicine1 = new ArrayList<>();
     private static final String Parser = ";";
 
     private static void createMedicine() {
@@ -237,7 +236,7 @@ class PatientRecordObject
                 String[] MedicineStringArray = line.split(Parser);
 
 
-                PatientRecordObject medicine0 = new PatientRecordObject
+                PatientMedicalRecordObject medicine0 = new PatientMedicalRecordObject
                 (
                         MedicineStringArray[0],
                         MedicineStringArray[1],

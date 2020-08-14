@@ -1,4 +1,4 @@
-package PracticeManagementSoftware;
+package practiceManagementSoftware;
 
 import java.io.IOException;
 import java.util.Scanner;

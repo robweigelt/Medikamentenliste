@@ -1,4 +1,4 @@
-package PracticeManagementSoftware;
+package practiceManagementSoftware;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -32,7 +32,7 @@ class InventoryMenu {
 
     public void start() throws IOException, CloneNotSupportedException {
         im.readCSV();
-        while(true) {
+         {
             int choice = menu();
             switch(choice) {
                 case 0:

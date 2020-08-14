@@ -1,4 +1,4 @@
-package PracticeManagementSoftware;
+package practiceManagementSoftware;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -94,7 +94,7 @@ public class MainMenu {
                     PatientMenu pm = new PatientMenu();
                     pm.runProgram();
                 } else if (a == 2) {
-                    PatientRecordMenu.Menu();
+                    PatientMedicalRecordMenu.Menu();
                 } else {
                     System.out.println("You entered an invalid number");
                     InsideMenu(1);

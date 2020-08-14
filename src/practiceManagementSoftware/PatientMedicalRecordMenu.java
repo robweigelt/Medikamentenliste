@@ -1,4 +1,4 @@
-package PracticeManagementSoftware;
+package practiceManagementSoftware;
 
 import java.io.IOException;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 
 
 //Deleter hinzufügen
-class PatientRecordMenu {
+class PatientMedicalRecordMenu {
     static void Menu() throws CloneNotSupportedException, IOException {
         System.out.println("Please choose between the different options by pressing the number [] and [Enter]:\n" +
                 "[1]Look for a specific person  \n" +
@@ -22,8 +22,8 @@ class PatientRecordMenu {
             case 0:
                 MainMenu.Menu();
             case 1:
-                int a = PatientRecordObject.SelectSearch();
-                List <String> myList  = PatientRecordObject.switcherMedicineCategory(a);
+                int a = PatientMedicalRecordObject.SelectSearch();
+                List <String> myList  = PatientMedicalRecordObject.switcherMedicineCategory(a);
                 var listInCapitals = HelperFunctions.getList(myList);
                 var upperItem = HelperFunctions.makeStringToCapital();
                 if (listInCapitals.contains(upperItem)){
@@ -33,7 +33,7 @@ class PatientRecordMenu {
                                     .toArray();
 
                     for (int b : indexes) {
-                       try{ PatientRecordObject.SearchInsideListArray(b);}
+                       try{ PatientMedicalRecordObject.SearchInsideListArray(b);}
                        catch (java.lang.IndexOutOfBoundsException ignored){
                        }
 
@@ -49,11 +49,11 @@ class PatientRecordMenu {
 
             case 2:
 
-                new PatientRecordObject().newEntry();
+                new PatientMedicalRecordObject().newEntry();
                 Menu();
 
             case 3:
-                PatientRecordObject.ListAllItems();
+                PatientMedicalRecordObject.ListAllItems();
                 Menu();
             default:
                 System.out.println("You entered an invalid number");

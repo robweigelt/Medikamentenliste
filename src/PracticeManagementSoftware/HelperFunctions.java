@@ -4,6 +4,8 @@ import java.util.List;
 
 import static com.sun.jmx.mbeanserver.Util.cast;
 
+
+//Tabea
 class HelperFunctions {
     static String makeStringToCapital(){
         System.out.println("Please type in the item you are looking for");

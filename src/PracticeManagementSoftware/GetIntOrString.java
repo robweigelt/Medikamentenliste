@@ -1,6 +1,8 @@
 package PracticeManagementSoftware;
 import java.util.Scanner;
 
+
+//Tabea
 class GetIntOrString {
 
 static String GetmyString(){

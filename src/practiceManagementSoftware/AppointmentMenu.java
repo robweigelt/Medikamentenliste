@@ -15,21 +15,21 @@ public class AppointmentMenu {
 
     public void runProgram() throws IOException, CloneNotSupportedException {
         aptm.readAppointmentCSV();
-
+        while (true) {
             mainMenu();
-
+        }
     }
 
     private void mainMenu() throws IOException, CloneNotSupportedException {
-        System.out.println("__________________________________________\n"
+        System.out.print("__________________________________________\n"
         +"Main Menu\n"
-        +"⌞ Appointments Menu \n"
+        +"⌞ Appointments Menu \n\n"
         +"[1] Show all appointments\n"
         +"[2] Show appointment with ID\n"
         +"[3] Add, edit or delete\n"
         +"[-] \n"
         +"[9] Return (discard changes)\n"
-        +"[0] Return (save to CSV) \n"
+        +"[0] Return (save to CSV)\n\n"
         +"Enter choice here: ");
         int choice = input.nextInt();
         switch (choice) {
@@ -62,15 +62,16 @@ public class AppointmentMenu {
 
     private void addEditDeleteMenu() throws IOException, CloneNotSupportedException {
         int a_choice;
-        System.out.println("__________________________________________"
+        System.out.print("__________________________________________"
         +"Main Menu \n"
         +"⌞ Appointments Menu\n"
-        +"  ⌞ Add, edit and delete\n"
+        +"  ⌞ Add, edit and delete\n\n"
         +"[1] Add appointment\n"
         +"[2] Edit appointment with ID\n"
-        +"[3] Delete appointment with ID+\n"
-        +"[-] +\n"
-        +"[0] Return+\n\n" +"Enter choice here: ");
+        +"[3] Delete appointment with ID\n"
+        +"[-] \n"
+        +"[0] Return\n\n"
+        +"Enter choice here: ");
         a_choice = input.nextInt();
         if (a_choice == 1) {
             System.out.println("__________________________________________\n"

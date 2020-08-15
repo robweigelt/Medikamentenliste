@@ -56,4 +56,8 @@ class HelperFunctions {
         }
         else System.out.println("No Results");
     }
+
+    public static String cut(String s, int len){
+        return s.substring(0, Math.min(len, s.length()));
+    }
 }

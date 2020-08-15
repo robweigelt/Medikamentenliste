@@ -59,8 +59,11 @@ class InventoryMenu {
     }
 
     private void showAll() {
-        System.out.println("----| Current inventory |----");
-        System.out.println("ID\tName\tAmount");
+        System.out.println("__________________________________________");
+        System.out.println("Main Menu");
+        System.out.println("⌞ Inventory Menu");
+        System.out.println("  ⌞ Inventory");
+        System.out.println();
         im.printInventory();
 
     }
@@ -68,8 +71,12 @@ class InventoryMenu {
 
     private void setAmount() {
         InventoryObject foundItem;
-        System.out.println("----| Edit item amount |----");
-        System.out.println("Enter name or id:");
+        System.out.println("__________________________________________");
+        System.out.println("Main Menu");
+        System.out.println("⌞ Inventory Menu");
+        System.out.println("  ⌞ Edit item amount");
+        System.out.println();
+        System.out.println("Enter name or ID:");
         if(sc.hasNextInt()) {
             int itemId = readInt(0, Integer.MAX_VALUE);
             foundItem = im.searchItemByID(itemId);
@@ -93,8 +100,12 @@ class InventoryMenu {
     }
 
     private void deleteItem() {
-        System.out.println("----| Delete item |----");
-        System.out.println("Enter name or id:");
+        System.out.println("__________________________________________");
+        System.out.println("Main Menu");
+        System.out.println("⌞ Inventory Menu");
+        System.out.println("  ⌞ Delete item");
+        System.out.println();
+        System.out.println("Enter name or ID:");
         if(sc.hasNextInt()) {
             int itemId = readInt(0, Integer.MAX_VALUE);
             InventoryObject foundInventoryObject = im.searchItemByID(itemId);
@@ -107,11 +118,15 @@ class InventoryMenu {
     }
 
     private void addItem() {
-        System.out.println("----| Add item |----");
-        System.out.println("Enter id:");
+        System.out.println("__________________________________________");
+        System.out.println("Main Menu");
+        System.out.println("⌞ Inventory Menu");
+        System.out.println("  ⌞ Add item");
+        System.out.println();
+        System.out.println("Enter ID:");
         int id = readInt(0, Integer.MAX_VALUE);
         while(im.checkIfIDExists(id)) {
-            System.out.println("Id already exists, please try a new one:");
+            System.out.println("ID already exists, please try a new one:");
             id = readInt(0, Integer.MAX_VALUE);
         }
         System.out.println("Enter name:");

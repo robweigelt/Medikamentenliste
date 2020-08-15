@@ -46,19 +46,15 @@ public class PatientManager {
     }
 
     public void printPatients() {
-        String[] pCol = {"ID", "Name", "Surname", "Gender", "Birth Date", "Insurance", "Street", "City", "Zip"};
-        System.out.println("__________________________________________");
-        System.out.println("List of Patients\n");
-        for (String pCol1 : pCol) {
-            System.out.print(pCol1 + "\t");
-        }
-        System.out.println();
+        //Todo: HelperFunctions.cut einbinden
+        String leftAlignFormat = "| %-5d | %-15s | %-15s | %-6s | %-10s | %-15s | %-20s | %-10s | %5s |%n";
+        System.out.format("+-------+-----------------+-----------------+--------+------------+-----------------+----------------------+------------+-------+%n");
+        System.out.format("| ID    | Name            | Surname         | Gender | Birth Date | Insurance       | Street               | City       | Zip   |%n");
+        System.out.format("+-------+-----------------+-----------------+--------+------------+-----------------+----------------------+------------+-------+%n");
         for (PatientObject patient : patients) {
-            System.out.println(patient.getPatient_Id() + "\t" + patient.getName() + "\t" + patient.getSurname()
-                    + "\t" + patient.getGender() + "\t" + patient.getDateOfBirth() + "\t" + patient.getInsuranceName()
-                    + "\t" + patient.getCity() + "\t" + patient.getStreet() + "\t" + patient.getZip()
-            );
+            System.out.format(leftAlignFormat,patient.getPatient_Id(),patient.getName(),patient.getSurname(),patient.getGender(),patient.getDateOfBirth(),patient.getInsuranceName(),patient.getCity(),patient.getStreet(),patient.getZip());
         }
+        System.out.format("+-------+-----------------+-----------------+--------+------------+-----------------+----------------------+------------+-------+%n");
     }
 
     public void addPatient(int patient_Id, String name, String surname, String gender, String dateOfBirth, String insuranceName, String street, String city, String zip) {

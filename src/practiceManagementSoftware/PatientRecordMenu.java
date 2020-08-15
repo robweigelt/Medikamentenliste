@@ -2,18 +2,20 @@ package practiceManagementSoftware;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.stream.IntStream;
 
 
 //Deleter hinzufügen
 class PatientRecordMenu {
     static void Menu() throws CloneNotSupportedException, IOException {
-        System.out.println("Please choose between the different options by pressing the number [] and [Enter]:\n" +
-                "[1]Look for a specific person  \n" +
-                "[2]Create new entry  \n" +
+        System.out.println("__________________________________________");
+        System.out.println("Main Menu");
+        System.out.println("⌞ Patient Medical Record Menu");
+        System.out.println();
+        System.out.print("[1] Look for a specific person  \n" +
+                "[2] Create new entry  \n" +
                 "[3] List all entry's \n" +
-                "[0]Return "
-        );
+                "[-] \n" +
+                "[0] Return \n\nEnter choice here: ");
         InsideMenuMedicine(GetIntOrString.GetmyInt());
 
     }

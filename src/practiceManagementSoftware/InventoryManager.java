@@ -54,10 +54,21 @@ class InventoryManager {
     //Methode zum ausgeben des Inventars
     public void printInventory() {
 
+
+        String leftAlignFormat = "| %-4d | %-6d | %-20s |%n";
+
+        System.out.format("+------+--------+----------------------+%n");
+        System.out.format("| ID   | Amount | Item name            |%n");
+        System.out.format("+------+--------+----------------------+%n");
+
         //Vom jedem Obj. Item in Liste Inventory  werden Atribute in Konsole ausgegeben
         for(InventoryObject inventoryObject : Inventory) {
-            System.out.println(inventoryObject.getId()+"\t"+ inventoryObject.getName()+"\t"+ inventoryObject.getAmount());
+            System.out.format(leftAlignFormat, inventoryObject.getId(), inventoryObject.getAmount(), inventoryObject.getName());
         }
+
+        System.out.format("+------+--------+----------------------+%n");
+
+
     }
 
     //Methode zum erstellen von Item Obj. und hinzuf�gen zur Liste Inventory

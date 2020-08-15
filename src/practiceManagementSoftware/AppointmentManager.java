@@ -44,16 +44,14 @@ public class AppointmentManager {
     }
 
     public void printAppointments() {
-        String[] aCol = {"ID", "PatID", "Title", "Date", "Start Time", "End Time"};
-        System.out.println("__________________________________________\n List of Appointments\n");
-        for (String aCol1 : aCol) {
-            System.out.print(aCol1 + "\t");
-        }
-        System.out.println();
+        String leftAlignFormat = "| %-5d | %-5d | %-10s | %-5s | %-5s | %-20s |%n";
+        System.out.format("+-------+-------+------------+-------+-------+----------------------+%n");
+        System.out.format("| A.ID  | P.ID  | Date       | Start | End   | Title                |%n");
+        System.out.format("+-------+-------+------------+-------+-------+----------------------+%n");
         for (AppointmentObject appointmentObject : appointmentObjects) {
-            System.out.println(appointmentObject.getAppointmentID() + "\t\t" + appointmentObject.getPatientID() + "\t\t" + appointmentObject.getTitle()
-                    + "\t" + appointmentObject.getDate() + "\t" + appointmentObject.getStartTime() + "\t" + appointmentObject.getEndTime());
+            System.out.format(leftAlignFormat,appointmentObject.getAppointmentID(),appointmentObject.getPatientID(),appointmentObject.getDate(),appointmentObject.getStartTime(),appointmentObject.getEndTime(),appointmentObject.getTitle());
         }
+        System.out.format("+-------+-------+------------+-------+-------+----------------------+%n");
     }
 
     public void addAppointment(int appointmentID, int patientID, String title, String date, String startTime, String endTime) {

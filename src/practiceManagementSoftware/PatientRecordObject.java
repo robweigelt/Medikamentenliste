@@ -35,26 +35,22 @@ class PatientRecordObject
     }
 
     static int SelectSearch(){
-
-        System.out.println("Please select between the different categories you are searching for by pressing the number [] and [Enter]:\n" +
+        System.out.print("__________________________________________\n"+
+                "Main Menu \n"+
+                "⌞ Patient Medical Record Menu\n"+
+                "  ⌞ Search\n\n" +
                 "[1] ID  \n" +
-                "[2]Title  \n" +
-                "[3] Surname  \n" + "[4]Name  \n" +
-                "[5] Medicine \n"+"[6]TherapeuticAreal  \n" +
-                "[7]DosageForm "
-        );
+                "[2] Title  \n" +
+                "[3] Surname  \n" + "[4] Name  \n" +
+                "[5] Medicine \n"+"[6] TherapeuticAreal  \n" +
+                "[7] DosageForm\n\nEnter choice here: ");
         return GetIntOrString.GetmyInt();
     }
     //List Array Indexing
-    static void SearchInsideListArray(int index)
-
-    {
-
+    static void SearchInsideListArray(int index) {
         createMedicine();
         System.out.println(Medicine1.get(index));
         Medicine1.clear();
-
-
     }
     //Creates new Entry
      void newEntry() throws IOException{
@@ -62,7 +58,7 @@ class PatientRecordObject
         FileWriter createnewLine = new FileWriter(neuDateipfad,true);
         System.out.println("Please enter all the information an press enter");
         System.out.println("ID:");
-         ID =GetIntOrString.GetmyString();
+        ID =GetIntOrString.GetmyString();
         System.out.println("Title:");
         Title =GetIntOrString.GetmyString();
         System.out.println("Surname:");
@@ -100,15 +96,35 @@ class PatientRecordObject
 
 
     //List all Items
-    static void ListAllItems(){
+//    static void ListAllItems(){
+//        createMedicine();
+//        for (PatientRecordObject patientRecordObject : Medicine1)
+//            try {
+//                System.out.println(patientRecordObject);
+//            } catch (IndexOutOfBoundsException ignored) {
+//            }
+//        Medicine1.clear();
+//    }
+
+        static void ListAllItems(){
         createMedicine();
-        for (PatientRecordObject patientRecordObject : Medicine1)
-            try {
-                System.out.println(patientRecordObject);
-            } catch (IndexOutOfBoundsException ignored) {
-            }
+        String leftAlignFormat = "| %-5s | %-5s | %-15s | %-15s | %-15s | %-15s | %-30s |%n";
+        System.out.format("+-------+-------+-----------------+-----------------+-----------------+-----------------+--------------------------------+%n");
+        System.out.format("| ID    | Title | Name            | Surname         | Medicine        | TherapeuticArea | DosageForm                     |%n");
+        System.out.format("+-------+-------+-----------------+-----------------+-----------------+-----------------+--------------------------------+%n");
+
+        for (PatientRecordObject patientRecordObject : Medicine1){
+
+                System.out.format(leftAlignFormat,patientRecordObject.getID(),patientRecordObject.getTitle(),patientRecordObject.getName(),patientRecordObject.getSurname(),HelperFunctions.cut(patientRecordObject.getMedicine(),15), HelperFunctions.cut(patientRecordObject.getTherapeuticArea(),15),HelperFunctions.cut(patientRecordObject.getDosageForm(),30));
+
+        }
+
+
+        System.out.format("+-------+-------+-----------------+-----------------+-----------------+-----------------+--------------------------------+%n");
+
         Medicine1.clear();
     }
+
 //Getter
     private String getID()
     {
@@ -158,50 +174,42 @@ class PatientRecordObject
                     myList.add(m.getID());
                 }
                 break;
-
             case 2:
                 for (PatientRecordObject m: PatientRecordObject.Medicine1)
                 {
                     myList.add(m.getTitle());
                 }
                 break;
-
             case 3:
                 for (PatientRecordObject m: PatientRecordObject.Medicine1)
                 {
                     myList.add(m.getSurname());
                 }
                 break;
-
             case 4:
                 for (PatientRecordObject m: PatientRecordObject.Medicine1)
                 {
                     myList.add(m.getName());
                 }
                 break;
-
             case 5:
                 for (PatientRecordObject m: PatientRecordObject.Medicine1)
                 {
                     myList.add(m.getMedicine());
                 }
                 break;
-
             case 6:
                 for (PatientRecordObject m: PatientRecordObject.Medicine1) {
                     myList.add(m.getTherapeuticArea());
                 }
                 break;
-
             case 7:
                 for (PatientRecordObject m: PatientRecordObject.Medicine1) {
                     myList.add(m.getDosageForm());
                 }
                 break;
-
-
             default:
-                System.out.println("You Entered an invalid Number");
+                System.out.println("You entered an invalid number");
 
         }
         return myList;
@@ -229,12 +237,10 @@ class PatientRecordObject
         try {
             CSVReader = new BufferedReader(new FileReader(neuDateipfad));
 
-
             String line;
             CSVReader.readLine();
             while ((line = CSVReader.readLine()) != null) {
                 String[] MedicineStringArray = line.split(Parser);
-
 
                 PatientRecordObject medicine0 = new PatientRecordObject
                 (
@@ -247,9 +253,7 @@ class PatientRecordObject
                         MedicineStringArray[6]
                 );
                 Medicine1.add(medicine0);
-
             }
-
         } catch (IOException ee) {
             ee.printStackTrace();
         } finally {
@@ -259,7 +263,6 @@ class PatientRecordObject
             } catch (IOException ie) {
                 System.out.println("Error occurred while reading the file");
                 ie.printStackTrace();
-
             }
         }
     }

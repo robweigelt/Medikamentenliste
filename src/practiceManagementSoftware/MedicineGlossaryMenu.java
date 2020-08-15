@@ -31,17 +31,8 @@ class MedicineGlossaryMenu {
                 List <String> myList = MedicineGlossaryObject.switcherMedCategories(a);
                 var listInCapitals = HelperFunctions.getList(myList);
                 var upperItem = HelperFunctions.makeStringToCapital();
-                if (listInCapitals.contains(upperItem)){
-                    int[] indexes =
-                            IntStream.range(0, listInCapitals.size())
-                                    .filter(i -> listInCapitals.get(i).equals(upperItem))
-                                    .toArray();
+                HelperFunctions.medicamentFinder(listInCapitals, upperItem);
 
-                    for (int b : indexes) {
-                        MedicineGlossaryObject.SearchInsideListArray(b);
-                    }
-                }
-                else System.out.println("No Results");
                 Menu();
             case 2:
                 int b = MedicineGlossaryObject.SelectSearch();

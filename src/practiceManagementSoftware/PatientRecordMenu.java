@@ -26,32 +26,11 @@ class PatientRecordMenu {
                 List <String> myList  = PatientRecordObject.switcherMedicineCategory(a);
                 var listInCapitals = HelperFunctions.getList(myList);
                 var upperItem = HelperFunctions.makeStringToCapital();
-                if (listInCapitals.contains(upperItem)){
-                    int[] indexes =
-                            IntStream.range(0, listInCapitals.size())
-                                    .filter(i -> listInCapitals.get(i).equals(upperItem))
-                                    .toArray();
-
-                    for (int b : indexes) {
-                       try{ PatientRecordObject.SearchInsideListArray(b);}
-                       catch (java.lang.IndexOutOfBoundsException ignored){
-                       }
-
-                    }
-
-                }
-
-
-                else System.out.println("No Results");
+                HelperFunctions.patientFinder(listInCapitals, upperItem);
                 Menu();
-
-
-
             case 2:
-
                 new PatientRecordObject().newEntry();
                 Menu();
-
             case 3:
                 PatientRecordObject.ListAllItems();
                 Menu();

@@ -1,5 +1,7 @@
 package practiceManagementSoftware;
 
+import org.junit.jupiter.api.Test;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -17,8 +19,8 @@ class MedicineGlossaryObject {
     private final String PharmacotherapeuticGroup;
 
 
-    private MedicineGlossaryObject(String MedicineName, String TherapeuticArea,
-                                   String INN, String ActiveSubstance, String ATC, String Company, String PharmacotherapeuticGroup) {
+    MedicineGlossaryObject(String MedicineName, String TherapeuticArea,
+                           String INN, String ActiveSubstance, String ATC, String Company, String PharmacotherapeuticGroup) {
         //Superclass
         super();
         this.MedicineName = MedicineName;
@@ -30,6 +32,8 @@ class MedicineGlossaryObject {
         this.PharmacotherapeuticGroup = PharmacotherapeuticGroup;
 
     }
+
+
 
     //Getter
     private String getMedicineName() {
@@ -73,7 +77,8 @@ class MedicineGlossaryObject {
 
     }
 
-//
+
+//Get List<Strings>
   static List<String> switcherMedCategories(int n) {
       ArrayList<String> myList = new ArrayList<>();
         {
@@ -137,20 +142,22 @@ class MedicineGlossaryObject {
                 +"Company=" + Company +"\n"
                 +"PharmacotherapeuticGroup=" + PharmacotherapeuticGroup +"\n";
     }
+    //Selection Menu
     static int SelectSearch(){
 
         System.out.println("Please select between the different categories you are searching for by pressing the number [] and [Enter]:\n" +
-                "MedicineName [1] \n" +
-                "TherapeuticArea [2] \n" +
-                "INN [3] \n" + "ActiveSubstance [4] \n" +
-                "ATC [5]\n"+"Company [6] \n" +
-                "PharmacotherapeuticGroup [7]"
+                "[1] MedicineName  \n" +
+                "[2] TherapeuticArea  \n" +
+                "[3] INN  \n" + "[4] ActiveSubstance \n" +
+                "[5] ATC \n"+"[6] Company \n" +
+                "[7] PharmacotherapeuticGroup "
         );
         return GetIntOrString.GetmyInt();
     }
     private final static List<MedicineGlossaryObject> MedList = new ArrayList<>();
     private static final String Parser = ";";
 
+   //Filereader
     private static void createMedList(){
     String neuDateipfad = Path.getPathofMedikamentenliste();
 

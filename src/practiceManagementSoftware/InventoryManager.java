@@ -1,10 +1,11 @@
 package practiceManagementSoftware;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.*;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Scanner;
 
 class InventoryManager {
 
@@ -126,14 +127,14 @@ class InventoryManager {
 
     //Hinzuf�gen einer durch int amountToAdd �bergebenden Menge eines Item Obj.
     //Ben�tigt Item Obj. dessen Menge erh�ht werden soll (geliefert durch z.B. Such Methoden)
-    public void addAmount(@NotNull InventoryObject foundInventoryObject, int amountToAdd){
+    public void addAmount(InventoryObject foundInventoryObject, int amountToAdd){
         int currentAmount = foundInventoryObject.getAmount();
         int newAmount = currentAmount + amountToAdd;
         foundInventoryObject.setAmount(newAmount);
     }
     //Verringer einer durch int amountToReduce �bergebenden Menge eines Item Obj.
     //Ben�tigt Item Obj. dessen Menge vermindert werden soll (geliefert durch z.B. Such Methoden)
-    public void reduceAmount(@NotNull InventoryObject foundInventoryObject, int amountToReduce){
+    public void reduceAmount(InventoryObject foundInventoryObject, int amountToReduce){
         int currentAmount = foundInventoryObject.getAmount();
         foundInventoryObject.setAmount(currentAmount - amountToReduce);
     }

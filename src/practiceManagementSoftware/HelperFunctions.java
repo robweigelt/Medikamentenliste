@@ -1,26 +1,25 @@
 package practiceManagementSoftware;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
-import static java.util.stream.IntStream.*;
+
+import static java.util.stream.IntStream.range;
 
 
 //Tabea
 class HelperFunctions {
-    static @NotNull String makeStringToCapital(){
+    static String makeStringToCapital(){
         System.out.println("Please type in the item you are looking for");
         String item = GetIntOrString.GetmyString();
         return item.toUpperCase();
     }
 
-    static @NotNull List<String> getList(List <String> mylist) {
+    static List<String> getList(List <String> mylist) {
 
         List<String> list;
         mylist.replaceAll(String::toUpperCase);
         return mylist;
     }
-    public static void patientFinder (@NotNull List <String> listInCapitals, String upperItem) {
+    public static void patientFinder (List <String> listInCapitals, String upperItem) {
 
         if (listInCapitals.contains(upperItem)) {
             int[] indexes =
@@ -39,7 +38,7 @@ class HelperFunctions {
         else System.out.println("No Results");
     }
 
-    public static void medicamentFinder (@NotNull List <String> listInCapitals, String upperItem)
+    public static void medicamentFinder (List <String> listInCapitals, String upperItem)
     {
         if (listInCapitals.contains(upperItem)){
             int[] indexes =

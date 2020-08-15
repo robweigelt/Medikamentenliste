@@ -1,7 +1,5 @@
 package practiceManagementSoftware;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -148,7 +146,7 @@ class PatientRecordObject
     }
 
 //Get full list with comparing PatientRecordObject
-    static @NotNull List <String> switcherMedicineCategory(int n)
+    static List <String> switcherMedicineCategory(int n)
     {
         createMedicine();
         List<String> myList = new ArrayList<>();

@@ -10,7 +10,7 @@ public class MainMenu {
     //Starter
     static int WelcomeText() {
         //Funtext();
-        System.out.print("Please press [1] and [Enter] to continue: ");
+        System.out.print("Please press [1] and [Enter] to continue: \nPlease press anyother number to close [x]: ");
         return GetIntOrString.GetmyInt();
     }
 

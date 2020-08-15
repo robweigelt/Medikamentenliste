@@ -3,9 +3,6 @@ package practiceManagementSoftware;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-import java.util.stream.IntStream;
-
-import static com.sun.jmx.mbeanserver.Util.cast;
 import static java.util.stream.IntStream.*;
 
 

@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Main {
 
 //Tabea
-    public static void main(String[] args) throws CloneNotSupportedException, IOException, InterruptedException {
+    public static void main(String[] args) throws CloneNotSupportedException, IOException {
 
         //MainMenu.Funtext();
        int a = MainMenu.WelcomeText();

@@ -32,7 +32,9 @@ class InventoryMenu {
 
     public void start() throws IOException, CloneNotSupportedException {
         im.readCSV();
+        //noinspection InfiniteLoopStatement
         while (true){
+            try{
             int choice = menu();
             switch(choice) {
                 case 0:
@@ -53,7 +55,8 @@ class InventoryMenu {
                     break;
                 default:
                     throw new AssertionError();
-            }
+            }}
+            catch (RuntimeException ignored){}
         }
     }
 
@@ -79,10 +82,12 @@ class InventoryMenu {
         if(sc.hasNextInt()) {
             int itemId = readInt(0, Integer.MAX_VALUE);
             foundItem = im.searchItemByID(itemId);
-        } else {
+        }
+        else {
             String itemName = sc.nextLine();
             foundItem = im.searchItemByName(itemName);
         }
+        if (foundItem != null){
         System.out.println("      [1] Increase amount");
         System.out.println("      [2] Decrease amount");
         int choice = readInt(1,2);
@@ -96,6 +101,12 @@ class InventoryMenu {
             im.reduceAmount(foundItem, amountToReduce);
         }
 
+    }
+        else {
+            System.out.println("Item was not found");
+            menu();
+
+        }
     }
 
     private void deleteItem() {

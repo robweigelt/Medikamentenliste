@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Scanner;
 
+
 public class AppointmentManager {
     //Hannes Kukulenz
 
-    private String filepath = "Appointments.csv";
     private final List<AppointmentObject> appointmentObjects = new ArrayList<>();
     private final Scanner input = new Scanner(System.in);
 
@@ -96,6 +96,7 @@ public class AppointmentManager {
 
         String tempFile = "temp.csv";
         File newFile = new File(tempFile);
+        String filepath = "Appointments.csv";
         File oldFile = new File(filepath);
 
         try {

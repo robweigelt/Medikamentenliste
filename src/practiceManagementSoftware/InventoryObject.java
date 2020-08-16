@@ -1,7 +1,4 @@
 package practiceManagementSoftware;
-
-import java.util.Comparator;
-
 public class InventoryObject {
 
     //Atribute Item Objekt
@@ -47,10 +44,5 @@ public class InventoryObject {
     public String toString() {
         return "Item [Item ID: " + id + ", Item Name: " + name + ", Item Menge: " + amount + "]";
     }
-
-
-    //Comparator Methoden f?r InventoryItemSorter
-    static final Comparator<InventoryObject> amountComparatorDecending  = (it1, it2) -> Integer.compare(it2.getAmount(),it1.getAmount());
-
 }
 

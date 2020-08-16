@@ -78,13 +78,12 @@ public class AppointmentObject {
     public String toString() {
         String leftAlignFormat = "| %-10s | %-40s |%n";
         String line = String.format("+------------+------------------------------------------+%n");
-        String print = line + String.format(leftAlignFormat,"A.ID", appointmentID)
+        return line + String.format(leftAlignFormat,"A.ID", appointmentID)
                 + line + String.format(leftAlignFormat,"P.ID", patientID)
                 + line + String.format(leftAlignFormat,"Title", title)
                 + line + String.format(leftAlignFormat,"Date", date)
                 + line + String.format(leftAlignFormat,"Start", startTime)
                 + line + String.format(leftAlignFormat,"End", endTime)
                 + line;
-        return print;
     }
 }

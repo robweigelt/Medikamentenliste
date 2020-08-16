@@ -6,11 +6,10 @@ import java.util.Scanner;
 public class PatientMenu {
     //Hannes Kukulenz
 
-    private final Scanner input;
     private final PatientManager ptm;
 
     public PatientMenu() {
-        this.input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         this.ptm = new PatientManager();
     }
 

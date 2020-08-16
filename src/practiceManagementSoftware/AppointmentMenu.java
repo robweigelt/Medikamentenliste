@@ -16,9 +16,15 @@ public class AppointmentMenu {
 
     public void runProgram() throws IOException, CloneNotSupportedException {
         aptm.readAppointmentCSV();
+        //noinspection InfiniteLoopStatement
         while (true) {
-            mainMenu();
+            try {
+                mainMenu();
+            }
+            catch (RuntimeException ignored){}
         }
+
+
     }
 
     private void mainMenu() throws IOException, CloneNotSupportedException {

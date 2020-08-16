@@ -61,9 +61,9 @@ public class PatientManager {
         try {
             PatientObject pt = new PatientObject(patient_Id, name, surname, gender, dateOfBirth, insuranceName, street, city, zip);
             patients.add(pt);
-            System.out.println("PatientObject saved!");
+            System.out.println("Patient saved!");
         } catch (Exception e) {
-            System.out.println("PatientObject could not be saved!");
+            System.out.println("Patient could not be saved!");
         }
     }
 
@@ -71,7 +71,7 @@ public class PatientManager {
         try {
             patients.remove(foundpatient);
         } catch (Exception e) {
-            System.out.println("PatientObject could not be removed!");
+            System.out.println("Patient could not be removed!");
         }
     }
 
@@ -79,7 +79,7 @@ public class PatientManager {
         try {
             System.out.println(foundpatient);
         } catch (Exception e) {
-            System.out.println("PatientObject could not be found!");
+            System.out.println("Patient could not be found!");
         }
     }
 
@@ -88,14 +88,17 @@ public class PatientManager {
             if (foundPatient.getPatient_Id() == patId) {
                 return foundPatient;
             }
+            System.out.println("Patient could not be found!");
         }
         return null;
     }
 
     public void writePatientToCSV() {
         ListIterator<PatientObject> lItr = patients.listIterator();
-
         String tempFile = "temp.csv";
+        File newFile = new File(tempFile);
+        String filepath = "Patients.csv";
+        File oldFile = new File(filepath);
 
         try {
             FileWriter fw = new FileWriter(tempFile, true);
@@ -111,6 +114,10 @@ public class PatientManager {
             pw.flush();
             pw.close();
             System.out.println("Patients were successfully written to CSV!");
+
+            oldFile.delete();
+            File dump = new File(filepath);
+            newFile.renameTo(dump);
         } catch (Exception e) {
             System.out.println("Patients could not be written to CSV!");
         }

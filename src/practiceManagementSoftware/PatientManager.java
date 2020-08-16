@@ -79,9 +79,9 @@ public class PatientManager {
         try {
             System.out.println(foundpatient);
         } catch (Exception e) {
-
+            System.out.println("Patient could not be found!");
         }
-        System.out.println("Patient could not be found!");
+
     }
 
     public PatientObject searchPatientByID(int patId) {
@@ -91,7 +91,7 @@ public class PatientManager {
             }
 
         }
-        System.out.println("Patient could not be found!");
+
         return null;
 
     }

@@ -5,7 +5,7 @@ import java.util.List;
 import static java.util.stream.IntStream.range;
 
 
-//Tabea
+//Code Tabea Boeger -- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
 class HelperFunctions {
     static String makeStringToCapital(){
         System.out.println("Please type in the item you are looking for");

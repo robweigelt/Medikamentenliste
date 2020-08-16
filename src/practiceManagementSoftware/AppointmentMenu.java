@@ -3,10 +3,11 @@ package practiceManagementSoftware;
 import java.io.IOException;
 import java.util.Scanner;
 
+//Code Hannes Kukulenz -- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
 public class AppointmentMenu {
-    //Hannes Kukulenz
 
-    private final Scanner input;
+
+    private Scanner input;
     private final AppointmentManager aptm;
 
     public AppointmentMenu() {
@@ -49,9 +50,9 @@ public class AppointmentMenu {
                 System.out.println();
                 break;
             case 2:
-                int id2;
+
                 System.out.print("Enter appointment ID to Search: ");
-                id2 = input.nextInt();
+                int id2 = GetIntOrString.GetmyInt();
                 AppointmentObject foundAppointmentObject = aptm.searchAppointmentByID(id2);
                 System.out.println("__________________________________________\n");
                 aptm.showAppointmentById(foundAppointmentObject);
@@ -86,12 +87,12 @@ public class AppointmentMenu {
             aptm.addingAppointment();
         } else if (a_choice == 2) {
             System.out.print("Enter appointment ID to edit: ");
-            int id = input.nextInt();
+            int id = GetIntOrString.GetmyInt();
             System.out.println("__________________________________________\n" +"Edit appointment");
             aptm.editAppointment(id);
         } else if (a_choice == 3) {
             System.out.print("Enter appointment ID to delete: ");
-            int id = input.nextInt();
+            int id = GetIntOrString.GetmyInt();
             AppointmentObject foundAppointmentObject = aptm.searchAppointmentByID(id);
             aptm.deleteAppointment(foundAppointmentObject);
             System.out.println("The appointment of ID " + foundAppointmentObject.getAppointmentID() + " was successfully removed!");

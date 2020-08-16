@@ -3,8 +3,9 @@ package practiceManagementSoftware;
 import java.io.IOException;
 import java.util.Scanner;
 
+//Code Hannes Kukulenz-- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
 public class PatientMenu {
-    //Hannes Kukulenz
+
 
     private final PatientManager ptm;
 

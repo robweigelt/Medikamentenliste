@@ -1,7 +1,5 @@
 package practiceManagementSoftware;
 
-import org.junit.jupiter.api.Test;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -132,16 +130,32 @@ class MedicineGlossaryObject {
 
     }
 
+//    @Override
+//    public String toString() {
+//        return "MedicineName=" + MedicineName +"\n"
+//                + "TherapeuticArea=" + TherapeuticArea +"\n"
+//                + "INN=" + INN +"\n"
+//                + "ActiveSubstance=" + ActiveSubstance +"\n"
+//                + "ATC=" + ATC +"\n"
+//                +"Company=" + Company +"\n"
+//                +"PharmacotherapeuticGroup=" + PharmacotherapeuticGroup +"\n";
+//    }
+
     @Override
     public String toString() {
-        return "MedicineName=" + MedicineName +"\n"
-                + "TherapeuticArea=" + TherapeuticArea +"\n"
-                + "INN=" + INN +"\n"
-                + "ActiveSubstance=" + ActiveSubstance +"\n"
-                + "ATC=" + ATC +"\n"
-                +"Company=" + Company +"\n"
-                +"PharmacotherapeuticGroup=" + PharmacotherapeuticGroup +"\n";
+        String leftAlignFormat = "| %-24s | %-90s |%n";
+        String line = String.format("+--------------------------+--------------------------------------------------------------------------------------------+%n");
+        String print = line + String.format(leftAlignFormat,"MedicineName", MedicineName)
+                + line + String.format(leftAlignFormat,"TherapeuticArea", TherapeuticArea)
+                + line + String.format(leftAlignFormat,"INN", INN)
+                + line + String.format(leftAlignFormat,"ActiveSubstance", ActiveSubstance)
+                + line + String.format(leftAlignFormat,"ATC", ATC)
+                + line + String.format(leftAlignFormat,"Company", Company)
+                + line + String.format(leftAlignFormat,"PharmacotherapeuticGroup", PharmacotherapeuticGroup)
+                + line;
+        return print;
     }
+
     //Selection Menu
     static int SelectSearch(){
 

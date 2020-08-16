@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class AppointmentManager {
 
+    private String filepath = "Appointments.csv";
     private final List<AppointmentObject> appointmentObjects = new ArrayList<>();
     private final Scanner input = new Scanner(System.in);
 
@@ -93,6 +94,8 @@ public class AppointmentManager {
         ListIterator<AppointmentObject> lItr = appointmentObjects.listIterator();
 
         String tempFile = "temp.csv";
+        File newFile = new File(tempFile);
+        File oldFile = new File(filepath);
 
         try {
             FileWriter fw = new FileWriter(tempFile, true);
@@ -107,8 +110,13 @@ public class AppointmentManager {
             }
             pw.flush();
             pw.close();
-            System.out.println("Appointments were successfully written to CSV!");
 
+            boolean wasSuccessufull =oldFile.delete();
+            File dump = new File(filepath);
+            boolean wasAlsoSuccessfull =newFile.renameTo(dump);
+            if (wasAlsoSuccessfull&&wasSuccessufull){
+                System.out.println("Appointments were successfully written to CSV!");
+            }
         } catch (Exception e) {
             System.out.println("Appointments could not be written to CSV!");
         }

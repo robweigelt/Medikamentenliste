@@ -159,6 +159,8 @@ class InventoryManager {
 
         //Pfad f�r Temp-File und erstellen der Temp-File
         String tempFile = "temp.csv";
+        File newFile = new File(tempFile);
+        File oldFile = new File(filepath);
 
         try {
 
@@ -184,10 +186,14 @@ class InventoryManager {
             System.out.println("Inventory was succesfully saved!");
 
             //l�schen der alten Praxis_Inventur.csv
-
+            boolean wasSuccessfull =oldFile.delete();
             //dump File f�r Praxis_Inventur.csv Pfad
+            File dump = new File(filepath);
             //Umbennenen der Temp-File zu Praxis_Inventur.csv
-
+            boolean wasAlsoSuccessfull =newFile.renameTo(dump);
+            if(wasAlsoSuccessfull&&wasSuccessfull){
+                System.out.println("Inventory was succesfully saved!");
+            }
 
         } catch(Exception e) {
             System.out.println("An error occured while saving the file!");

@@ -37,6 +37,7 @@ class InventoryMenu {
             switch(choice) {
                 case 0:
                     MainMenu.Menu();
+                    break;
                 case 1:
                     addItem();
                     break;
@@ -48,6 +49,7 @@ class InventoryMenu {
                     break;
                 case 4:
                     showAll();
+                    break;
                 case 5:
                     im.writeInventoryToCSV();
                     break;

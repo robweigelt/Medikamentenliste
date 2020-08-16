@@ -113,11 +113,15 @@ public class PatientManager {
             }
             pw.flush();
             pw.close();
-            System.out.println("Patients were successfully written to CSV!");
 
-            oldFile.delete();
+
+
+            boolean wasSuccessful = oldFile.delete();
             File dump = new File(filepath);
-            newFile.renameTo(dump);
+            boolean wasAlsoSuccesfull = newFile.renameTo(dump);
+            if (wasSuccessful && wasAlsoSuccesfull){
+                System.out.println("Patients were successfully written to CSV!");
+            }
         } catch (Exception e) {
             System.out.println("Patients could not be written to CSV!");
         }

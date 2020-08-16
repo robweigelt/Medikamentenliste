@@ -3,10 +3,11 @@ package practiceManagementSoftware;
 import java.io.IOException;
 import java.util.Scanner;
 
+//Code Hannes Kukulenz -- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
 public class AppointmentMenu {
-    //Hannes Kukulenz
 
-    private final Scanner input;
+
+    private Scanner input;
     private final AppointmentManager aptm;
 
     public AppointmentMenu() {

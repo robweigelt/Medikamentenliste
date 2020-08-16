@@ -2,7 +2,7 @@ package practiceManagementSoftware;
 import java.util.Scanner;
 
 
-//Tabea
+//Code Tabea Boeger -- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
 class GetIntOrString {
 
 static String GetmyString(){

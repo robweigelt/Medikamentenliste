@@ -10,8 +10,9 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Scanner;
 
+//Code Hannes Kukulenz-- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
 public class PatientManager {
-    //Hannes Kukulenz
+
 
     private final List<PatientObject> patients = new ArrayList<>();
     private final Scanner input = new Scanner(System.in);

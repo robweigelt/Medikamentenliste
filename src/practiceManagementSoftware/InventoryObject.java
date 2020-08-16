@@ -1,4 +1,6 @@
 package practiceManagementSoftware;
+
+//Code Hannes Kukulenz -- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
 public class InventoryObject {
 
     //Atribute Item Objekt

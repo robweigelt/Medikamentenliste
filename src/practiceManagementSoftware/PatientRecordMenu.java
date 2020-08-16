@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 
-//Deleter hinzufügen
+//Code Robert Weigelt-- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
 class PatientRecordMenu {
     static void Menu() throws CloneNotSupportedException, IOException {
         System.out.println("__________________________________________");

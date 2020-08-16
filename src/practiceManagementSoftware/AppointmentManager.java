@@ -10,9 +10,9 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Scanner;
 
-
+//Code Hannes Kukulenz -- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
 public class AppointmentManager {
-    //Hannes Kukulenz
+
 
     private final List<AppointmentObject> appointmentObjects = new ArrayList<>();
     private final Scanner input = new Scanner(System.in);
@@ -153,7 +153,7 @@ public class AppointmentManager {
         }
         System.out.println("Enter Patient Id: ");
         int patientID = GetIntOrString.GetmyInt();
-        System.out.println("Enter Title: ");
+        System.out.println("Enter Medical Procedure : ");
         String title = input.nextLine();
         System.out.println("Enter Date: ");
         String date = input.nextLine();

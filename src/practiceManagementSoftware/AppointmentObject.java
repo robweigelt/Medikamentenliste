@@ -1,7 +1,8 @@
 package practiceManagementSoftware;
 
+//Code Hannes Kukulenz -- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
 public class AppointmentObject {
-    //Hannes Kukulenz
+
 
     private int appointmentID;
     private int patientID;

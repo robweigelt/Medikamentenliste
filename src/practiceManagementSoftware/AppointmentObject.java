@@ -1,6 +1,7 @@
 package practiceManagementSoftware;
 
 public class AppointmentObject {
+    //Hannes Kukulenz
 
     private int appointmentID;
     private int patientID;

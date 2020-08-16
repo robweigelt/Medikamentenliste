@@ -1,6 +1,7 @@
 package practiceManagementSoftware;
 
 public class PatientObject {
+    //Hannes Kukulenz
 
     private int patient_Id;
     private String name;

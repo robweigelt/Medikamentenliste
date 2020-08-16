@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class AppointmentMenu {
+    //Hannes Kukulenz
 
     private final Scanner input;
     private final AppointmentManager aptm;
@@ -62,7 +63,7 @@ public class AppointmentMenu {
 
     private void addEditDeleteMenu() throws IOException, CloneNotSupportedException {
         int a_choice;
-        System.out.print("__________________________________________"
+        System.out.print("__________________________________________\n"
         +"Main Menu \n"
         +"⌞ Appointments Menu\n"
         +"  ⌞ Add, edit and delete\n\n"
@@ -87,7 +88,7 @@ public class AppointmentMenu {
             int id = input.nextInt();
             AppointmentObject foundAppointmentObject = aptm.searchAppointmentByID(id);
             aptm.deleteAppointment(foundAppointmentObject);
-            System.out.println("The appointment of id " + foundAppointmentObject.getAppointmentID() + " was successfully removed!");
+            System.out.println("The appointment of ID " + foundAppointmentObject.getAppointmentID() + " was successfully removed!");
         } else {
             mainMenu();
         }

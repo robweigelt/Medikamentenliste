@@ -11,6 +11,7 @@ import java.util.ListIterator;
 import java.util.Scanner;
 
 public class AppointmentManager {
+    //Hannes Kukulenz
 
     private String filepath = "Appointments.csv";
     private final List<AppointmentObject> appointmentObjects = new ArrayList<>();
@@ -59,9 +60,9 @@ public class AppointmentManager {
         try {
             AppointmentObject apt = new AppointmentObject(appointmentID, patientID, title, date, startTime, endTime);
             appointmentObjects.add(apt);
-            System.out.println("AppointmentObject saved!");
+            System.out.println("Appointment saved!");
         } catch (Exception e) {
-            System.out.println("AppointmentObject could not be saved!");
+            System.out.println("Appointment could not be saved!");
         }
     }
 
@@ -69,7 +70,7 @@ public class AppointmentManager {
         try {
             appointmentObjects.remove(foundappointment);
         } catch (Exception e) {
-            System.out.println("AppointmentObject could not be removed!");
+            System.out.println("Appointment could not be removed!");
         }
     }
 
@@ -77,7 +78,7 @@ public class AppointmentManager {
         try {
             System.out.println(foundappointment);
         } catch (Exception e) {
-            System.out.println("AppointmentObject could not be found!");
+            System.out.println("Appointment could not be found!");
         }
     }
 
@@ -143,17 +144,15 @@ public class AppointmentManager {
 
     public void addingAppointment() {
         System.out.println();
-        System.out.println("Enter AppointmentObject ID: ");
-        int appointmentID = input.nextInt();
+        System.out.println("Enter Appointment ID: ");
+        int appointmentID = GetIntOrString.GetmyInt();
         while (checkIfIDExists(appointmentID)) {
             System.out.println("ID already taken, try a new one:");
-            appointmentID = input.nextInt();
+            appointmentID = GetIntOrString.GetmyInt();
         }
-
-        System.out.println("Enter PatientObject Id: ");
-        int patientID = input.nextInt();
+        System.out.println("Enter Patient Id: ");
+        int patientID = GetIntOrString.GetmyInt();
         System.out.println("Enter Title: ");
-        input.nextLine();
         String title = input.nextLine();
         System.out.println("Enter Date: ");
         String date = input.nextLine();

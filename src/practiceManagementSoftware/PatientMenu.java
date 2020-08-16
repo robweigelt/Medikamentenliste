@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class PatientMenu {
+    //Hannes Kukulenz
 
     private final Scanner input;
     private final PatientManager ptm;
@@ -64,7 +65,6 @@ public class PatientMenu {
     }
 
     public void addEditDeleteMenu() throws IOException, CloneNotSupportedException {
-        ;
         System.out.println("__________________________________________");
         System.out.println("Main Menu");
         System.out.println("⌞ Patients Menu");

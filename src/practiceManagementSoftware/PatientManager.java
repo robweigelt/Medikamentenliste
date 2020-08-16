@@ -11,6 +11,7 @@ import java.util.ListIterator;
 import java.util.Scanner;
 
 public class PatientManager {
+    //Hannes Kukulenz
 
     private final List<PatientObject> patients = new ArrayList<>();
     private final Scanner input = new Scanner(System.in);
@@ -151,11 +152,11 @@ public class PatientManager {
 
     public void addingPatient() {
         System.out.println();
-        System.out.println("Enter PatientObject ID: ");
+        System.out.println("Enter Patient ID: ");
         int Id = GetIntOrString.GetmyInt();
         while (checkIfIDExists(Id)) {
             System.out.println("ID already taken, try a new one:");
-            Id = input.nextInt();
+            Id = GetIntOrString.GetmyInt();
         }
         System.out.println("Enter Name: ");
         String name = input.nextLine();

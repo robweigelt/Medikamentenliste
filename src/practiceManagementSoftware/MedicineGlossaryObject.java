@@ -158,14 +158,12 @@ class MedicineGlossaryObject {
 
     //Selection Menu
     static int SelectSearch(){
-
-        System.out.println("Please select between the different categories you are searching for by pressing the number [] and [Enter]:\n" +
-                "[1] MedicineName  \n" +
-                "[2] TherapeuticArea  \n" +
-                "[3] INN  \n" + "[4] ActiveSubstance \n" +
-                "[5] ATC \n"+"[6] Company \n" +
-                "[7] PharmacotherapeuticGroup "
-        );
+        System.out.print("[1] MedicineName\n" +
+                "[2] TherapeuticArea  \n"+
+                "[3] INN  \n" + "[4] ActiveSubstance \n"+
+                "[5] ATC \n"+"[6] Company \n"+
+                "[7] PharmacotherapeuticGroup\n\n"+
+                "Enter choice here: ");
         return GetIntOrString.GetmyInt();
     }
     private final static List<MedicineGlossaryObject> MedList = new ArrayList<>();

@@ -77,9 +77,9 @@ class InventoryManager {
         try {
             InventoryObject it = new InventoryObject(id,name,amount);
             Inventory.add(it);
-            System.out.println("Item erfolgreich gespeichert!");
+            System.out.println("Items are saved!");
         } catch (Exception e) {
-            System.out.println("Item konnte nicht gespeichert werden!");
+            System.out.println("An error occured while saving the file!");
         }
     }
 
@@ -88,7 +88,7 @@ class InventoryManager {
     public void deleteItem(InventoryObject foundInventoryObject){
         try{
             Inventory.remove(foundInventoryObject);
-            System.out.println("Das Item " + foundInventoryObject.getName() + " wurde erfolgreich entfernt!");
+            System.out.println("Them item " + foundInventoryObject.getName() + " was succesfully deleted!");
         } catch (Exception e) {
             System.out.println("Item konnte nicht entfernt werden!");
         }
@@ -181,7 +181,7 @@ class InventoryManager {
 
             pw.flush();
             pw.close();
-            System.out.println("Inventar wurde erfolgreich in CSV geschrieben!");
+            System.out.println("Inventory was succesfully saved!");
 
             //l�schen der alten Praxis_Inventur.csv
 
@@ -190,7 +190,7 @@ class InventoryManager {
 
 
         } catch(Exception e) {
-            System.out.println("Inventar konnte nicht in CSV geschrieben werden!");
+            System.out.println("An error occured while saving the file!");
         }
 
     }

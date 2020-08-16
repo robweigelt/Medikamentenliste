@@ -48,7 +48,6 @@ class InventoryMenu {
                     break;
                 case 4:
                     showAll();
-                    break;
                 case 5:
                     im.writeInventoryToCSV();
                     break;

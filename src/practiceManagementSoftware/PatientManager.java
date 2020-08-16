@@ -95,7 +95,7 @@ public class PatientManager {
     public void writePatientToCSV() {
         ListIterator<PatientObject> lItr = patients.listIterator();
 
-        String tempFile = "temp.csv";
+        String tempFile = "Patients.csv";
 
         try {
             FileWriter fw = new FileWriter(tempFile, true);
@@ -103,10 +103,10 @@ public class PatientManager {
             PrintWriter pw = new PrintWriter(bw);
             PatientObject patientIt1 = lItr.next();
 
-            pw.print(patientIt1.getPatient_Id() + ";" + patientIt1.getName() + ";" + patientIt1.getSurname() + ";" + patientIt1.getGender() + ";" + patientIt1.getDateOfBirth() + ";" + patientIt1.getInsuranceName() + ";" + patientIt1.getCity() + ";" + patientIt1.getStreet() + ";" + patientIt1.getZip() + ";");
+            pw.print(patientIt1.getPatient_Id() + ";" + patientIt1.getName() + ";" + patientIt1.getSurname() + ";" + patientIt1.getGender() + ";" + patientIt1.getDateOfBirth() + ";" + patientIt1.getInsuranceName() + ";" + patientIt1.getStreet() + ";" + patientIt1.getCity() + ";" + patientIt1.getZip() + ";");
             while (lItr.hasNext()) {
                 PatientObject patIt = lItr.next();
-                pw.print("\n" + patIt.getPatient_Id() + ";" + patIt.getName() + ";" + patIt.getSurname() + ";" + patIt.getGender() + ";" + patIt.getDateOfBirth() + ";" + patIt.getInsuranceName() + ";" + patIt.getCity() + ";" + patIt.getStreet() + ";" + patIt.getZip() + ";");
+                pw.print("\n" + patIt.getPatient_Id() + ";" + patIt.getName() + ";" + patIt.getSurname() + ";" + patIt.getGender() + ";" + patIt.getDateOfBirth() + ";" + patIt.getInsuranceName() + ";" + patIt.getStreet() + ";" + patIt.getCity() + ";" + patIt.getZip() + ";");
             }
             pw.flush();
             pw.close();
@@ -138,13 +138,12 @@ public class PatientManager {
     public void addingPatient() {
         System.out.println();
         System.out.println("Enter PatientObject ID: ");
-        int Id = input.nextInt();
+        int Id = GetIntOrString.GetmyInt();
         while (checkIfIDExists(Id)) {
             System.out.println("ID already taken, try a new one:");
             Id = input.nextInt();
         }
         System.out.println("Enter Name: ");
-        input.nextLine();
         String name = input.nextLine();
         System.out.println("Enter Surname: ");
         String surname = input.nextLine();

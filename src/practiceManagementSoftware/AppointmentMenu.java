@@ -31,7 +31,7 @@ public class AppointmentMenu {
         +"[9] Return (discard changes)\n"
         +"[0] Return (save to CSV)\n\n"
         +"Enter choice here: ");
-        int choice = input.nextInt();
+        int choice = GetIntOrString.GetmyInt();
         switch (choice) {
             case 0:
                 aptm.writeAppointmentToCSV();
@@ -72,7 +72,7 @@ public class AppointmentMenu {
         +"[-] \n"
         +"[0] Return\n\n"
         +"Enter choice here: ");
-        a_choice = input.nextInt();
+        a_choice = GetIntOrString.GetmyInt();
         if (a_choice == 1) {
             System.out.println("__________________________________________\n"
             +"Add appointment");

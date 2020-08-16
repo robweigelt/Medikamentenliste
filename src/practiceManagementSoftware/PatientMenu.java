@@ -33,7 +33,7 @@ public class PatientMenu {
         System.out.println("[0] Return (save to CSV)");
         System.out.println();
         System.out.print("Enter choice here: ");
-        int choice = input.nextInt();
+        int choice = GetIntOrString.GetmyInt();
         switch (choice) {
             case 0:
                 ptm.writePatientToCSV();
@@ -46,7 +46,7 @@ public class PatientMenu {
             case 2:
                 int id;
                 System.out.print("Enter patient ID to Search: ");
-                id = input.nextInt();
+                id = GetIntOrString.GetmyInt();
                 PatientObject foundPatient = ptm.searchPatientByID(id);
                 System.out.println("__________________________________________\n");
                 ptm.showPatientById(foundPatient);
@@ -64,7 +64,7 @@ public class PatientMenu {
     }
 
     public void addEditDeleteMenu() throws IOException, CloneNotSupportedException {
-        int p_choice;
+        ;
         System.out.println("__________________________________________");
         System.out.println("Main Menu");
         System.out.println("⌞ Patients Menu");
@@ -77,7 +77,7 @@ public class PatientMenu {
         System.out.println("[0] Return");
         System.out.println();
         System.out.print("Enter choice here: ");
-        p_choice = input.nextInt();
+        int p_choice = GetIntOrString.GetmyInt();
         if (p_choice == 1) {
             System.out.println("__________________________________________");
             System.out.println("Add patient");

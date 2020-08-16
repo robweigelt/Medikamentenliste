@@ -215,17 +215,35 @@ class PatientRecordObject
         return myList;
     }
 //Convert Object to visable String
+//    @Override
+//    public String toString() {
+//        return " ID =" + ID +"\n"
+//                + " Title =" + Title + "\n"
+//                + " Surname =" + Surname + "\n"
+//                + " Name =" + Name + "\n"
+//                + " Medicine =" + Medicine + "\n"
+//                + " TherapeuticArea =" + TherapeuticArea + "\n"
+//                + " DosageForm =" + DosageForm + "\n"
+//                ;
+//    }
+
     @Override
     public String toString() {
-        return " ID =" + ID +"\n"
-                + " Title =" + Title + "\n"
-                + " Surname =" + Surname + "\n"
-                + " Name =" + Name + "\n"
-                + " Medicine =" + Medicine + "\n"
-                + " TherapeuticArea =" + TherapeuticArea + "\n"
-                + " DosageForm =" + DosageForm + "\n"
-                ;
-    }
+
+        String leftAlignFormat = "| %-15s | %-60s |%n";
+        String line = String.format("+-----------------+--------------------------------------------------------------+%n");
+        String print = line + String.format(leftAlignFormat,"ID", ID)
+                + line + String.format(leftAlignFormat,"Title", Title)
+                + line + String.format(leftAlignFormat,"Surname", Surname)
+                + line + String.format(leftAlignFormat,"Name", Name)
+                + line + String.format(leftAlignFormat,"Medicine", Medicine)
+                + line + String.format(leftAlignFormat,"TherapeuticArea", TherapeuticArea)
+                + line + String.format(leftAlignFormat,"DosageForm", DosageForm)
+                + line;
+        return print;
+        }
+
+
 //Filereader
     private final static List<PatientRecordObject> Medicine1 = new ArrayList<>();
     private static final String Parser = ";";

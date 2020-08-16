@@ -95,7 +95,7 @@ public class PatientManager {
     public void writePatientToCSV() {
         ListIterator<PatientObject> lItr = patients.listIterator();
 
-        String tempFile = "Patients.csv";
+        String tempFile = "temp.csv";
 
         try {
             FileWriter fw = new FileWriter(tempFile, true);

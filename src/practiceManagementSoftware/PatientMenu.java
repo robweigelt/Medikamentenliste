@@ -84,13 +84,13 @@ public class PatientMenu {
             ptm.addingPatient();
         } else if (p_choice == 2) {
             System.out.print("Enter patient ID to edit: ");
-            int id = input.nextInt();
+            int id = GetIntOrString.GetmyInt();
             System.out.println("__________________________________________");
             System.out.println("Edit patient");
             ptm.editPatient(id);
         } else if (p_choice == 3) {
             System.out.print("Enter ID to delete: ");
-            int i = input.nextInt();
+            int i = GetIntOrString.GetmyInt();
             PatientObject foundPatient = ptm.searchPatientByID(i);
             ptm.deletePatient(foundPatient);
             System.out.println("The patient " + foundPatient.getName() + " was successfully removed!");

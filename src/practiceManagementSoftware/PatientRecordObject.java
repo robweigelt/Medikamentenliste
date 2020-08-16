@@ -53,7 +53,7 @@ class PatientRecordObject
         Medicine1.clear();
     }
     //Creates new Entry
-     void newEntry() throws IOException{
+     void newEntry() throws IOException, CloneNotSupportedException {
         String neuDateipfad = Path.getPathofDarreichungsformen();
         FileWriter createnewLine = new FileWriter(neuDateipfad,true);
         System.out.println("Please enter all the information an press enter");
@@ -86,7 +86,7 @@ class PatientRecordObject
             }
         }
         else{
-            newEntry();
+            PatientRecordMenu.Menu();
         }
         Medicine1.clear();
 

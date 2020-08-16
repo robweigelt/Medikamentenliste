@@ -68,8 +68,22 @@ public class AppointmentObject {
         this.endTime = endTime;
     }
 
+//    @Override
+//    public String toString() {
+//        return "AppointmentObject [AptID: " + appointmentID + ", PatId: " + patientID + ", Title: " + title + ", Date: " + date + ", Start Time: " + startTime + ", End Time: " + endTime + "]";
+//    }
+
     @Override
     public String toString() {
-        return "AppointmentObject [AptID: " + appointmentID + ", PatId: " + patientID + ", Title: " + title + ", Date: " + date + ", Start Time: " + startTime + ", End Time: " + endTime + "]";
+        String leftAlignFormat = "| %-10s | %-40s |%n";
+        String line = String.format("+------------+------------------------------------------+%n");
+        String print = line + String.format(leftAlignFormat,"A.ID", appointmentID)
+                + line + String.format(leftAlignFormat,"P.ID", patientID)
+                + line + String.format(leftAlignFormat,"Title", title)
+                + line + String.format(leftAlignFormat,"Date", date)
+                + line + String.format(leftAlignFormat,"Start", startTime)
+                + line + String.format(leftAlignFormat,"End", endTime)
+                + line;
+        return print;
     }
 }

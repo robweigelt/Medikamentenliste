@@ -97,8 +97,27 @@ public class PatientObject {
         this.zip = zip;
     }
 
+//    @Override
+//    public String toString() {
+//        return "PatientObject [ID: " + patient_Id + ", Name: " + name + ", Surname: " + surname + ", Gender: " + gender + ", DOB: " + dateOfBirth + ", Insurance: " + insuranceName + ", Street: " + street + ", City: " + city + ", Zip: " + zip + "]";
+//    }
+
     @Override
     public String toString() {
-        return "PatientObject [ID: " + patient_Id + ", Name: " + name + ", Surname: " + surname + ", Gender: " + gender + ", DOB: " + dateOfBirth + ", Insurance: " + insuranceName + ", Street: " + street + ", City: " + city + ", Zip: " + zip + "]";
+
+        String leftAlignFormat = "| %-10s | %-40s |%n";
+        String line = String.format("+------------+------------------------------------------+%n");
+        String print = line + String.format(leftAlignFormat,"ID", patient_Id)
+                + line + String.format(leftAlignFormat,"Name", name)
+                + line + String.format(leftAlignFormat,"Surname", surname)
+                + line + String.format(leftAlignFormat,"Gender", gender)
+                + line + String.format(leftAlignFormat,"Birth date", dateOfBirth)
+                + line + String.format(leftAlignFormat,"Insurance", insuranceName)
+                + line + String.format(leftAlignFormat,"Street", street)
+                + line + String.format(leftAlignFormat,"City", city)
+                + line + String.format(leftAlignFormat,"ZIP", zip)
+                + line;
+        return print;
     }
+
 }

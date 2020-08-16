@@ -15,7 +15,6 @@ class HelperFunctions {
 
     static List<String> getList(List <String> mylist) {
 
-        List<String> list;
         mylist.replaceAll(String::toUpperCase);
         return mylist;
     }

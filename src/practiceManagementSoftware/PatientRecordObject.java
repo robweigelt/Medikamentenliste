@@ -232,7 +232,7 @@ class PatientRecordObject
 
         String leftAlignFormat = "| %-15s | %-60s |%n";
         String line = String.format("+-----------------+--------------------------------------------------------------+%n");
-        String print = line + String.format(leftAlignFormat,"ID", ID)
+        return line + String.format(leftAlignFormat,"ID", ID)
                 + line + String.format(leftAlignFormat,"Title", Title)
                 + line + String.format(leftAlignFormat,"Surname", Surname)
                 + line + String.format(leftAlignFormat,"Name", Name)
@@ -240,7 +240,6 @@ class PatientRecordObject
                 + line + String.format(leftAlignFormat,"TherapeuticArea", TherapeuticArea)
                 + line + String.format(leftAlignFormat,"DosageForm", DosageForm)
                 + line;
-        return print;
         }
 
 

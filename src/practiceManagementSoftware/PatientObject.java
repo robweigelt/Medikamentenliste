@@ -108,7 +108,7 @@ public class PatientObject {
 
         String leftAlignFormat = "| %-10s | %-40s |%n";
         String line = String.format("+------------+------------------------------------------+%n");
-        String print = line + String.format(leftAlignFormat,"ID", patient_Id)
+        return line + String.format(leftAlignFormat,"ID", patient_Id)
                 + line + String.format(leftAlignFormat,"Name", name)
                 + line + String.format(leftAlignFormat,"Surname", surname)
                 + line + String.format(leftAlignFormat,"Gender", gender)
@@ -118,7 +118,6 @@ public class PatientObject {
                 + line + String.format(leftAlignFormat,"City", city)
                 + line + String.format(leftAlignFormat,"ZIP", zip)
                 + line;
-        return print;
     }
 
 }

@@ -183,7 +183,6 @@ class InventoryManager {
 
             pw.flush();
             pw.close();
-            System.out.println("Inventory was succesfully saved!");
 
             //l�schen der alten Praxis_Inventur.csv
             boolean wasSuccessfull =oldFile.delete();
@@ -199,9 +198,6 @@ class InventoryManager {
             System.out.println("An error occured while saving the file!");
         }
 
-    }
-    public void getSortedItemsByAmountDescending(){
-        Inventory.sort(InventoryObject.amountComparatorDecending);
     }
 
 }

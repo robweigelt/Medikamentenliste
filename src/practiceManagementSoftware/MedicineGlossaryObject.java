@@ -145,7 +145,7 @@ class MedicineGlossaryObject {
     public String toString() {
         String leftAlignFormat = "| %-24s | %-90s |%n";
         String line = String.format("+--------------------------+--------------------------------------------------------------------------------------------+%n");
-        String print = line + String.format(leftAlignFormat,"MedicineName", MedicineName)
+        return line + String.format(leftAlignFormat,"MedicineName", MedicineName)
                 + line + String.format(leftAlignFormat,"TherapeuticArea", TherapeuticArea)
                 + line + String.format(leftAlignFormat,"INN", INN)
                 + line + String.format(leftAlignFormat,"ActiveSubstance", ActiveSubstance)
@@ -153,7 +153,6 @@ class MedicineGlossaryObject {
                 + line + String.format(leftAlignFormat,"Company", Company)
                 + line + String.format(leftAlignFormat,"PharmacotherapeuticGroup", PharmacotherapeuticGroup)
                 + line;
-        return print;
     }
 
     //Selection Menu

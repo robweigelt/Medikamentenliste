@@ -78,16 +78,16 @@ class PatientRecordObject
         DosageForm =GetIntOrString.GetmyString();
 
         System.out.println("You entered:");
-         String leftAlignFormat = "| %-5s | %-5s | %-15s | %-15s | %-15s | %-15s | %-30s |%n";
-         System.out.format("+-------+-------+-----------------+-----------------+-----------------+-----------------+--------------------------------+%n");
-         System.out.format("| ID    | Title | Name            | Surname         | Medicine        | TherapeuticArea | DosageForm                     |%n");
-         System.out.format("+-------+-------+-----------------+-----------------+-----------------+-----------------+--------------------------------+%n");
-         System.out.format(leftAlignFormat,ID,Title,Name,Surname,HelperFunctions.cut(Medicine,15), HelperFunctions.cut(TherapeuticArea,15),HelperFunctions.cut(DosageForm,30));
-
-
-
-
-         System.out.format("+-------+-------+-----------------+-----------------+-----------------+-----------------+--------------------------------+%n");
+         String leftAlignFormat = "| %-15s | %-60s |%n";
+         String line = String.format("+-----------------+--------------------------------------------------------------+%n");
+         System.out.print(line + String.format(leftAlignFormat,"ID", ID)
+                 + line + String.format(leftAlignFormat,"Title", Title)
+                 + line + String.format(leftAlignFormat,"Surname", Surname)
+                 + line + String.format(leftAlignFormat,"Name", Name)
+                 + line + String.format(leftAlignFormat,"Medicine", Medicine)
+                 + line + String.format(leftAlignFormat,"TherapeuticArea", TherapeuticArea)
+                 + line + String.format(leftAlignFormat,"DosageForm", DosageForm)
+                 + line + "\nIf everything is correct please press [1] otherwise enter [0]: ");
 
         var correctionInt = GetIntOrString.GetmyInt();
 //if 1 save else clear

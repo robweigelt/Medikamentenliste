@@ -259,18 +259,21 @@ class PatientRecordObject
             CSVReader.readLine();
             while ((line = CSVReader.readLine()) != null) {
                 String[] MedicineStringArray = line.split(Parser);
+                try {
 
-                PatientRecordObject medicine0 = new PatientRecordObject
-                (
-                        MedicineStringArray[0],
-                        MedicineStringArray[1],
-                        MedicineStringArray[2],
-                        MedicineStringArray[3],
-                        MedicineStringArray[4],
-                        MedicineStringArray[5],
-                        MedicineStringArray[6]
-                );
-                Medicine1.add(medicine0);
+                    PatientRecordObject medicine0 = new PatientRecordObject
+                            (
+                                    MedicineStringArray[0],
+                                    MedicineStringArray[1],
+                                    MedicineStringArray[2],
+                                    MedicineStringArray[3],
+                                    MedicineStringArray[4],
+                                    MedicineStringArray[5],
+                                    MedicineStringArray[6]
+                            );
+                    Medicine1.add(medicine0);
+                }
+                catch (ArrayIndexOutOfBoundsException ignored){}
             }
         } catch (IOException ee) {
             ee.printStackTrace();

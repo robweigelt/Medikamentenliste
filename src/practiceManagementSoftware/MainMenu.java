@@ -8,8 +8,8 @@ public class MainMenu {
 
 
     //Starter
-    static int WelcomeText() {
-        //Funtext();
+    static int WelcomeText() throws InterruptedException {
+        Funtext();
         System.out.print("Please press [1] and [Enter] to continue: ");
         return GetIntOrString.GetmyInt();
     }

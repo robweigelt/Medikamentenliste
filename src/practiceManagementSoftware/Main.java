@@ -5,9 +5,8 @@ import java.io.IOException;
 public class Main {
 
     //Code Tabea Boeger -- Design Hannes Kukulenz-- Exception Handling and Code Review Robert Weigelt
-    public static void main(String[] args) throws CloneNotSupportedException, IOException {
+    public static void main(String[] args) throws CloneNotSupportedException, IOException, InterruptedException {
 
-        //MainMenu.Funtext();
        int a = MainMenu.WelcomeText();
         if (a == 1){
             MainMenu.Menu();

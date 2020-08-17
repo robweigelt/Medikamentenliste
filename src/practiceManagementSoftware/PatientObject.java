@@ -1,9 +1,9 @@
 package practiceManagementSoftware;
 
-
 //Code Hannes Kukulenz-- Design Hannes Kukulenz-- Exception Handling and Code Review Robert Weigelt
 public class PatientObject {
 
+    //Attribute
     private int patient_Id;
     private String name;
     private String surname;
@@ -15,6 +15,7 @@ public class PatientObject {
     private String zip;
 
     public PatientObject(int patient_Id, String name, String surname, String gender, String dateOfBirth, String insuranceName, String street, String city, String zip) {
+        //Konstruktor
         super();
         this.patient_Id = patient_Id;
         this.name = name;
@@ -27,6 +28,7 @@ public class PatientObject {
         this.zip = zip;
     }
 
+    //Getter und Setter
     public int getPatient_Id() {
         return patient_Id;
     }
@@ -99,14 +101,9 @@ public class PatientObject {
         this.zip = zip;
     }
 
-//    @Override
-//    public String toString() {
-//        return "PatientObject [ID: " + patient_Id + ", Name: " + name + ", Surname: " + surname + ", Gender: " + gender + ", DOB: " + dateOfBirth + ", Insurance: " + insuranceName + ", Street: " + street + ", City: " + city + ", Zip: " + zip + "]";
-//    }
-
     @Override
     public String toString() {
-
+        //toString als Ausgabe in Tabellenform
         String leftAlignFormat = "| %-10s | %-40s |%n";
         String line = String.format("+------------+------------------------------------------+%n");
         return line + String.format(leftAlignFormat,"ID", patient_Id)
@@ -120,5 +117,4 @@ public class PatientObject {
                 + line + String.format(leftAlignFormat,"ZIP", zip)
                 + line;
     }
-
 }

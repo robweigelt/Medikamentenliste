@@ -18,10 +18,12 @@ public class PatientManager {
     private final Scanner input = new Scanner(System.in);
 
     public void readPatientCSV() {
+        //Patients Objekt Liste aus der CSV Patients.csv erstellen
         patients.clear();
         List<String> Helper = new ArrayList<>();
         String filepath = "Patients.csv";
         File f = new File(filepath);
+        //die CSV einlesen
         try (Scanner scCSV = new Scanner(f)) {
             while (scCSV.hasNextLine()) {
                 Helper.add(scCSV.nextLine());
@@ -29,11 +31,10 @@ public class PatientManager {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        //die Patients Objeke aus den Zeilen einlesen
         for (String s : Helper) {
             PatientObject pat = new PatientObject(0, null, null, null, null, null, null, null, null);
-
             String[] parts = s.split(";");
-
             pat.setPatient_Id(Integer.parseInt(parts[0]));
             pat.setName(parts[1]);
             pat.setSurname(parts[2]);
@@ -48,7 +49,7 @@ public class PatientManager {
     }
 
     public void printPatients() {
-        //Todo: HelperFunctions.cut einbinden
+        //Ausgabe aller Patients in Tabellenform
         String leftAlignFormat = "| %-5d | %-15s | %-15s | %-6s | %-10s | %-15s | %-20s | %-10s | %5s |%n";
         System.out.format("+-------+-----------------+-----------------+--------+------------+-----------------+----------------------+------------+-------+%n");
         System.out.format("| ID    | Name            | Surname         | Gender | Birth Date | Insurance       | Street               | City       | Zip   |%n");
@@ -60,6 +61,7 @@ public class PatientManager {
     }
 
     public void addPatient(int patient_Id, String name, String surname, String gender, String dateOfBirth, String insuranceName, String street, String city, String zip) {
+        //neues Patient Objekt erstellen und zur Liste hinzufügen
         try {
             PatientObject pt = new PatientObject(patient_Id, name, surname, gender, dateOfBirth, insuranceName, street, city, zip);
             patients.add(pt);
@@ -70,6 +72,7 @@ public class PatientManager {
     }
 
     public void deletePatient(PatientObject foundPatient) {
+        //Patient Objekt aus der Liste entfernen
         try {
             patients.remove(foundPatient);
         } catch (Exception e) {
@@ -78,28 +81,26 @@ public class PatientManager {
     }
 
     public void showPatientById(PatientObject foundPatient) {
+        //einzelnen Patient ausgeben
         try {
             System.out.println(foundPatient);
         } catch (Exception e) {
             System.out.println("Patient could not be found!");
         }
-
     }
 
     public PatientObject searchPatientByID(int patId) {
+        //Patient Objekt mit bestimmter ID zurückgeben
         for (PatientObject foundPatient : patients) {
             if (foundPatient.getPatient_Id() == patId) {
                 return foundPatient;
             }
-
-
         }
-
         return null;
-
     }
 
     public void writePatientToCSV() {
+        //die aktuelle Liste mit Patients Objekten in die CSV schreiben
         ListIterator<PatientObject> lItr = patients.listIterator();
         String tempFile = "temp.csv";
         File newFile = new File(tempFile);
@@ -111,7 +112,7 @@ public class PatientManager {
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
             PatientObject patientIt1 = lItr.next();
-
+            //eine einzelne Zeile formulieren
             pw.print(patientIt1.getPatient_Id() + ";" + patientIt1.getName() + ";" + patientIt1.getSurname() + ";" + patientIt1.getGender() + ";" + patientIt1.getDateOfBirth() + ";" + patientIt1.getInsuranceName() + ";" + patientIt1.getStreet() + ";" + patientIt1.getCity() + ";" + patientIt1.getZip() + ";");
             while (lItr.hasNext()) {
                 PatientObject patIt = lItr.next();
@@ -119,8 +120,6 @@ public class PatientManager {
             }
             pw.flush();
             pw.close();
-
-
 
             boolean wasSuccessful = oldFile.delete();
             File dump = new File(filepath);
@@ -134,6 +133,7 @@ public class PatientManager {
     }
 
     public boolean checkIfIDExists(int id) {
+        //überprüfen, ob es bereits ein Patient Objekt mit der übergebenen Patient ID gibt
         for (PatientObject pat : patients) {
             if (pat.getPatient_Id() == id) {
                 return true;
@@ -143,20 +143,25 @@ public class PatientManager {
     }
 
     public void editPatient(int id) {
+        //das Patient Objekt mit der übergebenen ID bearbeiten
         System.out.println();
         System.out.println("Existing details: ");
-
+        //Patient Objekt suchen
         PatientObject foundPatient = searchPatientByID(id);
+        //Patient Objekt anzeigen, damit man die aktuellen Werte sieht
         showPatientById(foundPatient);
+        //Patient Objekt löschen
         deletePatient(foundPatient);
+        //Eingabemaske für neues Patient Objekt anzeigen
         addingPatient();
     }
 
     public void addingPatient() {
+        //neuen Patient hinzufügen - alle Felder nacheinander abfragen
         System.out.println();
         System.out.println("Enter Patient ID: ");
         int Id = GetIntOrString.GetmyInt();
-        while (checkIfIDExists(Id)) {
+        while (checkIfIDExists(Id)) {//überprüfen, ob es nicht bereits ein Patient Objekt mit der ID gibt
             System.out.println("ID already taken, try a new one:");
             Id = GetIntOrString.GetmyInt();
         }

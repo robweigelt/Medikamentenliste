@@ -3,7 +3,7 @@ package practiceManagementSoftware;
 //Code Hannes Kukulenz -- Design Hannes Kukulenz-- Exception Handling and Code Review Robert Weigelt
 public class AppointmentObject {
 
-
+    //Attribute
     private int appointmentID;
     private int patientID;
     private String title;
@@ -12,6 +12,7 @@ public class AppointmentObject {
     private String endTime;
 
     public AppointmentObject(int appointmentID, int patientID, String title, String date, String startTime, String endTime) {
+        //Konstruktor
         super();
         this.appointmentID = appointmentID;
         this.patientID = patientID;
@@ -21,7 +22,7 @@ public class AppointmentObject {
         this.endTime = endTime;
     }
 
-
+    //Getter und Setter
     public int getAppointmentID() {
         return appointmentID;
     }
@@ -70,13 +71,9 @@ public class AppointmentObject {
         this.endTime = endTime;
     }
 
-//    @Override
-//    public String toString() {
-//        return "AppointmentObject [AptID: " + appointmentID + ", PatId: " + patientID + ", Title: " + title + ", Date: " + date + ", Start Time: " + startTime + ", End Time: " + endTime + "]";
-//    }
-
     @Override
     public String toString() {
+        //toString als Ausgabe in Tabellenform
         String leftAlignFormat = "| %-10s | %-40s |%n";
         String line = String.format("+------------+------------------------------------------+%n");
         return line + String.format(leftAlignFormat,"A.ID", appointmentID)

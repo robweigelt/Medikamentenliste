@@ -3,9 +3,8 @@ package practiceManagementSoftware;
 import java.io.IOException;
 import java.util.Scanner;
 
-//Code Hannes Kukulenz -- Design Hannes Kukulenz-- Exception Handling and Code Review Robert Weigelt
+ //Code Hannes Kukulenz -- Design Hannes Kukulenz-- Exception Handling and Code Review Robert Weigelt
 public class AppointmentMenu {
-
 
     private final AppointmentManager aptm;
 
@@ -28,6 +27,7 @@ public class AppointmentMenu {
     }
 
     private void mainMenu() throws IOException, CloneNotSupportedException {
+        //das Hauptmenü für Appointments
         System.out.print("__________________________________________\n"
         +"Main Menu\n"
         +"⌞ Appointments Menu \n\n"
@@ -38,6 +38,7 @@ public class AppointmentMenu {
         +"[9] Return (discard changes)\n"
         +"[0] Return (save to CSV)\n\n"
         +"Enter choice here: ");
+        //Abfrage der Eingabe
         int choice = GetIntOrString.GetmyInt();
         switch (choice) {
             case 0:
@@ -49,7 +50,6 @@ public class AppointmentMenu {
                 System.out.println();
                 break;
             case 2:
-
                 System.out.print("Enter appointment ID to Search: ");
                 int id2 = GetIntOrString.GetmyInt();
                 AppointmentObject foundAppointmentObject = aptm.searchAppointmentByID(id2);
@@ -68,6 +68,7 @@ public class AppointmentMenu {
     }
 
     private void addEditDeleteMenu() throws IOException, CloneNotSupportedException {
+        //das Untermenü zum Hinzufügen, Bearbeiten oder Löschen von Appointments
         int a_choice;
         System.out.print("__________________________________________\n"
         +"Main Menu \n"
@@ -79,6 +80,7 @@ public class AppointmentMenu {
         +"[-] \n"
         +"[0] Return\n\n"
         +"Enter choice here: ");
+        //Abfrage der Eingabe
         a_choice = GetIntOrString.GetmyInt();
         if (a_choice == 1) {
             System.out.println("__________________________________________\n"

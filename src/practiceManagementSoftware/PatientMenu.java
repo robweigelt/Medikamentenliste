@@ -22,6 +22,7 @@ public class PatientMenu {
     }
 
     private void mainMenu() throws IOException, CloneNotSupportedException {
+        //das Hauptmenü für Patients (nicht medizinische Patientenhistorie)
         System.out.println("__________________________________________");
         System.out.println("Main Menu");
         System.out.println("⌞ Patients Menu");
@@ -34,6 +35,7 @@ public class PatientMenu {
         System.out.println("[0] Return (save to CSV)");
         System.out.println();
         System.out.print("Enter choice here: ");
+        //Abfrage der Eingabe
         int choice = GetIntOrString.GetmyInt();
         switch (choice) {
             case 0:
@@ -65,6 +67,7 @@ public class PatientMenu {
     }
 
     public void addEditDeleteMenu() throws IOException, CloneNotSupportedException {
+        //das Untermenü zum Hinzufügen, Bearbeiten und Löschen von Patients
         System.out.println("__________________________________________");
         System.out.println("Main Menu");
         System.out.println("⌞ Patients Menu");

@@ -13,16 +13,16 @@ import java.util.Scanner;
 //Code Hannes Kukulenz -- Design Hannes Kukulenz-- EException Handling and Code Review Robert Weigelt
 public class AppointmentManager {
 
-
     private final List<AppointmentObject> appointmentObjects = new ArrayList<>();
     private final Scanner input = new Scanner(System.in);
 
-
     public void readAppointmentCSV() {
+        //Appointment Objekt Liste aus der CSV Appointments.csv erstellen
         appointmentObjects.clear();
         List<String> Helper = new ArrayList<>();
         String filepath = "Appointments.csv";
         File f = new File(filepath);
+        //die CSV einlesen
         try (Scanner scCSV = new Scanner(f)) {
             while (scCSV.hasNextLine()) {
                 Helper.add(scCSV.nextLine());
@@ -30,22 +30,23 @@ public class AppointmentManager {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        //die Appointment Objekte aus den Zeilen erstellen
         for (String s : Helper) {
             AppointmentObject apot = new AppointmentObject(0, 0, null, null, null, null);
-
             String[] parts = s.split(";");
-
             apot.setAppointmentID(Integer.parseInt(parts[0]));
             apot.setPatientID(Integer.parseInt(parts[1]));
             apot.setTitle(parts[2]);
             apot.setDate(parts[3]);
             apot.setStartTime(parts[4]);
             apot.setEndTime(parts[5]);
+            //und zur Liste hinzufügen
             appointmentObjects.add(apot);
         }
     }
 
     public void printAppointments() {
+        //Ausgabe aller Appointments in Tabellenform
         String leftAlignFormat = "| %-5d | %-5d | %-10s | %-5s | %-5s | %-20s |%n";
         System.out.format("+-------+-------+------------+-------+-------+----------------------+%n");
         System.out.format("| A.ID  | P.ID  | Date       | Start | End   | Title                |%n");
@@ -57,6 +58,7 @@ public class AppointmentManager {
     }
 
     public void addAppointment(int appointmentID, int patientID, String title, String date, String startTime, String endTime) {
+        //neues Appointment Objekt erstellen und zur Liste hinzufügen
         try {
             AppointmentObject apt = new AppointmentObject(appointmentID, patientID, title, date, startTime, endTime);
             appointmentObjects.add(apt);
@@ -67,6 +69,7 @@ public class AppointmentManager {
     }
 
     public void deleteAppointment(AppointmentObject foundappointment) {
+        //Appointment Objekt aus der Liste entfernen
         try {
             appointmentObjects.remove(foundappointment);
         } catch (Exception e) {
@@ -75,14 +78,16 @@ public class AppointmentManager {
     }
 
     public void showAppointmentById(AppointmentObject foundappointment) {
+        //einzelnes Appointment ausgeben
         try {
-            System.out.println(foundappointment);
+            System.out.println(foundappointment); //ruft toString Methode auf
         } catch (Exception e) {
             System.out.println("Appointment could not be found!");
         }
     }
 
     public AppointmentObject searchAppointmentByID(int apatId) {
+        //Appointment Objekt mit bestimmter ID zurückgeben
         for (AppointmentObject foundAppointmentObject : appointmentObjects) {
             if (foundAppointmentObject.getAppointmentID() == apatId) {
                 return foundAppointmentObject;
@@ -92,8 +97,8 @@ public class AppointmentManager {
     }
 
     public void writeAppointmentToCSV() {
+        //die aktuelle Liste mit Appointment Objekten in die CSV schreiben
         ListIterator<AppointmentObject> lItr = appointmentObjects.listIterator();
-
         String tempFile = "temp.csv";
         File newFile = new File(tempFile);
         String filepath = "Appointments.csv";
@@ -104,7 +109,7 @@ public class AppointmentManager {
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
             AppointmentObject apatIt1 = lItr.next();
-
+            //eine Zeile formulieren
             pw.print(apatIt1.getAppointmentID() + ";" + apatIt1.getPatientID() + ";" + apatIt1.getTitle() + ";" + apatIt1.getDate() + ";" + apatIt1.getStartTime() + ";" + apatIt1.getEndTime() + ";");
             while (lItr.hasNext()) {
                 AppointmentObject apatIt = lItr.next();
@@ -125,7 +130,8 @@ public class AppointmentManager {
     }
 
     public boolean checkIfIDExists(int id) {
-        for (AppointmentObject apat : appointmentObjects) {
+        //überprüfen, ob es bereits ein Appointment Objekt mit der übergebenen Appointment ID gibt
+        for (AppointmentObject apat : appointmentObjects) { //über alle Appointment Objekte itererieren
             if (apat.getAppointmentID() == id) {
                 return true;
             }
@@ -134,20 +140,25 @@ public class AppointmentManager {
     }
 
     public void editAppointment(int id) {
+        //das Appointment mit der übergebenen ID bearbeiten
         System.out.println();
         System.out.println("Existing details: ");
-
+        //Appointment suchen
         AppointmentObject foundAppointmentObject = searchAppointmentByID(id);
+        //Appointment anzeigen, damit man die aktuellen Werte sieht
         showAppointmentById(foundAppointmentObject);
+        //Appointment löschen
         deleteAppointment(foundAppointmentObject);
+        //Eingabemaske für neues Appointment anzeigen
         addingAppointment();
     }
 
     public void addingAppointment() {
+        //neues Appointment hinzufügen - alle Felder nacheinander abfragen
         System.out.println();
         System.out.println("Enter Appointment ID: ");
         int appointmentID = GetIntOrString.GetmyInt();
-        while (checkIfIDExists(appointmentID)) {
+        while (checkIfIDExists(appointmentID)) { //überprüfen, ob es nicht bereits ein Appointment Objekt mit der ID gibt
             System.out.println("ID already taken, try a new one:");
             appointmentID = GetIntOrString.GetmyInt();
         }
@@ -162,7 +173,5 @@ public class AppointmentManager {
         System.out.println("Enter End Time: ");
         String endTime = input.nextLine();
         addAppointment(appointmentID, patientID, title, date, startTime, endTime);
-
-
     }
 }

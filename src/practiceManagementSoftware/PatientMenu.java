@@ -92,8 +92,13 @@ public class PatientMenu {
             System.out.print("Enter ID to delete: ");
             int i = GetIntOrString.GetmyInt();
             PatientObject foundPatient = ptm.searchPatientByID(i);
-            ptm.deletePatient(foundPatient);
-            System.out.println("The patient " + foundPatient.getName() + " was successfully removed!");
+            if (foundPatient != null) {
+                ptm.deletePatient(foundPatient);
+                System.out.println("The patient " + foundPatient.getName() + " was successfully removed!");
+            }
+            else {
+                System.out.println("The patient with the "+i+" has already been removed!");
+            }
         } else {
             mainMenu();
         }

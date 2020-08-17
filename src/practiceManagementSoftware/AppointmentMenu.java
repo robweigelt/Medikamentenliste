@@ -94,8 +94,12 @@ public class AppointmentMenu {
             System.out.print("Enter appointment ID to delete: ");
             int id = GetIntOrString.GetmyInt();
             AppointmentObject foundAppointmentObject = aptm.searchAppointmentByID(id);
+            if (foundAppointmentObject != null){
             aptm.deleteAppointment(foundAppointmentObject);
-            System.out.println("The appointment of ID " + foundAppointmentObject.getAppointmentID() + " was successfully removed!");
+            System.out.println("The appointment of ID " + foundAppointmentObject.getAppointmentID() + " was successfully removed!");}
+            else {
+                System.out.println("The appointment of ID "+id+ " has already been removed!");
+            }
         } else {
             mainMenu();
         }

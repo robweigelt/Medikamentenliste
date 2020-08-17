@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Scanner;
 
-//Code Hannes Kukulenz -- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
+//Code Hannes Kukulenz -- Design Hannes Kukulenz-- EException Handling and Code Review Robert Weigelt
 public class AppointmentManager {
 
 

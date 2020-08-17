@@ -4,8 +4,9 @@ import java.io.IOException;
 import java.util.List;
 
 
-//Code Robert Weigelt-- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
+//Code Robert Weigelt-- Design Hannes Kukulenz-- Exception Handling and Code Review Robert Weigelt
 class PatientRecordMenu {
+    //Submenu
     static void Menu() throws CloneNotSupportedException, IOException {
         System.out.println("__________________________________________");
         System.out.println("Main Menu");
@@ -19,6 +20,7 @@ class PatientRecordMenu {
         InsideMenuMedicine(GetIntOrString.GetmyInt());
 
     }
+    //Controller for switch-Statements
     private static void InsideMenuMedicine(int switcher) throws CloneNotSupportedException, IOException {
         switch (switcher){
             case 0:

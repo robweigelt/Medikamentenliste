@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Scanner;
 
-//Code Tobias Vogt -- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
+//Code Tobias Vogt -- Design Hannes Kukulenz-- Exception Handling and Code Review Robert Weigelt
 class InventoryManager {
 
     //Dateipfad f�r Praxis_Inventur.csv

@@ -6,15 +6,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-//Code Robert Weigelt -- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
+//Code Robert Weigelt -- Design Hannes Kukulenz-- Exception Handling and Code Review Robert Weigelt
 class MedicineGlossaryObject {
-    private  String MedicineName;
-    private  String TherapeuticArea;
-    private  String INN;
-    private  String ActiveSubstance;
-    private  String ATC;
-    private  String Company;
-    private  String PharmacotherapeuticGroup;
+    private final String MedicineName;
+    private final String TherapeuticArea;
+    private final String INN;
+    private final String ActiveSubstance;
+    private final String ATC;
+    private final String Company;
+    private final String PharmacotherapeuticGroup;
 
 
    public MedicineGlossaryObject(String MedicineName, String TherapeuticArea,
@@ -168,7 +168,7 @@ class MedicineGlossaryObject {
     private final static List<MedicineGlossaryObject> MedList = new ArrayList<>();
     private static final String Parser = ";";
 
-   //Filereader
+   //File reader
     private static void createMedList(){
     String neuDateipfad = Path.getPathofMedikamentenliste();
 

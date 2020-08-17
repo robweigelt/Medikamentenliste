@@ -3,15 +3,14 @@ package practiceManagementSoftware;
 import java.io.IOException;
 import java.util.Scanner;
 
-//Code Hannes Kukulenz -- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
+//Code Hannes Kukulenz -- Design Hannes Kukulenz-- Exception Handling and Code Review Robert Weigelt
 public class AppointmentMenu {
 
 
-    private Scanner input;
     private final AppointmentManager aptm;
 
     public AppointmentMenu() {
-        this.input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         this.aptm = new AppointmentManager();
     }
 
@@ -94,8 +93,12 @@ public class AppointmentMenu {
             System.out.print("Enter appointment ID to delete: ");
             int id = GetIntOrString.GetmyInt();
             AppointmentObject foundAppointmentObject = aptm.searchAppointmentByID(id);
+            if (foundAppointmentObject != null){
             aptm.deleteAppointment(foundAppointmentObject);
-            System.out.println("The appointment of ID " + foundAppointmentObject.getAppointmentID() + " was successfully removed!");
+            System.out.println("The appointment of ID " + foundAppointmentObject.getAppointmentID() + " was successfully removed!");}
+            else {
+                System.out.println("The appointment of ID "+id+ " has already been removed!");
+            }
         } else {
             mainMenu();
         }

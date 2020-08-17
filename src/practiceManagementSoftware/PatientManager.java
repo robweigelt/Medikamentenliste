@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Scanner;
 
-//Code Hannes Kukulenz-- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
+//Code Hannes Kukulenz-- Design Hannes Kukulenz-- Exception Handling and Code Review Robert Weigelt
 public class PatientManager {
 
 
@@ -69,17 +69,17 @@ public class PatientManager {
         }
     }
 
-    public void deletePatient(PatientObject foundpatient) {
+    public void deletePatient(PatientObject foundPatient) {
         try {
-            patients.remove(foundpatient);
+            patients.remove(foundPatient);
         } catch (Exception e) {
             System.out.println("Patient could not be removed!");
         }
     }
 
-    public void showPatientById(PatientObject foundpatient) {
+    public void showPatientById(PatientObject foundPatient) {
         try {
-            System.out.println(foundpatient);
+            System.out.println(foundPatient);
         } catch (Exception e) {
             System.out.println("Patient could not be found!");
         }
@@ -91,6 +91,7 @@ public class PatientManager {
             if (foundPatient.getPatient_Id() == patId) {
                 return foundPatient;
             }
+
 
         }
 

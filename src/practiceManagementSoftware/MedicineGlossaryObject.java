@@ -31,8 +31,6 @@ class MedicineGlossaryObject {
 
     }
 
-
-
     //Getter
     private String getMedicineName() {
         return MedicineName;
@@ -72,9 +70,7 @@ class MedicineGlossaryObject {
         catch (IndexOutOfBoundsException ignored){}
         MedList.clear();
 
-
     }
-
 
 //Get List<Strings>
   static List<String> switcherMedCategories(int n) {
@@ -123,23 +119,10 @@ class MedicineGlossaryObject {
 
     }
 
-
     }
       MedList.clear();
       return myList;
-
     }
-
-//    @Override
-//    public String toString() {
-//        return "MedicineName=" + MedicineName +"\n"
-//                + "TherapeuticArea=" + TherapeuticArea +"\n"
-//                + "INN=" + INN +"\n"
-//                + "ActiveSubstance=" + ActiveSubstance +"\n"
-//                + "ATC=" + ATC +"\n"
-//                +"Company=" + Company +"\n"
-//                +"PharmacotherapeuticGroup=" + PharmacotherapeuticGroup +"\n";
-//    }
 
     @Override
     public String toString() {
@@ -176,12 +159,10 @@ class MedicineGlossaryObject {
         try {
             CSVReader = new BufferedReader(new FileReader(neuDateipfad));
 
-
             String line;
             CSVReader.readLine();
             while ((line = CSVReader.readLine()) != null) {
                 String[] MedicineStringArray = line.split(Parser);
-
 
                 var medO = new MedicineGlossaryObject(
                         MedicineStringArray[0],
@@ -193,10 +174,7 @@ class MedicineGlossaryObject {
                         MedicineStringArray[6]
                 );
                 MedList.add(medO);
-
             }
-
-
         } catch (IOException ee) {
             ee.printStackTrace();
         } finally {
@@ -206,7 +184,6 @@ class MedicineGlossaryObject {
             } catch (IOException ie) {
                 System.out.println("Error occurred while reading the file");
                 ie.printStackTrace();
-
             }
         }
     }

@@ -58,10 +58,10 @@ class PatientRecordObject
         Medicine1.clear();
     }
     //Creates new Entry
-    void newEntry() throws IOException, CloneNotSupportedException {
+     void newEntry() throws IOException, CloneNotSupportedException {
         String neuDateipfad = Path.getPathofDarreichungsformen();
         FileWriter createNewLine = new FileWriter(neuDateipfad,true);
-        System.out.println("\nPlease enter all the information an press enter");
+        System.out.println("Please enter all the information an press enter");
         System.out.println("ID:");
         ID =GetIntOrString.GetmyString();
         System.out.println("Title:");
@@ -78,16 +78,16 @@ class PatientRecordObject
         DosageForm =GetIntOrString.GetmyString();
 
         System.out.println("You entered:");
-        String leftAlignFormat = "| %-15s | %-60s |%n";
-        String line = String.format("+-----------------+--------------------------------------------------------------+%n");
-        System.out.print(line + String.format(leftAlignFormat,"ID", ID)
-                + line + String.format(leftAlignFormat,"Title", Title)
-                + line + String.format(leftAlignFormat,"Surname", Surname)
-                + line + String.format(leftAlignFormat,"Name", Name)
-                + line + String.format(leftAlignFormat,"Medicine", Medicine)
-                + line + String.format(leftAlignFormat,"TherapeuticArea", TherapeuticArea)
-                + line + String.format(leftAlignFormat,"DosageForm", DosageForm)
-                + line + "\nIf everything is correct please press [1] otherwise enter [0]: ");
+         String leftAlignFormat = "| %-5s | %-5s | %-15s | %-15s | %-15s | %-15s | %-30s |%n";
+         System.out.format("+-------+-------+-----------------+-----------------+-----------------+-----------------+--------------------------------+%n");
+         System.out.format("| ID    | Title | Name            | Surname         | Medicine        | TherapeuticArea | DosageForm                     |%n");
+         System.out.format("+-------+-------+-----------------+-----------------+-----------------+-----------------+--------------------------------+%n");
+         System.out.format(leftAlignFormat,ID,Title,Name,Surname,HelperFunctions.cut(Medicine,15), HelperFunctions.cut(TherapeuticArea,15),HelperFunctions.cut(DosageForm,30));
+
+
+
+
+         System.out.format("+-------+-------+-----------------+-----------------+-----------------+-----------------+--------------------------------+%n");
 
         var correctionInt = GetIntOrString.GetmyInt();
 //if 1 save else clear
@@ -106,12 +106,15 @@ class PatientRecordObject
             PatientRecordMenu.Menu();
         }
         Medicine1.clear();
+
+
+
     }
 
 
 
-    //List of the Items as Table
-    static void ListAllItems(){
+//List of the Items as Table
+        static void ListAllItems(){
         createMedicine();
         String leftAlignFormat = "| %-5s | %-5s | %-15s | %-15s | %-15s | %-15s | %-30s |%n";
         System.out.format("+-------+-------+-----------------+-----------------+-----------------+-----------------+--------------------------------+%n");
@@ -119,9 +122,13 @@ class PatientRecordObject
         System.out.format("+-------+-------+-----------------+-----------------+-----------------+-----------------+--------------------------------+%n");
 
         for (PatientRecordObject patientRecordObject : Medicine1){
+            try {
 
-            System.out.format(leftAlignFormat,patientRecordObject.getID(),patientRecordObject.getTitle(),patientRecordObject.getName(),patientRecordObject.getSurname(),HelperFunctions.cut(patientRecordObject.getMedicine(),15), HelperFunctions.cut(patientRecordObject.getTherapeuticArea(),15),HelperFunctions.cut(patientRecordObject.getDosageForm(),30));
+                System.out.format(leftAlignFormat, patientRecordObject.getID(), patientRecordObject.getTitle(), patientRecordObject.getName(), patientRecordObject.getSurname(), HelperFunctions.cut(patientRecordObject.getMedicine(), 15), HelperFunctions.cut(patientRecordObject.getTherapeuticArea(), 15), HelperFunctions.cut(patientRecordObject.getDosageForm(), 30));
+            }
+            catch (ArrayIndexOutOfBoundsException ignored){
 
+            }
         }
 
 
@@ -130,7 +137,7 @@ class PatientRecordObject
         Medicine1.clear();
     }
 
-    //Getter
+//Getter
     private String getID()
     {
         return ID;
@@ -166,7 +173,7 @@ class PatientRecordObject
         return DosageForm;
     }
 
-    //Get full list with comparing PatientRecordObject
+//Get full list with comparing PatientRecordObject
     static List <String> switcherMedicineCategory(int n)
     {
         createMedicine();
@@ -219,7 +226,7 @@ class PatientRecordObject
         }
         return myList;
     }
-    //Overriding String to Object
+//Overriding String to Object
     @Override
     public String toString() {
 
@@ -233,10 +240,10 @@ class PatientRecordObject
                 + line + String.format(leftAlignFormat,"TherapeuticArea", TherapeuticArea)
                 + line + String.format(leftAlignFormat,"DosageForm", DosageForm)
                 + line;
-    }
+        }
 
 
-    //File reader
+//File reader
     private final static List<PatientRecordObject> Medicine1 = new ArrayList<>();
     private static final String Parser = ";";
 
@@ -253,15 +260,15 @@ class PatientRecordObject
                 String[] MedicineStringArray = line.split(Parser);
 
                 PatientRecordObject medicine0 = new PatientRecordObject
-                        (
-                                MedicineStringArray[0],
-                                MedicineStringArray[1],
-                                MedicineStringArray[2],
-                                MedicineStringArray[3],
-                                MedicineStringArray[4],
-                                MedicineStringArray[5],
-                                MedicineStringArray[6]
-                        );
+                (
+                        MedicineStringArray[0],
+                        MedicineStringArray[1],
+                        MedicineStringArray[2],
+                        MedicineStringArray[3],
+                        MedicineStringArray[4],
+                        MedicineStringArray[5],
+                        MedicineStringArray[6]
+                );
                 Medicine1.add(medicine0);
             }
         } catch (IOException ee) {

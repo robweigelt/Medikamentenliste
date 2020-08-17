@@ -15,7 +15,7 @@ class Path {
     }
 
     static String getPathofDarreichungsformen(){
-        path = Paths.get("").toAbsolutePath().toString()+ "/Darreichungsformen.csv" ;
+        path = Paths.get("").toAbsolutePath().toString()+ "/MedicalRecord.csv" ;
         return path;
     }
 }

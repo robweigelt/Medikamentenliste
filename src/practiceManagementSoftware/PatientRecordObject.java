@@ -77,7 +77,18 @@ class PatientRecordObject
         System.out.println("DosageForm:");
         DosageForm =GetIntOrString.GetmyString();
 
-        System.out.println("You entered:\nID:"+ ID +"\nTitle:"+Title+"\nSurname:"+Surname+"\nName:"+Name+"\nMedicine:"+Medicine+"\nTherapeutic Area:"+TherapeuticArea+"\nDosage Form:"+DosageForm+"\nIf everything is correct please Press[1] otherwise Enter [0]");
+        System.out.println("You entered:");
+         String leftAlignFormat = "| %-5s | %-5s | %-15s | %-15s | %-15s | %-15s | %-30s |%n";
+         System.out.format("+-------+-------+-----------------+-----------------+-----------------+-----------------+--------------------------------+%n");
+         System.out.format("| ID    | Title | Name            | Surname         | Medicine        | TherapeuticArea | DosageForm                     |%n");
+         System.out.format("+-------+-------+-----------------+-----------------+-----------------+-----------------+--------------------------------+%n");
+         System.out.format(leftAlignFormat,ID,Title,Name,Surname,HelperFunctions.cut(Medicine,15), HelperFunctions.cut(TherapeuticArea,15),HelperFunctions.cut(DosageForm,30));
+
+
+
+
+         System.out.format("+-------+-------+-----------------+-----------------+-----------------+-----------------+--------------------------------+%n");
+
         var correctionInt = GetIntOrString.GetmyInt();
 //if 1 save else clear
         if (correctionInt == 1) {

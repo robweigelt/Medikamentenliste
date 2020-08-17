@@ -16,7 +16,7 @@ public class AppointmentMenu {
 
     public void runProgram() throws IOException, CloneNotSupportedException {
         aptm.readAppointmentCSV();
-        //noinspection InfiniteLoopStatement
+        //Comment by Robert Weigelt: InfiniteLoopStatement may result warnings -> RuntimeException
         while (true) {
             try {
                 mainMenu();

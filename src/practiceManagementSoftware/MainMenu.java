@@ -3,7 +3,7 @@ package practiceManagementSoftware;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-//Code Tabea Boeger -- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
+//Code Tabea Boeger -- Design Hannes Kukulenz-- Exception Handling and Code Review Robert Weigelt
 public class MainMenu {
 
 
@@ -14,6 +14,7 @@ public class MainMenu {
         return GetIntOrString.GetmyInt();
     }
 
+    //@Hannes Kukulenz Starter
     public static void Funtext()  throws InterruptedException {
         System.out.println("             ___       __   __         ___    ___  __  ");
         TimeUnit.MILLISECONDS.sleep(50);
@@ -81,7 +82,7 @@ public class MainMenu {
         System.out.print("Enter choice here: ");
         InsideMenu(GetIntOrString.GetmyInt());
     }
-    //Switch to Submenus
+    //Controller: Switch to Submenus
     private static void InsideMenu(int Switcher) throws CloneNotSupportedException, IOException {
         switch (Switcher) {
             case 1:

@@ -7,8 +7,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 
 
-//Code Robert Weigelt -- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
+//Code Robert Weigelt -- Design Hannes Kukulenz-- Exception Handling and Code Review Robert Weigelt
 class MedicineGlossaryMenu {
+    //Submenu
     static void Menu() throws CloneNotSupportedException, IOException {
         System.out.print("__________________________________________\n"+
                 "Main Menu\n"+
@@ -20,16 +21,15 @@ class MedicineGlossaryMenu {
                 "Enter choice here: ");
         InsideMenuMedicine(GetIntOrString.GetmyInt());
     }
-
+//Contoller for Switching between the
     private static void InsideMenuMedicine(int Switcher) throws CloneNotSupportedException, IOException {
         switch (Switcher) {
             case 0:
                 MainMenu.Menu();
-                break;
             case 1:
                 System.out.println("__________________________________________\n"+
                         "Main Menu\n"+
-                        "⌞ Medicine Glossar Menu\n"+
+                        "⌞ Medicine Glossary Menu\n"+
                         "  ⌞ Look for specific medicament\n");
                 int a = MedicineGlossaryObject.SelectSearch();
                 List <String> myList = MedicineGlossaryObject.switcherMedCategories(a);
@@ -38,11 +38,12 @@ class MedicineGlossaryMenu {
                 HelperFunctions.medicamentFinder(listInCapitals, upperItem);
 
                 Menu();
+                break;
             case 2:
                 System.out.println("__________________________________________\n"+
                         "Main Menu\n"+
-                        "⌞ Medicine Glossar Menu\n"+
-                        "  ⌞ List all medicaments by type\n");
+                        "⌞ Medicine Glossary Menu\n"+
+                        "  ⌞ List all medicament's by type\n");
                 int b = MedicineGlossaryObject.SelectSearch();
 
                 myList = MedicineGlossaryObject.switcherMedCategories(b);
@@ -55,9 +56,11 @@ class MedicineGlossaryMenu {
                     System.out.println(element);
                 }
                 Menu();
+                break;
             default:
                 System.out.println("You entered an invalid number");
                 Menu();
+                break;
         }
 
     }

@@ -3,7 +3,7 @@ package practiceManagementSoftware;
 import java.io.IOException;
 import java.util.Scanner;
 
-//Code Hannes Kukulenz -- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
+//Code Hannes Kukulenz -- Design Hannes Kukulenz-- Exception Handling and Code Review Robert Weigelt
 class InventoryMenu {
 
     private final Scanner sc;

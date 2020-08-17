@@ -7,7 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-//Code Robert Weigelt-- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
+//Code Robert Weigelt-- Design Hannes Kukulenz-- Exception Handling and Code Review Robert Weigelt
+//Klassen Eigenschaften
 class PatientRecordObject
 {
     private String ID;
@@ -18,8 +19,10 @@ class PatientRecordObject
     private String TherapeuticArea;
     private String DosageForm;
 
+    //Objekt
     PatientRecordObject(String ID, String Title, String Surname, String Name, String Medicine, String TherapeuticArea, String DosageForm)
     {
+        //Superclass
         super();
         this.ID = ID;
         this.Title = Title;
@@ -30,10 +33,12 @@ class PatientRecordObject
         this.DosageForm = DosageForm;
     }
 
+    //HelperObject
     public PatientRecordObject() {
 
     }
 
+    //SearchMenu
     static int SelectSearch(){
         System.out.print("__________________________________________\n"+
                 "Main Menu \n"+
@@ -55,7 +60,7 @@ class PatientRecordObject
     //Creates new Entry
      void newEntry() throws IOException, CloneNotSupportedException {
         String neuDateipfad = Path.getPathofDarreichungsformen();
-        FileWriter createnewLine = new FileWriter(neuDateipfad,true);
+        FileWriter createNewLine = new FileWriter(neuDateipfad,true);
         System.out.println("Please enter all the information an press enter");
         System.out.println("ID:");
         ID =GetIntOrString.GetmyString();
@@ -74,18 +79,19 @@ class PatientRecordObject
 
         System.out.println("You entered:\nID:"+ ID +"\nTitle:"+Title+"\nSurname:"+Surname+"\nName:"+Name+"\nMedicine:"+Medicine+"\nTherapeutic Area:"+TherapeuticArea+"\nDosage Form:"+DosageForm+"\nIf everything is correct please Press[1] otherwise Enter [0]");
         var correctionInt = GetIntOrString.GetmyInt();
-
+//if 1 save else clear
         if (correctionInt == 1) {
             String Splitter = ";";
             String RowString = "\n" +ID + Splitter + Title + Splitter + Surname + Splitter + Name + Splitter + Medicine + Splitter + TherapeuticArea + Splitter + DosageForm;
             try {
-                createnewLine.append(RowString);
-                createnewLine.flush();
-                createnewLine.close();
+                createNewLine.append(RowString);
+                createNewLine.flush();
+                createNewLine.close();
             } catch (IOException ignored) {
             }
         }
         else{
+            System.out.println("Your entry was not saved");
             PatientRecordMenu.Menu();
         }
         Medicine1.clear();
@@ -95,17 +101,8 @@ class PatientRecordObject
     }
 
 
-    //List all Items
-//    static void ListAllItems(){
-//        createMedicine();
-//        for (PatientRecordObject patientRecordObject : Medicine1)
-//            try {
-//                System.out.println(patientRecordObject);
-//            } catch (IndexOutOfBoundsException ignored) {
-//            }
-//        Medicine1.clear();
-//    }
 
+//List of the Items as Table
         static void ListAllItems(){
         createMedicine();
         String leftAlignFormat = "| %-5s | %-5s | %-15s | %-15s | %-15s | %-15s | %-30s |%n";
@@ -214,19 +211,7 @@ class PatientRecordObject
         }
         return myList;
     }
-//Convert Object to visable String
-//    @Override
-//    public String toString() {
-//        return " ID =" + ID +"\n"
-//                + " Title =" + Title + "\n"
-//                + " Surname =" + Surname + "\n"
-//                + " Name =" + Name + "\n"
-//                + " Medicine =" + Medicine + "\n"
-//                + " TherapeuticArea =" + TherapeuticArea + "\n"
-//                + " DosageForm =" + DosageForm + "\n"
-//                ;
-//    }
-
+//Overriding String to Object
     @Override
     public String toString() {
 
@@ -243,7 +228,7 @@ class PatientRecordObject
         }
 
 
-//Filereader
+//File reader
     private final static List<PatientRecordObject> Medicine1 = new ArrayList<>();
     private static final String Parser = ";";
 

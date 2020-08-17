@@ -2,9 +2,10 @@ package practiceManagementSoftware;
 import java.util.Scanner;
 
 
-//Code Tabea Boeger -- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
-class GetIntOrString {
+//Code Tabea Boeger -- Design Hannes Kukulenz-- Exception Handling and Code Review Robert Weigelt
 
+class GetIntOrString {
+//Input for Strings
 static String GetmyString(){
     Scanner input = new Scanner(System.in);
     while (true) {
@@ -16,6 +17,7 @@ static String GetmyString(){
         }
     }
 }
+//
 static int GetmyInt() {
         Scanner input = new Scanner(System.in);
         while (true) {

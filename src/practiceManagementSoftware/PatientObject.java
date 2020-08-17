@@ -1,7 +1,7 @@
 package practiceManagementSoftware;
 
 
-//Code Hannes Kukulenz-- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
+//Code Hannes Kukulenz-- Design Hannes Kukulenz-- Exception Handling and Code Review Robert Weigelt
 public class PatientObject {
 
     private int patient_Id;

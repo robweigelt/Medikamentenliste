@@ -3,15 +3,14 @@ package practiceManagementSoftware;
 import java.io.IOException;
 import java.util.Scanner;
 
-//Code Hannes Kukulenz -- Design Hannes Kukulenz-- Exception Handling Robert Weigelt
+//Code Hannes Kukulenz -- Design Hannes Kukulenz-- Exception Handling and Code Review Robert Weigelt
 public class AppointmentMenu {
 
 
-    private Scanner input;
     private final AppointmentManager aptm;
 
     public AppointmentMenu() {
-        this.input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         this.aptm = new AppointmentManager();
     }
 

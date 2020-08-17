@@ -1,12 +1,20 @@
-1;Tabea;Böger;Female;01.01.2000;AOK;Berlin;Straße 3;12345;
-2;Lisa;Eberl;Female;01.01.2000;IHK;Berlin;Straße 5;14534;
-3;Hannes;Kukulenz;Male;07.03.1997;Central;Berlin;Straße 2;14355;
-4;Tobias;Vogt;Male;01.01.1997;AOK Plus;Berlin;Straße 12;23142;
-5;Robert;Weigelt;Male;01.01.1997;HKK;Berlin;Straße 45;15242;
-6;Julia;Krause;Female;01.06.1999;AOK;Berlin;Straße 8;13088;
-7;Till;Müller;Male;20.01.1998;IHK;Berlin;Straße 23;14654;
-8;Ben;Wiegand;Male;18.08.1997;Central;Berlin;Straße 56;12309;
-9;Marco;Brabant;Male;13.01.1994;AOK Plus;Berlin;Straße 2;13625;
-10;Oskar;Winter;Male;01.01.1997;HKK;Berlin;Straße 45;15242;
-23;23;2;2;2;2;2;2;2;
-22;1;1;2;2;2;2;2;2;
+1;Otto;Krüger;Male;28.01.86;BARMER;Smetanastraße 5;Berlin;12218
+2;Lana;Hildesheim;Female;21.06.97;DAK;Friesickestraße 76;Berlin;12938
+3;Franz;Hennig;Male;30.09.64;mhplus;Piesporter Straße 23;Berlin;10778
+4;Helmut;Flamm;Male;03.01.62;IKK;Pasedagplatz 26;Berlin;11914
+5;Tristan;Walter;Male;21.12.70;AOK;Schönstraße 9;Berlin;13658
+6;Lena;Umbers;Female;18.03.85;AOK;Hedwigstraße 1;Berlin;10216
+7;Otto;Pikowski;Male;26.07.79;mhplus;Lindenallee 44;Berlin;12903
+8;Albrecht;Zubeil;Male;05.10.68;IKK;Bizetstraße 90;Berlin;12816
+9;Horst;Redmann;Male;26.07.76;DAK;Friesickestraße 12;Berlin;12411
+10;Marco;Hinze;Male;14.08.91;BARMER;Woelckpromenade 17;Berlin;13041
+11;Martina;Titus;Female;31.01.90;DAK;Pasedagplatz 3;Berlin;13980
+12;Anne;Schmidt;Female;02.04.90;DAK;Friesickestraße 56;Berlin;11332
+13;Andrea;Seefeld;Female;08.11.68;TK;Am Steinberg 44b;Berlin;10012
+14;Thomas;Schimanski;Male;03.02.64;DAK;Mayener Weg 35;Berlin;11637
+15;Jan;Kohl;Male;14.09.94;DAK;Wehlener Straße 76;Berlin;13634
+16;Samantha;Jansen;Female;14.11.80;SBK;Caseler Straße 8;Berlin;12304
+17;Paul;Baruth;Male;28.02.85;BKK;Börnestraße 4c;Berlin;10995
+18;Linda;Walter;Female;07.02.81;mhplus;Goyastraße 29;Berlin;13543
+19;Horst;Schimanski;Male;02.01.66;AOK Plus;Solonplatz 37;Berlin;10289
+20;Charlotte;Müller;Female;13.03.64;AOK Plus;Hunsrückstraße 2;Berlin;10700

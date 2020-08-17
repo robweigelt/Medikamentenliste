@@ -121,14 +121,15 @@ class PatientRecordObject
         System.out.format("| ID    | Title | Name            | Surname         | Medicine        | TherapeuticArea | DosageForm                     |%n");
         System.out.format("+-------+-------+-----------------+-----------------+-----------------+-----------------+--------------------------------+%n");
 
-        for (PatientRecordObject patientRecordObject : Medicine1){
-            try {
+         for (PatientRecordObject patientRecordObject : Medicine1){
+             try {
+                 System.out.format(leftAlignFormat,patientRecordObject.getID(),patientRecordObject.getTitle(),patientRecordObject.getName(),patientRecordObject.getSurname(),HelperFunctions.cut(patientRecordObject.getMedicine(),15), HelperFunctions.cut(patientRecordObject.getTherapeuticArea(),15),HelperFunctions.cut(patientRecordObject.getDosageForm(),30));
+             }
 
-                System.out.format(leftAlignFormat, patientRecordObject.getID(), patientRecordObject.getTitle(), patientRecordObject.getName(), patientRecordObject.getSurname(), HelperFunctions.cut(patientRecordObject.getMedicine(), 15), HelperFunctions.cut(patientRecordObject.getTherapeuticArea(), 15), HelperFunctions.cut(patientRecordObject.getDosageForm(), 30));
-            }
-            catch (ArrayIndexOutOfBoundsException ignored){
+             catch (ArrayIndexOutOfBoundsException ignored){}
 
-            }
+
+
         }
 
 
